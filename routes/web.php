@@ -40,6 +40,9 @@ Route::post('/contact', [ContactController::class, 'store'])->name('contact.stor
 Route::get('/rfq', [RfqController::class, 'create'])->name('rfq.create');
 Route::post('/rfq', [RfqController::class, 'store'])->name('rfq.store');
 
+// API: Get vendor's product categories
+Route::get('/api/vendor/{vendor}/categories', [VendorController::class, 'getCategories'])->name('api.vendor.categories');
+
 // Auth routes
 Route::middleware('guest')->group(function () {
     Route::get('/register', [RegisterController::class, 'showForm'])->name('register');

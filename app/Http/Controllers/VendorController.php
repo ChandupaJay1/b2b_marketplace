@@ -38,4 +38,39 @@ class VendorController extends Controller
 
         return view('vendors.show', compact('vendor', 'products'));
     }
+
+    /**
+     * Get product categories for a specific vendor (AJAX)
+     */
+    public function getCategories(Vendor $vendor)
+    {
+        // Get unique product categories from ALL vendor's products (both owned and through pivot table)
+        $ownedProducts = $vendor->products()->with('category')->get();
+        $sharedProducts = $vendor->allProducts()->with('category')->get();
+        
+        // Merge both collections
+        $allProducts = $ownedProducts->merge($sharedProducts);
+        
+        // Extract unique categories
+        $categories = $allProducts
+            ->pluck('category')
+            ->unique('id')
+            ->filter() // Remove null values
+            ->values()
+            ->map(function($category) {
+                return [
+                    'id' => $category->id,
+                    'name' => $category->name,
+                    'slug' => $category->slug
+                ];
+            });
+
+        return response()->json([
+            'success' => true,
+            'vendor_id' => $vendor->id,
+            'vendor_name' => $vendor->company_name,
+            'categories' => $categories,
+            'total_products' => $allProducts->count()
+        ]);
+    }
 }

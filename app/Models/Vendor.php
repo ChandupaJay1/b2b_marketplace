@@ -30,6 +30,20 @@ class Vendor extends Model
         return $this->hasMany(Product::class);
     }
 
+    // Products through pivot table (Many-to-Many)
+    public function productsMultiple()
+    {
+        return $this->belongsToMany(Product::class, 'product_vendor')
+            ->withPivot('price', 'min_order_quantity', 'sku', 'is_primary', 'is_active')
+            ->withTimestamps();
+    }
+
+    // Get all products this vendor sells (including both owned and shared)
+    public function allProducts()
+    {
+        return $this->productsMultiple()->wherePivot('is_active', true);
+    }
+
     public function rfqs()
     {
         return $this->hasMany(Rfq::class);

@@ -42,46 +42,46 @@
 /* ── Components ──────────────────────────────────── */
 @layer components {
     .btn-primary {
-        @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-primary text-white font-bold rounded-full text-sm tracking-wide uppercase transition-all duration-300 hover:bg-primary-dark hover:scale-105 active:scale-95 shadow-blue focus:outline-none focus:ring-2 focus:ring-primary/40;
+        @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-primary-dark text-white font-bold rounded-lg text-xs uppercase tracking-wide transition-all duration-300 hover:shadow-blue hover:scale-105 hover:-translate-y-0.5 active:scale-95 focus:outline-none focus:ring-2 focus:ring-primary/40;
     }
     .btn-secondary {
-        @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-transparent text-secondary font-bold rounded-full text-sm tracking-wide uppercase border-2 border-secondary/20 transition-all duration-300 hover:border-primary hover:text-primary hover:scale-105 active:scale-95 focus:outline-none;
+        @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-surface text-secondary font-bold rounded-lg text-xs uppercase tracking-wide border border-secondary/10 transition-all duration-300 hover:border-primary hover:text-primary hover:scale-105 active:scale-95 focus:outline-none;
     }
     .btn-accent {
-        @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-accent text-secondary font-bold rounded-full text-sm tracking-wide uppercase transition-all duration-300 hover:bg-accent-dark hover:scale-105 active:scale-95 shadow-gold focus:outline-none;
+        @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-accent to-accent-dark text-secondary font-bold rounded-lg text-xs uppercase tracking-wide transition-all duration-300 hover:shadow-gold hover:scale-105 hover:-translate-y-0.5 active:scale-95 focus:outline-none;
     }
     .btn-outline-white {
-        @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-transparent text-white font-bold rounded-full text-sm tracking-wide uppercase border-2 border-white/30 transition-all duration-300 hover:bg-white hover:text-secondary hover:scale-105 active:scale-95;
+        @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-transparent text-white font-bold rounded-lg text-xs uppercase tracking-wide border-2 border-white/40 transition-all duration-300 hover:bg-white/10 hover:border-white hover:scale-105 hover:-translate-y-0.5 active:scale-95;
     }
     .btn-success {
-        @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-success text-white font-semibold rounded-xl text-sm transition-all hover:opacity-90;
+        @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-success/10 text-success font-semibold rounded-lg text-xs uppercase transition-all hover:bg-success hover:text-white hover:scale-105;
     }
     .btn-danger {
-        @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-danger text-white font-semibold rounded-xl text-sm transition-all hover:opacity-90;
+        @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-danger/10 text-danger font-semibold rounded-lg text-xs uppercase transition-all hover:bg-danger hover:text-white hover:scale-105;
     }
 
     .card {
-        @apply bg-white rounded-2xl border border-secondary/5 overflow-hidden transition-all duration-500;
+        @apply bg-white rounded-xl border border-secondary/5 overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md;
     }
     .card-hover {
-        @apply bg-white rounded-2xl border border-secondary/5 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_45px_-12px_rgba(15,23,42,0.20)] hover:border-primary/10;
+        @apply bg-white rounded-xl border border-secondary/5 overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-primary/10;
     }
 
     .input-field {
-        @apply w-full px-4 py-3 border border-secondary/15 rounded-xl bg-surface focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition-all duration-200 text-sm font-medium;
+        @apply w-full px-5 py-3.5 border-2 border-secondary/8 rounded-2xl bg-white focus:ring-0 focus:border-primary outline-none transition-all duration-200 text-sm font-medium placeholder:text-secondary/40;
     }
     .label {
-        @apply block text-xs font-bold text-secondary/60 uppercase tracking-widest mb-1.5;
+        @apply block text-sm font-bold text-secondary mb-2;
     }
 
     .badge {
-        @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide;
+        @apply inline-flex items-center px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wide;
     }
-    .badge-green  { @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide bg-success/10 text-success; }
-    .badge-yellow { @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide bg-accent/15 text-accent-dark; }
-    .badge-red    { @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide bg-danger/10 text-danger; }
-    .badge-blue   { @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide bg-primary/10 text-primary; }
-    .badge-gray   { @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide bg-secondary/8 text-secondary/50; }
+    .badge-success  { @apply bg-success/15 text-success; }
+    .badge-warning { @apply bg-accent/15 text-accent-dark; }
+    .badge-danger    { @apply bg-danger/15 text-danger; }
+    .badge-primary   { @apply bg-primary/15 text-primary; }
+    .badge-gray   { @apply bg-secondary/8 text-secondary/50; }
 
     .section-label {
         @apply inline-flex items-center gap-2 text-primary text-xs font-black uppercase tracking-[0.25em] mb-4;
@@ -90,7 +90,16 @@
         @apply font-heading font-black text-secondary leading-tight;
     }
     .section-divider {
-        @apply w-12 h-1 bg-gradient-to-r from-primary to-accent rounded-full my-4;
+        @apply w-12 h-1.5 bg-gradient-to-r from-primary via-accent to-primary-dark rounded-full my-6;
+    }
+    
+    /* Modern card variants */
+    .card-gradient {
+        @apply relative overflow-hidden rounded-2xl border border-primary/10;
+    }
+    .card-gradient::before {
+        @apply absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none;
+        content: '';
     }
 }
 
@@ -140,6 +149,26 @@
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    /* Modern blur background */
+    .bg-blur {
+        background: rgba(248, 250, 252, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+
+    /* Animated gradient background */
+    .gradient-animated {
+        background: linear-gradient(-45deg, #ee7752, #1a56db, #f59e0b);
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+    }
+
+    @keyframes gradient {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
     }
 
     /* Scroll reveal */

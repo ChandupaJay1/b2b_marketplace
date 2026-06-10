@@ -27,6 +27,33 @@ class Product extends Model
         return $this->belongsTo(Vendor::class);
     }
 
+    // Multiple vendors relationship (Many-to-Many)
+    public function vendors()
+    {
+        return $this->belongsToMany(Vendor::class, 'product_vendor')
+            ->withPivot('price', 'min_order_quantity', 'sku', 'is_primary', 'is_active')
+            ->withTimestamps();
+    }
+
+    // Get primary vendor for this product
+    public function primaryVendor()
+    {
+        return $this->belongsToMany(Vendor::class, 'product_vendor')
+            ->wherePivot('is_primary', true)
+            ->withPivot('price', 'min_order_quantity', 'sku', 'is_active')
+            ->withTimestamps()
+            ->first();
+    }
+
+    // Get active vendors for this product
+    public function activeVendors()
+    {
+        return $this->belongsToMany(Vendor::class, 'product_vendor')
+            ->wherePivot('is_active', true)
+            ->withPivot('price', 'min_order_quantity', 'sku', 'is_primary')
+            ->withTimestamps();
+    }
+
     public function category()
     {
         return $this->belongsTo(ProductCategory::class, 'product_category_id');

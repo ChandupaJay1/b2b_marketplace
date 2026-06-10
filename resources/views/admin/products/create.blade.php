@@ -79,6 +79,22 @@
                     <input type="file" name="images[]" accept="image/*" multiple class="input-field text-sm">
                 </div>
             </div>
+
+            {{-- Additional Vendors Section --}}
+            <div class="border-t pt-5 mt-5">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="font-bold text-gray-900">Additional Vendors (Optional)</h3>
+                    <button type="button" onclick="addVendorRow()" class="text-sm text-blue-600 hover:text-blue-700 font-medium">
+                        + Add Vendor
+                    </button>
+                </div>
+                <p class="text-xs text-gray-500 mb-4">Add other vendors who sell this product. You can set different pricing for each vendor.</p>
+                
+                <div id="vendors-container" class="space-y-3">
+                    {{-- Vendor rows will be added here dynamically --}}
+                </div>
+            </div>
+
             <div class="flex items-center gap-6">
                 <div class="flex items-center gap-2">
                     <input type="checkbox" id="is_active" name="is_active" value="1" @checked(old('is_active', true)) class="rounded">
@@ -96,4 +112,52 @@
         </form>
     </div>
 </div>
+
+<script>
+let vendorRowIndex = 0;
+
+function addVendorRow() {
+    const container = document.getElementById('vendors-container');
+    const row = document.createElement('div');
+    row.className = 'grid grid-cols-12 gap-3 p-4 bg-gray-50 rounded-lg border border-gray-200';
+    row.id = `vendor-row-${vendorRowIndex}`;
+    
+    row.innerHTML = `
+        <div class="col-span-12 sm:col-span-4">
+            <label class="text-xs text-gray-600 font-medium">Vendor</label>
+            <select name="additional_vendors[]" class="input-field text-sm mt-1" required>
+                <option value="">Select Vendor</option>
+                @foreach($vendors as $v)
+                    <option value="{{ $v->id }}">{{ $v->company_name }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="col-span-6 sm:col-span-3">
+            <label class="text-xs text-gray-600 font-medium">Price (USD)</label>
+            <input type="number" name="vendor_prices[]" step="0.01" min="0" class="input-field text-sm mt-1" placeholder="0.00">
+        </div>
+        <div class="col-span-6 sm:col-span-2">
+            <label class="text-xs text-gray-600 font-medium">MOQ</label>
+            <input type="number" name="vendor_moqs[]" min="1" value="1" class="input-field text-sm mt-1">
+        </div>
+        <div class="col-span-10 sm:col-span-2">
+            <label class="text-xs text-gray-600 font-medium">SKU</label>
+            <input type="text" name="vendor_skus[]" class="input-field text-sm mt-1" placeholder="SKU">
+        </div>
+        <div class="col-span-2 sm:col-span-1 flex items-end">
+            <button type="button" onclick="removeVendorRow(${vendorRowIndex})" class="w-full sm:w-auto px-3 py-2 text-red-600 hover:text-red-700 hover:bg-red-50 rounded-lg transition-colors">
+                <i class="fas fa-trash text-sm"></i>
+            </button>
+        </div>
+    `;
+    
+    container.appendChild(row);
+    vendorRowIndex++;
+}
+
+function removeVendorRow(index) {
+    const row = document.getElementById(`vendor-row-${index}`);
+    if (row) row.remove();
+}
+</script>
 @endsection

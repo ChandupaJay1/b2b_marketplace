@@ -56,9 +56,14 @@ class ProductController extends Controller
             'description'            => ['nullable', 'string'],
             'main_image'             => ['nullable', 'image', 'max:4096'],
             'images.*'               => ['nullable', 'image', 'max:4096'],
+            'additional_vendors'     => ['nullable', 'array'],
+            'additional_vendors.*'   => ['exists:vendors,id'],
+            'vendor_prices.*'        => ['nullable', 'numeric', 'min:0'],
+            'vendor_moqs.*'          => ['nullable', 'numeric', 'min:1'],
+            'vendor_skus.*'          => ['nullable', 'string', 'max:255'],
         ]);
 
-        $data = $request->except(['_token', 'main_image', 'images']);
+        $data = $request->except(['_token', 'main_image', 'images', 'additional_vendors', 'vendor_prices', 'vendor_moqs', 'vendor_skus']);
         $data['slug']        = Str::slug($request->name);
         $data['is_active']   = $request->boolean('is_active', true);
         $data['is_featured'] = $request->boolean('is_featured');
@@ -68,6 +73,30 @@ class ProductController extends Controller
         }
 
         $product = Product::create($data);
+
+        // Attach primary vendor
+        $product->vendors()->attach($request->vendor_id, [
+            'price' => $request->price,
+            'min_order_quantity' => $request->min_order_quantity ?? 1,
+            'sku' => $request->sku,
+            'is_primary' => true,
+            'is_active' => true
+        ]);
+
+        // Attach additional vendors
+        if ($request->has('additional_vendors') && is_array($request->additional_vendors)) {
+            foreach ($request->additional_vendors as $index => $vendorId) {
+                if ($vendorId != $request->vendor_id) { // Don't duplicate primary vendor
+                    $product->vendors()->attach($vendorId, [
+                        'price' => $request->vendor_prices[$index] ?? null,
+                        'min_order_quantity' => $request->vendor_moqs[$index] ?? 1,
+                        'sku' => $request->vendor_skus[$index] ?? null,
+                        'is_primary' => false,
+                        'is_active' => true
+                    ]);
+                }
+            }
+        }
 
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $index => $image) {
@@ -81,7 +110,7 @@ class ProductController extends Controller
             }
         }
 
-        return redirect()->route('admin.products.index')->with('success', 'Product created successfully!');
+        return redirect()->route('admin.products.index')->with('success', 'Product created successfully with ' . ($product->vendors->count()) . ' vendor(s)!');
     }
 
     public function show(Product $product)
@@ -95,6 +124,9 @@ class ProductController extends Controller
         $categories    = ProductCategory::where('is_active', true)->with('subcategories')->get();
         $subcategories = ProductSubcategory::where('is_active', true)->get();
         $vendors       = Vendor::where('status', 'approved')->get();
+        
+        // Load existing vendors for this product
+        $product->load('vendors');
 
         return view('admin.products.edit', compact('product', 'categories', 'subcategories', 'vendors'));
     }
@@ -108,9 +140,14 @@ class ProductController extends Controller
             'name'                   => ['required', 'string', 'max:255'],
             'main_image'             => ['nullable', 'image', 'max:4096'],
             'images.*'               => ['nullable', 'image', 'max:4096'],
+            'additional_vendors'     => ['nullable', 'array'],
+            'additional_vendors.*'   => ['exists:vendors,id'],
+            'vendor_prices.*'        => ['nullable', 'numeric', 'min:0'],
+            'vendor_moqs.*'          => ['nullable', 'numeric', 'min:1'],
+            'vendor_skus.*'          => ['nullable', 'string', 'max:255'],
         ]);
 
-        $data = $request->except(['_token', '_method', 'main_image', 'images']);
+        $data = $request->except(['_token', '_method', 'main_image', 'images', 'additional_vendors', 'vendor_prices', 'vendor_moqs', 'vendor_skus']);
         $data['slug']        = Str::slug($request->name);
         $data['is_active']   = $request->boolean('is_active');
         $data['is_featured'] = $request->boolean('is_featured');
@@ -121,6 +158,33 @@ class ProductController extends Controller
         }
 
         $product->update($data);
+
+        // Sync vendors - remove all and re-add
+        $product->vendors()->detach();
+
+        // Attach primary vendor
+        $product->vendors()->attach($request->vendor_id, [
+            'price' => $request->price,
+            'min_order_quantity' => $request->min_order_quantity ?? 1,
+            'sku' => $request->sku,
+            'is_primary' => true,
+            'is_active' => true
+        ]);
+
+        // Attach additional vendors
+        if ($request->has('additional_vendors') && is_array($request->additional_vendors)) {
+            foreach ($request->additional_vendors as $index => $vendorId) {
+                if ($vendorId != $request->vendor_id) { // Don't duplicate primary vendor
+                    $product->vendors()->attach($vendorId, [
+                        'price' => $request->vendor_prices[$index] ?? null,
+                        'min_order_quantity' => $request->vendor_moqs[$index] ?? 1,
+                        'sku' => $request->vendor_skus[$index] ?? null,
+                        'is_primary' => false,
+                        'is_active' => true
+                    ]);
+                }
+            }
+        }
 
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $index => $image) {
@@ -133,7 +197,7 @@ class ProductController extends Controller
             }
         }
 
-        return redirect()->route('admin.products.index')->with('success', 'Product updated successfully!');
+        return redirect()->route('admin.products.index')->with('success', 'Product updated successfully with ' . ($product->vendors->count()) . ' vendor(s)!');
     }
 
     public function destroy(Product $product)

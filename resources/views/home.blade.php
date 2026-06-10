@@ -1,352 +1,550 @@
 @extends('layouts.app')
-@section('title', 'B2B Marketplace — Global Trade Platform')
+
+@section('title', 'B2B Marketplace | Global Trade Platform')
 
 @section('content')
-
-{{-- ══ HERO SLIDER ═════════════════════════════════════════════════════════════════════════ --}}
-<section class="relative h-screen min-h-[700px] overflow-hidden bg-secondary">
-    <div class="swiper hero-swiper h-full"
-         data-autoplay="7000" data-loop="true" data-effect="fade" data-speed="1500">
-        <div class="swiper-wrapper h-full">
-
-            {{-- Slide 1 --}}
-            <div class="swiper-slide group relative h-full">
-                <div class="absolute inset-0 scale-110 transition-transform duration-[10000ms] group-[.swiper-slide-active]:scale-100">
-                    <div class="w-full h-full bg-gradient-to-br from-secondary via-secondary-light to-primary/30"></div>
-                    <div class="absolute inset-0 bg-noise before:opacity-[0.015]"></div>
+    {{-- [HERO] Cinematic Immersive Slider --}}
+    <section class="relative h-screen min-h-[700px] overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+        <div class="swiper thm-swiper__slider h-full bg-noise-overlay" data-swiper-options='{
+            "slidesPerView": 1,
+            "loop": true,
+            "effect": "fade",
+            "speed": 1500,
+            "autoplay": { "delay": 7000, "disableOnInteraction": false },
+            "pagination": { "el": ".hero-pagination", "clickable": true }
+        }'>
+            <div class="swiper-wrapper h-full">
+                {{-- Slide 1: Connect with Vendors --}}
+                <div class="swiper-slide group relative h-full">
+                    <div class="absolute inset-0 scale-110 transition-transform duration-[10000ms] group-[.swiper-slide-active]:scale-100">
+                        <img src="{{ asset('images/slider/img-1.jpg') }}" class="w-full h-full object-cover" alt="B2B Marketplace">
+                        <div class="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/60 to-transparent"></div>
+                        {{-- Liquid Glass Effect --}}
+                        <div class="absolute inset-0 backdrop-blur-[2px]">
+                            <div class="absolute top-0 left-0 w-full h-full">
+                                <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-blob"></div>
+                                <div class="absolute top-1/3 right-1/3 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
+                                <div class="absolute bottom-1/4 left-1/3 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-blob animation-delay-4000"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center relative z-10">
+                        <div class="max-w-4xl opacity-0 translate-y-10 transition-all duration-1000 group-[.swiper-slide-active]:opacity-100 group-[.swiper-slide-active]:translate-y-0 delay-500">
+                            <span class="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/20 backdrop-blur-md border border-blue-400/30 text-blue-300 rounded-full text-xs font-black uppercase tracking-[0.2em] mb-8">
+                                <span class="w-2 h-2 bg-blue-400 rounded-full animate-ping"></span>
+                                Global B2B Platform
+                            </span>
+                            <h1 class="text-5xl sm:text-7xl lg:text-[90px] xl:text-[100px] font-heading font-black text-white leading-[0.95] mb-8 tracking-tight">
+                                Connect with <br> <span class="bg-gradient-to-r from-amber-300 to-orange-300 bg-clip-text text-transparent italic">Verified</span> <br> Vendors
+                            </h1>
+                            <p class="text-xl sm:text-2xl font-medium text-slate-300 mb-12 max-w-xl leading-relaxed">
+                                Source quality products from verified suppliers worldwide. Secure, transparent, and efficient B2B trading platform.
+                            </p>
+                            <div class="flex items-center gap-6">
+                                <a href="{{ route('vendors.index') }}" class="group relative px-9 py-4.5 bg-blue-600 text-white rounded-full font-black text-sm tracking-wider uppercase overflow-hidden transition-all shadow-lg shadow-blue-600/30 flex items-center justify-center scale-100 hover:scale-105 active:scale-95">
+                                    <span class="relative z-10 transition-all duration-300 group-hover:-translate-y-12 group-hover:opacity-0">Explore Vendors</span>
+                                    <div class="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                                    <span class="absolute inset-0 flex items-center justify-center text-blue-600 font-black translate-y-12 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">Browse Now</span>
+                                </a>
+                                <div class="hidden sm:flex items-center gap-4 text-white/50">
+                                    <div class="w-12 h-[1px] bg-white/20"></div>
+                                    <span class="text-xs font-bold uppercase tracking-widest italic">Trusted Platform</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="absolute inset-0 overflow-hidden">
-                    <div class="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
-                    <div class="absolute bottom-1/4 left-1/3 w-64 h-64 bg-accent/15 rounded-full blur-3xl animate-pulse" style="animation-delay:1s"></div>
+
+                {{-- Slide 2: Request Quotations --}}
+                <div class="swiper-slide group relative h-full">
+                    <div class="absolute inset-0 scale-110 transition-transform duration-[10000ms] group-[.swiper-slide-active]:scale-100">
+                        <img src="{{ asset('images/slider/img-2.jpg') }}" class="w-full h-full object-cover" alt="Request for Quotation">
+                        <div class="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/60 to-transparent"></div>
+                        {{-- Liquid Glass Effect --}}
+                        <div class="absolute inset-0 backdrop-blur-[2px]">
+                            <div class="absolute top-0 left-0 w-full h-full">
+                                <div class="absolute top-1/3 right-1/4 w-96 h-96 bg-amber-500/20 rounded-full blur-3xl animate-blob"></div>
+                                <div class="absolute bottom-1/3 left-1/4 w-96 h-96 bg-orange-500/20 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
+                                <div class="absolute top-1/2 right-1/3 w-96 h-96 bg-yellow-500/20 rounded-full blur-3xl animate-blob animation-delay-4000"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center relative z-10">
+                        <div class="max-w-4xl opacity-0 translate-y-10 transition-all duration-1000 group-[.swiper-slide-active]:opacity-100 group-[.swiper-slide-active]:translate-y-0 delay-500">
+                            <span class="inline-flex items-center gap-2 px-4 py-2 bg-amber-500/20 backdrop-blur-md border border-amber-400/30 text-amber-300 rounded-full text-xs font-black uppercase tracking-[0.2em] mb-8">
+                                <span class="w-2 h-2 bg-amber-400 rounded-full animate-ping"></span>
+                                Smart Sourcing
+                            </span>
+                            <h2 class="text-5xl sm:text-7xl lg:text-[90px] xl:text-[100px] font-heading font-black text-white leading-[0.95] mb-8 tracking-tight">
+                                Request for <br> <span class="bg-gradient-to-r from-amber-300 to-orange-300 bg-clip-text text-transparent italic">Quotation</span>
+                            </h2>
+                            <p class="text-xl sm:text-2xl font-medium text-slate-300 mb-12 max-w-xl leading-relaxed">
+                                Submit your requirements once. Receive competitive quotes from multiple verified vendors within 48 hours.
+                            </p>
+                            <div class="flex items-center gap-6">
+                                <a href="{{ route('rfq.create') }}" class="px-9 py-4.5 bg-transparent border-2 border-white text-white rounded-full font-black text-sm tracking-wider uppercase hover:bg-white hover:text-slate-900 transition-all shadow-lg hover:scale-105 active:scale-95">
+                                    Get Quotes Now
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center relative z-10">
-                    <div class="max-w-3xl opacity-0 translate-y-10 transition-all duration-1000 group-[.swiper-slide-active]:opacity-100 group-[.swiper-slide-active]:translate-y-0" style="transition-delay:400ms">
-                        <span class="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 backdrop-blur-md border border-primary/20 text-accent rounded-full text-xs font-black uppercase tracking-[0.2em] mb-8">
-                            <span class="w-2 h-2 bg-accent rounded-full animate-ping"></span>
-                            Global B2B Trade Platform
-                        </span>
-                        <h1 class="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-heading font-black text-white leading-[0.95] mb-8 tracking-tight">
-                            Connect with <br><span class="text-gradient-gold italic">Local</span><br>Manufacturers
-                        </h1>
-                        <p class="text-xl text-white/60 mb-10 max-w-xl leading-relaxed font-medium">
-                            Discover verified vendors and source authentic products directly for your international trade needs.
+
+                {{-- Slide 3: Global Trade Network --}}
+                <div class="swiper-slide group relative h-full">
+                    <div class="absolute inset-0 scale-110 transition-transform duration-[10000ms] group-[.swiper-slide-active]:scale-100">
+                        <img src="{{ asset('images/slider/img-3.jpg') }}" class="w-full h-full object-cover" alt="Global Trade Network">
+                        <div class="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/60 to-transparent"></div>
+                        {{-- Liquid Glass Effect --}}
+                        <div class="absolute inset-0 backdrop-blur-[2px]">
+                            <div class="absolute top-0 left-0 w-full h-full">
+                                <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-blob"></div>
+                                <div class="absolute top-1/4 left-1/3 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
+                                <div class="absolute bottom-1/3 left-1/4 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl animate-blob animation-delay-4000"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center relative z-10">
+                        <div class="max-w-4xl opacity-0 translate-y-10 transition-all duration-1000 group-[.swiper-slide-active]:opacity-100 group-[.swiper-slide-active]:translate-y-0 delay-500">
+                            <span class="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/20 backdrop-blur-md border border-blue-400/30 text-blue-300 rounded-full text-xs font-black uppercase tracking-[0.2em] mb-8">
+                                <span class="w-2 h-2 bg-blue-400 rounded-full animate-ping"></span>
+                                Secure Trading
+                            </span>
+                            <h2 class="text-5xl sm:text-7xl lg:text-[90px] xl:text-[100px] font-heading font-black text-white leading-[0.95] mb-8 tracking-tight">
+                                Global Trade <br> <span class="bg-gradient-to-r from-amber-300 to-orange-300 bg-clip-text text-transparent italic">Network</span>
+                            </h2>
+                            <p class="text-xl sm:text-2xl font-medium text-slate-300 mb-12 max-w-xl leading-relaxed">
+                                Join 1000+ verified vendors serving buyers across 50+ countries. Trusted, transparent, and efficient.
+                            </p>
+                            <div class="flex items-center gap-6">
+                                <a href="{{ route('register') }}" class="px-9 py-4.5 bg-white text-slate-900 rounded-full font-black text-sm tracking-wider uppercase hover:bg-blue-600 hover:text-white transition-all shadow-xl hover:scale-105 active:scale-95">
+                                    Join Platform
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{-- Hero Extras --}}
+            <div class="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-between items-end pointer-events-none">
+                <div class="hero-pagination flex gap-2 pointer-events-auto"></div>
+                <div class="hidden lg:block animate-bounce opacity-30">
+                    <div class="w-px h-24 bg-gradient-to-b from-white to-transparent"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- [BENTO GRID] Why Choose Us --}}
+    <section class="py-20 lg:py-32 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
+        {{-- Background texture --}}
+        <div class="absolute -top-40 -right-40 w-[600px] h-[600px] bg-blue-200/20 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-indigo-200/20 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            {{-- Section heading --}}
+            <div class="text-center mb-16 max-w-2xl mx-auto reveal-section">
+                <span class="inline-flex items-center gap-2 text-blue-600 font-black uppercase tracking-[0.25em] text-[10px] mb-5">
+                    <span class="w-6 h-[1px] bg-blue-600"></span>
+                    Platform Benefits
+                    <span class="w-6 h-[1px] bg-blue-600"></span>
+                </span>
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-black text-slate-900 leading-[1.05]">
+                    Where Quality Meets <br><span class="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent italic">Trust</span>
+                </h2>
+            </div>
+
+            {{-- Modern Bento Grid Design --}}
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 mb-6">
+                
+                {{-- Card 1: Verified Vendors (Large - 2 cols, tall) --}}
+                <div class="lg:col-span-2 lg:row-span-2 relative rounded-3xl overflow-hidden group reveal-left shadow-2xl bg-gradient-to-br from-blue-600 via-blue-500 to-indigo-600 p-10">
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.1)_0%,transparent_50%)]"></div>
+                    <div class="relative z-10 h-full flex flex-col">
+                        <div class="inline-flex items-center gap-2 w-fit px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full mb-6">
+                            <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                            <span class="text-white text-[10px] font-bold uppercase tracking-wider">Verified & Trusted</span>
+                        </div>
+                        <h3 class="text-4xl lg:text-5xl font-black text-white leading-[1.1] mb-4">
+                            100%<br/>Verified<br/><span class="text-amber-300">Vendors</span>
+                        </h3>
+                        <p class="text-white/70 text-sm leading-relaxed mb-auto">
+                            Every vendor undergoes rigorous verification before joining our platform.
                         </p>
-                        <div class="flex flex-wrap items-center gap-4">
-                            <a href="{{ route('vendors.index') }}" class="btn-primary text-[11px]">
-                                <i class="fas fa-store"></i> Browse Vendors
-                            </a>
-                            <a href="{{ route('rfq.create') }}" class="btn-outline-white text-[11px]">
-                                <i class="fas fa-file-invoice"></i> Request Quote
-                            </a>
-                        </div>
-                        <div class="flex items-center gap-8 mt-12 pt-8 border-t border-white/10">
-                            <div><p class="text-3xl font-heading font-black text-white">{{ number_format($totalVendors) }}+</p><p class="text-white/40 text-xs uppercase tracking-widest font-bold">Verified Vendors</p></div>
-                            <div class="w-px h-10 bg-white/10"></div>
-                            <div><p class="text-3xl font-heading font-black text-white">{{ number_format($totalProducts) }}+</p><p class="text-white/40 text-xs uppercase tracking-widest font-bold">Products Listed</p></div>
-                            <div class="w-px h-10 bg-white/10"></div>
-                            <div><p class="text-3xl font-heading font-black text-white">50+</p><p class="text-white/40 text-xs uppercase tracking-widest font-bold">Countries</p></div>
+                        <div class="mt-8 flex items-center gap-3 p-4 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20">
+                            <div class="w-12 h-12 bg-amber-400 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-shield-check text-slate-900 text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-white font-black text-sm">Quality Assured</div>
+                                <div class="text-white/60 text-xs">Trusted by 1000+ businesses</div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                {{-- Card 2: 50+ Countries --}}
+                <div class="lg:col-span-2 relative rounded-3xl overflow-hidden group reveal-up shadow-xl bg-slate-900 p-8">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/20 rounded-full blur-3xl"></div>
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-globe text-white text-2xl"></i>
+                        </div>
+                        <div class="text-5xl font-black text-white mb-2">50<span class="text-blue-400">+</span></div>
+                        <h4 class="text-lg font-bold text-white mb-2">Countries</h4>
+                        <p class="text-slate-400 text-sm">Connect with vendors and buyers worldwide</p>
+                    </div>
+                </div>
+
+                {{-- Card 3: Secure Transactions --}}
+                <div class="lg:col-span-2 relative rounded-3xl overflow-hidden group reveal-up shadow-xl bg-white p-8 border border-slate-200">
+                    <div class="absolute bottom-0 right-0 w-32 h-32 bg-blue-100 rounded-full blur-3xl"></div>
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-all">
+                            <i class="fas fa-lock text-blue-600 text-2xl group-hover:text-white transition-colors"></i>
+                        </div>
+                        <h4 class="text-2xl font-black text-slate-900 mb-2">Secure<br/>Transactions</h4>
+                        <p class="text-slate-600 text-sm">Protected payment processing and secure communication</p>
+                    </div>
+                </div>
+
+                {{-- Card 4: RFQ System --}}
+                <div class="lg:col-span-2 relative rounded-3xl overflow-hidden group reveal-up shadow-xl bg-gradient-to-br from-amber-400 to-orange-500 p-8">
+                    <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=%2240%22 height=%2240%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath d=%22M0 20h40M20 0v40%22 stroke=%22white%22 stroke-width=%220.5%22 opacity=%220.1%22/%3E%3C/svg%3E')]"></div>
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6">
+                            <i class="fas fa-file-invoice text-white text-2xl"></i>
+                        </div>
+                        <h4 class="text-2xl font-black text-white mb-2">RFQ System</h4>
+                        <p class="text-white/80 text-sm">One request, multiple competitive quotes</p>
+                    </div>
+                </div>
+
+                {{-- Card 5: 24/7 Support --}}
+                <div class="lg:col-span-2 relative rounded-3xl overflow-hidden group reveal-up shadow-xl bg-slate-50 p-8 border-2 border-slate-200">
+                    <div class="w-14 h-14 bg-blue-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-headset text-white text-2xl"></i>
+                    </div>
+                    <h4 class="text-2xl font-black text-slate-900 mb-2">24/7 Support</h4>
+                    <p class="text-slate-600 text-sm">Dedicated team ready to assist you anytime</p>
+                </div>
+
+                {{-- Card 6: Start Trading (CTA) --}}
+                <div class="lg:col-span-2 relative rounded-3xl overflow-hidden group reveal-up shadow-2xl bg-gradient-to-br from-indigo-600 to-blue-600 p-8">
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(255,255,255,0.1)_0%,transparent_50%)]"></div>
+                    <div class="relative z-10 h-full flex flex-col">
+                        <div class="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6">
+                            <i class="fas fa-rocket text-white text-2xl"></i>
+                        </div>
+                        <h4 class="text-2xl font-black text-white mb-2">Start Trading<br/>Today</h4>
+                        <p class="text-white/70 text-sm mb-6">Join thousands of businesses on our platform</p>
+                        <a href="{{ route('register') }}" class="mt-auto inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-600 rounded-xl font-bold text-sm hover:bg-amber-300 hover:text-slate-900 transition-all group-hover:gap-4 w-fit">
+                            <span>Get Started</span>
+                            <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    {{-- [STORY & TIMELINE] Our Journey --}}
+    <section class="py-24 lg:py-36 bg-white relative overflow-hidden border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-20 lg:gap-24">
+                {{-- Visual Story --}}
+                <div class="lg:w-1/2 relative reveal-left">
+                    <span class="text-blue-600 font-black uppercase tracking-[0.2em] text-xs mb-4 block">How It Works</span>
+                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-black text-slate-900 mb-10 leading-[1.05]">Your Path to <br> <span class="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent italic">Global Trade</span></h2>
+                    <div class="relative group">
+                        <div class="absolute -inset-4 bg-blue-100 rounded-[50px] blur-2xl group-hover:bg-blue-200 transition-all opacity-0 group-hover:opacity-100"></div>
+                        <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=600&fit=crop" 
+                             class="rounded-[50px] shadow-2xl relative z-10 transition-all duration-700 group-hover:scale-[1.01]" alt="B2B Trading Platform">
+                        
+                        <div class="absolute -bottom-10 -right-10 bg-white p-8 rounded-[30px] shadow-2xl z-20 max-w-[260px] hidden xl:block border border-slate-200">
+                            <p class="text-slate-900 font-bold text-sm italic leading-relaxed">"Connecting businesses worldwide with trust, transparency, and efficiency at the core of everything we do."</p>
+                            <span class="text-blue-600 text-[10px] font-black uppercase tracking-widest mt-4 block">- Our Mission</span>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Timeline Journey --}}
+                <div class="lg:w-1/2 space-y-12 py-10">
+                    <div class="relative pl-12 reveal-up">
+                        <div class="absolute left-0 top-0 w-[2px] h-full bg-blue-200"></div>
+                        <div class="absolute left-[-5px] top-1.5 w-[12px] h-[12px] rounded-full bg-blue-600 shadow-lg shadow-blue-600/30"></div>
+                        <h4 class="text-2xl font-black text-slate-900 mb-3">1. Register & Verify</h4>
+                        <p class="text-slate-600 leading-relaxed text-sm">Create your account and complete the verification process. We ensure all platform members are legitimate businesses.</p>
+                    </div>
+
+                    <div class="relative pl-12 reveal-up">
+                        <div class="absolute left-0 top-0 w-[2px] h-full bg-blue-200"></div>
+                        <div class="absolute left-[-5px] top-1.5 w-[12px] h-[12px] rounded-full bg-blue-600 animate-pulse"></div>
+                        <h4 class="text-2xl font-black text-slate-900 mb-3">2. Browse & Connect</h4>
+                        <p class="text-slate-600 leading-relaxed text-sm">Search thousands of verified vendors, review their profiles, products, and ratings. Connect directly with suppliers.</p>
+                    </div>
+
+                    <div class="relative pl-12 reveal-up">
+                        <div class="absolute left-[-5px] top-1.5 w-[12px] h-[12px] rounded-full bg-slate-900"></div>
+                        <h4 class="text-2xl font-black text-slate-900 mb-3">3. Request & Trade</h4>
+                        <p class="text-slate-600 leading-relaxed text-sm">Submit RFQs, receive competitive quotes, negotiate terms, and complete secure transactions with confidence.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- [QUOTE] Platform Philosophy --}}
+    <section class="py-24 lg:py-36 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-5xl mx-auto text-center bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white rounded-[50px] p-12 lg:p-20 shadow-2xl border border-slate-800 relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-80 h-80 bg-blue-500/10 rounded-full translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
+                <i class="fas fa-quote-left text-amber-300/20 text-8xl mb-8"></i>
+                <h2 class="text-2xl sm:text-3xl lg:text-5xl font-heading font-bold leading-snug italic mb-10 tracking-tight max-w-4xl mx-auto">
+                    "In global trade, trust is everything. <br> <span class="text-amber-300 underline decoration-amber-300/20">B2B Marketplace</span> connects businesses with verified partners worldwide."
+                </h2>
+                <div class="flex flex-col items-center gap-4">
+                    <div class="w-16 h-[2px] bg-amber-300/30"></div>
+                    <span class="text-amber-300 font-black tracking-[0.3em] uppercase text-[10px]">Global Trade Excellence</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- [STATS] Platform Impact --}}
+    <section class="py-20 bg-blue-600 relative overflow-hidden shadow-2xl">
+        <div class="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/asfalt-dark.png')]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
+                @foreach([['1000', 'Verified Vendors'], ['50', 'Countries Served'], ['10000', 'Products Listed'], ['99', 'Success Rate %']] as [$count, $label])
+                <div class="text-center group">
+                    <div class="text-5xl sm:text-6xl font-heading font-black text-white mb-3 transition-transform group-hover:scale-105">
+                        <span class="odometer" data-count="{{ $count }}">0</span><span class="text-2xl text-amber-300 inline-block -ml-1">+</span>
+                    </div>
+                    <span class="text-white/70 font-black uppercase tracking-[0.2em] text-[10px] block">{{ $label }}</span>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    {{-- [VENDORS] Featured Vendors Section --}}
+    <section class="py-24 lg:py-36 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 lg:mb-24 max-w-3xl mx-auto">
+                <span class="text-blue-600 font-black uppercase tracking-[0.2em] text-xs mb-4 block">Trusted Partners</span>
+                <h2 class="text-4xl sm:text-5xl font-heading font-black text-slate-900 leading-none">Featured <br> <span class="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent italic">Verified Vendors</span></h2>
             </div>
 
-            {{-- Slide 2 --}}
-            <div class="swiper-slide group relative h-full">
-                <div class="absolute inset-0">
-                    <div class="w-full h-full bg-gradient-to-br from-secondary via-primary-dark/80 to-secondary"></div>
-                </div>
-                <div class="absolute inset-0">
-                    <div class="absolute top-1/3 left-1/4 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse"></div>
-                    <div class="absolute bottom-1/3 right-1/4 w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-pulse" style="animation-delay:.7s"></div>
-                </div>
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center relative z-10">
-                    <div class="max-w-3xl opacity-0 translate-y-10 transition-all duration-1000 group-[.swiper-slide-active]:opacity-100 group-[.swiper-slide-active]:translate-y-0" style="transition-delay:400ms">
-                        <span class="inline-flex items-center gap-2 px-4 py-2 bg-accent/20 backdrop-blur-md border border-accent/20 text-white rounded-full text-xs font-black uppercase tracking-[0.2em] mb-8">
-                            <span class="w-2 h-2 bg-accent rounded-full animate-ping"></span>
-                            Global Logistics Ready
+            @php
+                $featuredVendors = \App\Models\Vendor::where('status', 'approved')
+                    ->where('is_featured', true)
+                    ->withCount('products')
+                    ->limit(6)
+                    ->get();
+            @endphp
+
+            @if($featuredVendors->count() > 0)
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                @foreach($featuredVendors as $vendor)
+                <a href="{{ route('vendors.show', $vendor->slug) }}" class="group relative bg-white rounded-[32px] p-8 overflow-hidden hover:-translate-y-2 transition-all duration-500 shadow-xl border border-slate-200 hover:border-blue-200">
+                    <div class="absolute top-6 right-6">
+                        <span class="inline-flex items-center gap-1 px-3 py-1 bg-emerald-100 border border-emerald-200 rounded-full text-emerald-700 text-[9px] font-black uppercase tracking-wider">
+                            <i class="fas fa-certificate text-[8px]"></i> Verified
                         </span>
-                        <h2 class="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-heading font-black text-white leading-[0.95] mb-8 tracking-tight">
-                            Source Quality<br><span class="text-gradient italic">Products</span><br>Worldwide
-                        </h2>
-                        <p class="text-xl text-white/60 mb-10 max-w-xl leading-relaxed font-medium">
-                            Browse thousands of products across every industry category with direct access to manufacturers.
-                        </p>
-                        <div class="flex flex-wrap items-center gap-4">
-                            <a href="{{ route('products.index') }}" class="btn-accent text-[11px]">
-                                <i class="fas fa-boxes"></i> Browse Products
-                            </a>
-                            <a href="{{ route('about') }}" class="btn-outline-white text-[11px]">
-                                <i class="fas fa-info-circle"></i> Our Platform
-                            </a>
-                        </div>
                     </div>
-                </div>
-            </div>
-
-            {{-- Slide 3 --}}
-            <div class="swiper-slide group relative h-full">
-                <div class="absolute inset-0">
-                    <div class="w-full h-full bg-gradient-to-bl from-secondary via-secondary-light to-accent/20"></div>
-                </div>
-                <div class="absolute inset-0">
-                    <div class="absolute top-1/4 right-1/3 w-96 h-96 bg-success/10 rounded-full blur-3xl animate-pulse"></div>
-                </div>
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center relative z-10">
-                    <div class="max-w-3xl opacity-0 translate-y-10 transition-all duration-1000 group-[.swiper-slide-active]:opacity-100 group-[.swiper-slide-active]:translate-y-0" style="transition-delay:400ms">
-                        <span class="inline-flex items-center gap-2 px-4 py-2 bg-success/20 backdrop-blur-md border border-success/20 text-white rounded-full text-xs font-black uppercase tracking-[0.2em] mb-8">
-                            <span class="w-2 h-2 bg-success rounded-full animate-ping"></span>
-                            Easy Procurement
-                        </span>
-                        <h2 class="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-heading font-black text-white leading-[0.95] mb-8 tracking-tight">
-                            Submit Your<br><span class="text-accent italic">RFQ</span> Today
-                        </h2>
-                        <p class="text-xl text-white/60 mb-10 max-w-xl leading-relaxed font-medium">
-                            Fill in a Request for Quotation and get connected with the right vendors instantly.
-                        </p>
-                        <div class="flex flex-wrap items-center gap-4">
-                            <a href="{{ route('rfq.create') }}" class="btn-primary text-[11px]">
-                                <i class="fas fa-paper-plane"></i> Submit RFQ Now
-                            </a>
-                            <a href="{{ route('contact') }}" class="btn-outline-white text-[11px]">
-                                <i class="fas fa-headset"></i> Get Support
-                            </a>
-                        </div>
+                    
+                    @if($vendor->logo)
+                    <div class="w-20 h-20 bg-slate-100 rounded-2xl flex items-center justify-center mb-6 overflow-hidden group-hover:scale-110 transition-transform">
+                        <img src="{{ asset('storage/' . $vendor->logo) }}" alt="{{ $vendor->company_name }}" class="w-full h-full object-cover">
                     </div>
-                </div>
-            </div>
-        </div>
-
-        {{-- Pagination --}}
-        <div class="hero-pagination swiper-pagination absolute bottom-8 left-0 right-0 flex justify-center gap-2 z-20"></div>
-
-        {{-- Arrows --}}
-        <div class="hero-prev swiper-button-prev absolute left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 glass-dark rounded-full flex items-center justify-center text-white cursor-pointer hover:bg-primary/80 transition-all after:content-none">
-            <i class="fas fa-chevron-left text-sm"></i>
-        </div>
-        <div class="hero-next swiper-button-next absolute right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 glass-dark rounded-full flex items-center justify-center text-white cursor-pointer hover:bg-primary/80 transition-all after:content-none">
-            <i class="fas fa-chevron-right text-sm"></i>
-        </div>
-    </div>
-</section>
-
-{{-- ══ TRUST BAR ════════════════════════════════════════════════════════════════════════════ --}}
-<section class="bg-secondary/5 border-y border-secondary/8 py-5">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-wrap items-center justify-center gap-8 lg:gap-12 text-secondary/40 text-xs font-black uppercase tracking-widest">
-            @foreach(['✓ Verified Vendors', '✓ Secure Inquiries', '✓ Global Reach', '✓ Direct Sourcing', '✓ Multi-category Platform'] as $item)
-            <span class="flex items-center gap-2 hover:text-primary transition-colors cursor-default">{{ $item }}</span>
-            @endforeach
-        </div>
-    </div>
-</section>
-
-{{-- ══ PRODUCT CATEGORIES ═══════════════════════════════════════════════════════════════════ --}}
-@if($productCategories->count())
-<section class="py-24 bg-dot-pattern relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-14 reveal-up">
-            <span class="section-label"><span class="w-5 h-px bg-primary inline-block"></span> Browse by Category</span>
-            <h2 class="section-title text-4xl sm:text-5xl">Explore Industry <span class="text-gradient italic">Sectors</span></h2>
-            <div class="section-divider mx-auto"></div>
-            <p class="text-secondary/50 text-lg max-w-xl mx-auto mt-3">Find products across a wide range of industries from verified manufacturers</p>
-        </div>
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
-            @foreach($productCategories as $category)
-            <a href="{{ route('products.index', ['category' => $category->slug]) }}"
-               class="reveal-up group relative bg-white rounded-2xl border border-secondary/6 p-6 text-center hover:-translate-y-2 hover:shadow-premium hover:border-primary/15 transition-all duration-500 overflow-hidden">
-                <div class="absolute inset-0 bg-gradient-to-br from-primary/3 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div class="relative">
-                    <div class="w-14 h-14 bg-primary/8 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-300 shadow-sm">
-                        <i class="fas fa-boxes text-primary text-xl group-hover:text-white transition-colors duration-300"></i>
-                    </div>
-                    <h3 class="font-heading font-black text-secondary text-sm mb-1 group-hover:text-primary transition-colors">{{ $category->name }}</h3>
-                    <p class="text-secondary/40 text-xs font-semibold">{{ $category->products_count }} products</p>
-                </div>
-            </a>
-            @endforeach
-        </div>
-    </div>
-</section>
-@endif
-
-{{-- ══ FEATURED VENDORS ═════════════════════════════════════════════════════════════════════ --}}
-@if($featuredVendors->count())
-<section class="py-24 bg-secondary relative overflow-hidden">
-    <div class="absolute inset-0 opacity-5">
-        <div class="absolute top-1/4 right-0 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
-        <div class="absolute bottom-1/4 left-0 w-64 h-64 bg-accent rounded-full blur-3xl"></div>
-    </div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div class="flex items-end justify-between mb-14">
-            <div class="reveal-left">
-                <span class="section-label text-accent"><span class="w-5 h-px bg-accent inline-block"></span> Top Vendors</span>
-                <h2 class="font-heading font-black text-white text-4xl sm:text-5xl leading-tight">Featured <span class="text-gradient-gold italic">Manufacturers</span></h2>
-                <div class="w-12 h-1 bg-gradient-to-r from-accent to-primary rounded-full mt-4"></div>
-            </div>
-            <a href="{{ route('vendors.index') }}" class="reveal-right hidden sm:flex items-center gap-2 text-white/40 hover:text-accent text-xs font-black uppercase tracking-widest transition-colors group">
-                View All <span class="w-0 group-hover:w-5 h-px bg-accent transition-all duration-300 ml-1"></span>
-            </a>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            @foreach($featuredVendors as $vendor)
-            <a href="{{ route('vendors.show', $vendor->slug) }}" class="reveal-up group relative glass-dark rounded-2xl border border-white/8 overflow-hidden hover:border-primary/40 hover:-translate-y-1 transition-all duration-500">
-                {{-- Banner --}}
-                <div class="h-28 bg-gradient-to-br from-primary/40 to-secondary relative overflow-hidden">
-                    @if($vendor->banner)
-                        <img src="{{ asset('storage/' . $vendor->banner) }}" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-secondary/40"></div>
                     @else
-                        <div class="absolute inset-0 bg-gradient-to-br from-primary/30 via-secondary to-accent/10"></div>
-                    @endif
-                    @if($vendor->is_featured)
-                        <span class="absolute top-3 right-3 px-2.5 py-1 bg-accent/90 text-secondary text-[9px] font-black uppercase tracking-widest rounded-full">⭐ Featured</span>
-                    @endif
-                </div>
-                {{-- Content --}}
-                <div class="p-5">
-                    <div class="flex items-center gap-3 mb-3">
-                        <div class="w-12 h-12 bg-white rounded-xl shadow-sm border border-white/10 flex items-center justify-center flex-shrink-0 -mt-8 relative z-10">
-                            @if($vendor->logo)
-                                <img src="{{ asset('storage/' . $vendor->logo) }}" alt="" class="w-10 h-10 object-contain rounded-xl">
-                            @else
-                                <span class="text-primary font-black text-xl font-heading">{{ strtoupper(substr($vendor->company_name,0,1)) }}</span>
-                            @endif
-                        </div>
-                        <div class="pt-1">
-                            <h3 class="font-heading font-black text-white text-sm group-hover:text-accent transition-colors">{{ $vendor->company_name }}</h3>
-                            <p class="text-white/35 text-xs">{{ $vendor->category->name ?? '' }} @if($vendor->country)· {{ $vendor->country }}@endif</p>
-                        </div>
+                    <div class="w-20 h-20 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl flex items-center justify-center text-white text-2xl font-black mb-6 group-hover:scale-110 transition-transform">
+                        {{ substr($vendor->company_name, 0, 1) }}
                     </div>
-                    @if($vendor->description)
-                        <p class="text-white/40 text-xs leading-relaxed line-clamp-2">{{ $vendor->description }}</p>
                     @endif
-                    <div class="flex items-center justify-between mt-4 pt-4 border-t border-white/8">
-                        <span class="text-[10px] font-black text-white/30 uppercase tracking-widest">{{ $vendor->products_count ?? 0 }} products</span>
-                        @if($vendor->established_year)
-                            <span class="text-[10px] font-bold text-white/20">Est. {{ $vendor->established_year }}</span>
+
+                    <h4 class="text-xl font-black text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">{{ $vendor->company_name }}</h4>
+                    
+                    @if($vendor->category)
+                    <p class="text-slate-600 text-xs font-medium mb-4">{{ $vendor->category->name }}</p>
+                    @endif
+
+                    <div class="flex items-center justify-between pt-4 border-t border-slate-200">
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-box text-blue-600 text-xs"></i>
+                            <span class="text-slate-900 font-bold text-sm">{{ $vendor->products_count }} Products</span>
+                        </div>
+                        @if($vendor->country)
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-map-marker-alt text-slate-400 text-xs"></i>
+                            <span class="text-slate-600 text-xs font-medium">{{ $vendor->country }}</span>
+                        </div>
                         @endif
                     </div>
-                </div>
-            </a>
-            @endforeach
-        </div>
-        <div class="text-center mt-10 sm:hidden">
-            <a href="{{ route('vendors.index') }}" class="btn-outline-white text-[11px]">View All Vendors</a>
-        </div>
-    </div>
-</section>
-@endif
-
-{{-- ══ FEATURED PRODUCTS ════════════════════════════════════════════════════════════════════ --}}
-@if($featuredProducts->count())
-<section class="py-24 bg-surface relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-end justify-between mb-14">
-            <div class="reveal-left">
-                <span class="section-label"><span class="w-5 h-px bg-primary inline-block"></span> Curated Selection</span>
-                <h2 class="section-title text-4xl sm:text-5xl">Featured <span class="text-gradient italic">Products</span></h2>
-                <div class="section-divider"></div>
+                </a>
+                @endforeach
             </div>
-            <a href="{{ route('products.index') }}" class="reveal-right hidden sm:flex items-center gap-2 text-secondary/40 hover:text-primary text-xs font-black uppercase tracking-widest transition-colors group">
-                View All <span class="w-0 group-hover:w-5 h-px bg-primary transition-all duration-300 ml-1"></span>
-            </a>
+
+            <div class="text-center mt-12">
+                <a href="{{ route('vendors.index') }}" class="inline-flex items-center gap-3 px-8 py-4 bg-blue-600 text-white rounded-full font-black text-sm tracking-wider uppercase hover:bg-blue-700 transition-all shadow-xl hover:scale-105">
+                    <span>View All Vendors</span>
+                    <i class="fas fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+            @else
+            <div class="text-center py-12">
+                <p class="text-slate-600 text-lg">No featured vendors available at the moment.</p>
+            </div>
+            @endif
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            @foreach($featuredProducts as $product)
-            <a href="{{ route('products.show', $product->slug) }}" class="reveal-up group card-hover">
-                <div class="relative h-52 bg-surface-dark overflow-hidden">
-                    @if($product->main_image)
-                        <img src="{{ asset('storage/' . $product->main_image) }}" alt="{{ $product->name }}" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700">
-                    @else
-                        <div class="w-full h-full flex items-center justify-center">
-                            <i class="fas fa-box text-4xl text-secondary/15"></i>
-                        </div>
-                    @endif
-                    @if($product->is_featured)
-                        <span class="absolute top-3 left-3 px-2.5 py-1 bg-accent text-secondary text-[9px] font-black uppercase tracking-widest rounded-full shadow-gold">★ Featured</span>
-                    @endif
-                </div>
-                <div class="p-5">
-                    <p class="text-primary text-[10px] font-black uppercase tracking-widest mb-1">{{ $product->category->name ?? '' }}</p>
-                    <h3 class="font-heading font-black text-secondary text-sm mb-2 group-hover:text-primary transition-colors line-clamp-1">{{ $product->name }}</h3>
-                    @if($product->short_description)
-                        <p class="text-secondary/40 text-xs mb-3 line-clamp-2 leading-relaxed">{{ $product->short_description }}</p>
-                    @endif
-                    <div class="flex items-center justify-between border-t border-secondary/5 pt-3">
-                        @if($product->price)
-                            <span class="font-heading font-black text-primary text-base">${{ number_format($product->price,2) }}</span>
-                        @else
-                            <span class="text-secondary/30 text-xs font-semibold">Price on request</span>
-                        @endif
-                        <span class="text-secondary/30 text-[10px] font-bold">MOQ: {{ $product->min_order_quantity }} {{ $product->unit }}</span>
+    </section>
+
+    {{-- [CTA] Call to Action --}}
+    <section class="py-12 lg:py-24 bg-gradient-to-b from-slate-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-br from-blue-600 to-indigo-600 rounded-[40px] p-12 lg:p-20 text-center relative overflow-hidden reveal-section shadow-2xl">
+                <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/asfalt-dark.png')] opacity-[0.08]"></div>
+                <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/10 to-transparent"></div>
+                <div class="absolute -top-32 -left-32 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
+                
+                <div class="relative z-10 max-w-2xl mx-auto">
+                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-black text-white mb-6 leading-none">Ready to Start <span class="italic text-amber-300">Trading?</span></h2>
+                    <p class="text-white/80 mb-10 text-sm sm:text-base leading-relaxed">Join thousands of businesses using our platform to source products, connect with suppliers, and grow their trade networks globally.</p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="{{ route('register') }}" class="w-full sm:w-auto px-10 py-5 bg-white text-blue-600 rounded-full font-black text-sm tracking-wider uppercase hover:bg-slate-900 hover:text-white transition-all shadow-lg scale-100 hover:scale-105 active:scale-95">
+                            Create Account
+                        </a>
+                        <a href="{{ route('contact') }}" class="flex items-center gap-3 text-white font-black text-sm tracking-wider uppercase group hover:text-amber-300 transition-colors">
+                            <div class="w-12 h-12 bg-white/10 border border-white/25 rounded-full flex items-center justify-center group-hover:bg-white/20 transition-all shadow-md">
+                                <i class="fas fa-envelope text-xs"></i>
+                            </div>
+                            Contact Us
+                        </a>
                     </div>
-                    <p class="text-secondary/30 text-[10px] mt-2">by {{ $product->vendor->company_name ?? '' }}</p>
                 </div>
-            </a>
-            @endforeach
-        </div>
-    </div>
-</section>
-@endif
-
-{{-- ══ WHY US ═══════════════════════════════════════════════════════════════════════════════ --}}
-<section class="py-24 bg-dot-pattern relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-14 reveal-up">
-            <span class="section-label"><span class="w-5 h-px bg-primary inline-block"></span> Why Choose Us</span>
-            <h2 class="section-title text-4xl sm:text-5xl">Built for <span class="text-gradient italic">Global Trade</span></h2>
-            <div class="section-divider mx-auto"></div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            @foreach([
-                ['fas fa-shield-check', 'Verified Vendors', 'Every vendor goes through rigorous verification before being listed on our platform.', 'bg-primary/8 text-primary'],
-                ['fas fa-globe-americas', 'Global Reach', 'Connect with buyers from over 50 countries worldwide through our network.', 'bg-accent/10 text-accent-dark'],
-                ['fas fa-file-invoice', 'Easy RFQ Process', 'Submit a Request for Quotation in minutes and receive competitive offers fast.', 'bg-success/8 text-success'],
-                ['fas fa-lock', 'Secure Platform', 'Your inquiries and data are fully encrypted and protected at every step.', 'bg-primary/8 text-primary'],
-            ] as [$icon, $title, $desc, $iconBg])
-            <div class="reveal-up group card p-7 hover:-translate-y-2 hover:shadow-premium hover:border-primary/10 transition-all duration-500">
-                <div class="w-14 h-14 {{ $iconBg }} rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
-                    <i class="{{ $icon }} text-xl"></i>
-                </div>
-                <h3 class="font-heading font-black text-secondary text-lg mb-3">{{ $title }}</h3>
-                <p class="text-secondary/50 text-sm leading-relaxed">{{ $desc }}</p>
             </div>
-            @endforeach
         </div>
-    </div>
-</section>
-
-{{-- ══ CTA BANNER ═══════════════════════════════════════════════════════════════════════════ --}}
-<section class="relative overflow-hidden bg-secondary py-20">
-    <div class="absolute inset-0">
-        <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 right-1/4 w-64 h-64 bg-accent/15 rounded-full blur-3xl"></div>
-    </div>
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative reveal-up">
-        <span class="inline-block px-4 py-2 bg-accent/15 border border-accent/20 text-accent text-[10px] font-black uppercase tracking-[0.25em] rounded-full mb-6">Start Trading Today</span>
-        <h2 class="font-heading font-black text-white text-4xl sm:text-5xl lg:text-6xl leading-tight mb-6">
-            Ready to Source <span class="text-gradient-gold italic">Globally?</span>
-        </h2>
-        <p class="text-white/50 text-lg mb-10 max-w-xl mx-auto leading-relaxed">Submit a Request for Quotation and connect with verified manufacturers. No hidden fees, no middlemen.</p>
-        <div class="flex flex-wrap justify-center gap-4">
-            <a href="{{ route('rfq.create') }}" class="btn-accent text-[11px]"><i class="fas fa-paper-plane"></i> Submit RFQ Now</a>
-            <a href="{{ route('register') }}" class="btn-outline-white text-[11px]"><i class="fas fa-user-plus"></i> Register Free</a>
-        </div>
-    </div>
-</section>
-
+    </section>
 @endsection
 
 @push('scripts')
-<script>
-    // Hero Swiper
-    new Swiper('.hero-swiper', {
-        loop: true,
-        effect: 'fade',
-        speed: 1500,
-        autoplay: { delay: 7000, disableOnInteraction: false },
-        pagination: { el: '.hero-pagination', clickable: true, bulletClass: 'w-2 h-2 bg-white/30 rounded-full cursor-pointer transition-all', bulletActiveClass: '!bg-white !w-8' },
-        navigation: { nextEl: '.hero-next', prevEl: '.hero-prev' },
-    });
-</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/themes/odometer-theme-minimal.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/odometer.min.js"></script>
+    
+    <style>
+        /* Swiper Pagination Styling */
+        .hero-pagination {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .hero-pagination .swiper-pagination-bullet {
+            width: 8px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 9999px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .hero-pagination .swiper-pagination-bullet-active {
+            width: 32px;
+            background: rgba(255, 255, 255, 0.9);
+        }
+        .hero-pagination .swiper-pagination-bullet:hover {
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Liquid Glass Blob Animation */
+        @keyframes blob {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            25% {
+                transform: translate(20px, -50px) scale(1.1);
+            }
+            50% {
+                transform: translate(-20px, 20px) scale(0.9);
+            }
+            75% {
+                transform: translate(50px, 50px) scale(1.05);
+            }
+        }
+
+        .animate-blob {
+            animation: blob 20s infinite ease-in-out;
+        }
+
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+
+        .animation-delay-4000 {
+            animation-delay: 4s;
+        }
+
+        /* Glass morphism effect */
+        .backdrop-blur-\[2px\] {
+            backdrop-filter: blur(2px);
+        }
+    </style>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize Hero Swiper Slider
+            if (typeof Swiper !== 'undefined') {
+                const heroSwiper = new Swiper('.thm-swiper__slider', {
+                    slidesPerView: 1,
+                    loop: true,
+                    effect: 'fade',
+                    speed: 1500,
+                    autoplay: {
+                        delay: 7000,
+                        disableOnInteraction: false,
+                    },
+                    fadeEffect: {
+                        crossFade: true
+                    },
+                    pagination: {
+                        el: '.hero-pagination',
+                        clickable: true,
+                    },
+                    on: {
+                        init: function () {
+                            console.log('Hero Swiper initialized successfully');
+                        }
+                    }
+                });
+            } else {
+                console.error('Swiper is not loaded');
+            }
+
+            // Odometer Logic
+            const odometers = document.querySelectorAll('.odometer');
+            const oObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = entry.target;
+                        target.innerHTML = target.getAttribute('data-count');
+                        oObserver.unobserve(target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            odometers.forEach(o => oObserver.observe(o));
+
+            // Reveal Animation Logic
+            const reveals = document.querySelectorAll('.reveal-section, .reveal-left, .reveal-right, .reveal-up');
+            const rObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-revealed');
+                        rObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            reveals.forEach(r => rObserver.observe(r));
+        });
+    </script>
 @endpush
