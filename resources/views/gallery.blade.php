@@ -98,9 +98,7 @@
 <section class="py-12 lg:py-20 bg-slate-50 min-h-[60vh]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        @if($items->count())
-
-        {{-- Build flat JS array for lightbox navigation --}}
+        {{-- Always build the JS data array (empty if no items) --}}
         @php
             $galleryData = $items->map(fn($item) => [
                 'src'     => asset('storage/' . $item->image),
@@ -109,6 +107,8 @@
                 'cat'     => $item->category ?? '',
             ])->values()->toArray();
         @endphp
+
+        @if($items->count())
 
         {{-- MASONRY view (default) --}}
         <div id="view-masonry" class="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4">
