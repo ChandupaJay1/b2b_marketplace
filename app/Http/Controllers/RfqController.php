@@ -12,8 +12,8 @@ class RfqController extends Controller
 {
     public function create(Request $request)
     {
-        $vendor  = $request->filled('vendor') ? Vendor::where('slug', $request->vendor)->first() : null;
-        $product = $request->filled('product') ? Product::where('slug', $request->product)->first() : null;
+        $vendor  = $request->filled('vendor')  ? Vendor::where('slug', $request->vendor)->first()   : null;
+        $product = $request->filled('product') ? Product::where('slug', $request->product)->with('vendors')->first() : null;
 
         return view('rfq.create', compact('vendor', 'product'));
     }

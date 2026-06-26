@@ -61,7 +61,7 @@
                 <td class="px-5 py-4">
                     <div class="flex items-center justify-end gap-3 flex-wrap">
                         <a href="{{ route('admin.vendors.show', $vendor) }}" class="text-xs text-gray-600 hover:text-gray-900 font-medium">View</a>
-                        <a href="{{ route('admin.vendors.edit', $vendor) }}" class="text-xs text-blue-600 hover:text-blue-800 font-medium">Edit</a>
+                        <a href="{{ route('admin.vendors.edit', $vendor) }}" class="text-xs text-green-600 hover:text-blue-800 font-medium">Edit</a>
                         @if($vendor->status !== 'approved')
                         <form action="{{ route('admin.vendors.status', $vendor) }}" method="POST" class="inline">
                             @csrf @method('PATCH')

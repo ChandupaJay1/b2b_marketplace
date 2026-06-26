@@ -59,7 +59,7 @@
                 </td>
                 <td class="px-5 py-4 text-gray-400 text-xs">{{ $rfq->created_at->format('M d, Y') }}</td>
                 <td class="px-5 py-4 text-right">
-                    <a href="{{ route('admin.rfqs.show', $rfq) }}" class="text-xs text-blue-600 hover:text-blue-800 font-medium mr-3">View</a>
+                    <a href="{{ route('admin.rfqs.show', $rfq) }}" class="text-xs text-green-600 hover:text-blue-800 font-medium mr-3">View</a>
                     <form action="{{ route('admin.rfqs.destroy', $rfq) }}" method="POST" class="inline" onsubmit="return confirm('Delete?')">
                         @csrf @method('DELETE')
                         <button type="submit" class="text-xs text-gray-400 hover:text-red-600 font-medium">Delete</button>

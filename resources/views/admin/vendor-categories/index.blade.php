@@ -26,7 +26,7 @@
                         @if($cat->image)
                             <img src="{{ asset('storage/' . $cat->image) }}" class="w-9 h-9 rounded-xl object-cover" alt="">
                         @else
-                            <div class="w-9 h-9 bg-blue-50 rounded-xl flex items-center justify-center text-lg">{{ $cat->icon ?? '📁' }}</div>
+                            <div class="w-9 h-9 bg-green-50 rounded-xl flex items-center justify-center text-lg">{{ $cat->icon ?? '📁' }}</div>
                         @endif
                         <div>
                             <p class="font-medium text-gray-900">{{ $cat->name }}</p>
@@ -39,7 +39,7 @@
                 <td class="px-5 py-4 text-gray-500">{{ $cat->sort_order }}</td>
                 <td class="px-5 py-4">
                     <div class="flex items-center justify-end gap-3">
-                        <a href="{{ route('admin.vendor-categories.edit', $cat) }}" class="text-xs text-blue-600 hover:text-blue-800 font-medium">Edit</a>
+                        <a href="{{ route('admin.vendor-categories.edit', $cat) }}" class="text-xs text-green-600 hover:text-blue-800 font-medium">Edit</a>
                         <form action="{{ route('admin.vendor-categories.destroy', $cat) }}" method="POST" onsubmit="return confirm('Delete this category?')">
                             @csrf @method('DELETE')
                             <button type="submit" class="text-xs text-gray-400 hover:text-red-600 font-medium">Delete</button>

@@ -84,7 +84,7 @@
             <div class="border-t pt-5 mt-5">
                 <div class="flex items-center justify-between mb-4">
                     <h3 class="font-bold text-gray-900">Additional Vendors (Optional)</h3>
-                    <button type="button" onclick="addVendorRow()" class="text-sm text-blue-600 hover:text-blue-700 font-medium">
+                    <button type="button" onclick="addVendorRow()" class="text-sm text-green-600 hover:text-green-700 font-medium">
                         + Add Vendor
                     </button>
                 </div>

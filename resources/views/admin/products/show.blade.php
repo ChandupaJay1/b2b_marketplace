@@ -72,7 +72,7 @@
             </div>
 
             <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-5">
-                <a href="{{ route('products.show', $product->slug) }}" target="_blank" class="text-blue-600 text-sm hover:underline font-medium">View on Website →</a>
+                <a href="{{ route('products.show', $product->slug) }}" target="_blank" class="text-green-600 text-sm hover:underline font-medium">View on Website →</a>
             </div>
         </div>
     </div>

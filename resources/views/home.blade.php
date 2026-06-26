@@ -4,7 +4,7 @@
 
 @section('content')
     {{-- [HERO] Cinematic Immersive Slider --}}
-    <section class="relative h-screen min-h-[700px] overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+    <section class="relative h-screen min-h-[700px] overflow-hidden bg-gradient-to-br from-slate-900 via-green-900 to-slate-900">
         <div class="swiper thm-swiper__slider h-full bg-noise-overlay" data-swiper-options='{
             "slidesPerView": 1,
             "loop": true,
@@ -22,16 +22,16 @@
                         {{-- Liquid Glass Effect --}}
                         <div class="absolute inset-0 backdrop-blur-[2px]">
                             <div class="absolute top-0 left-0 w-full h-full">
-                                <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-blob"></div>
-                                <div class="absolute top-1/3 right-1/3 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
+                                <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-green-500/20 rounded-full blur-3xl animate-blob"></div>
+                                <div class="absolute top-1/3 right-1/3 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
                                 <div class="absolute bottom-1/4 left-1/3 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-blob animation-delay-4000"></div>
                             </div>
                         </div>
                     </div>
                     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center relative z-10">
                         <div class="max-w-4xl opacity-0 translate-y-10 transition-all duration-1000 group-[.swiper-slide-active]:opacity-100 group-[.swiper-slide-active]:translate-y-0 delay-500">
-                            <span class="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/20 backdrop-blur-md border border-blue-400/30 text-blue-300 rounded-full text-xs font-black uppercase tracking-[0.2em] mb-8">
-                                <span class="w-2 h-2 bg-blue-400 rounded-full animate-ping"></span>
+                            <span class="inline-flex items-center gap-2 px-4 py-2 bg-green-500/20 backdrop-blur-md border border-green-400/30 text-green-300 rounded-full text-xs font-black uppercase tracking-[0.2em] mb-8">
+                                <span class="w-2 h-2 bg-green-400 rounded-full animate-ping"></span>
                                 Global B2B Platform
                             </span>
                             <h1 class="text-5xl sm:text-7xl lg:text-[90px] xl:text-[100px] font-heading font-black text-white leading-[0.95] mb-8 tracking-tight">
@@ -41,10 +41,10 @@
                                 Source quality products from verified suppliers worldwide. Secure, transparent, and efficient B2B trading platform.
                             </p>
                             <div class="flex items-center gap-6">
-                                <a href="{{ route('vendors.index') }}" class="group relative px-9 py-4.5 bg-blue-600 text-white rounded-full font-black text-sm tracking-wider uppercase overflow-hidden transition-all shadow-lg shadow-blue-600/30 flex items-center justify-center scale-100 hover:scale-105 active:scale-95">
+                                <a href="{{ route('vendors.index') }}" class="group relative px-9 py-4.5 bg-green-600 text-white rounded-full font-black text-sm tracking-wider uppercase overflow-hidden transition-all shadow-lg shadow-green-600/30 flex items-center justify-center scale-100 hover:scale-105 active:scale-95">
                                     <span class="relative z-10 transition-all duration-300 group-hover:-translate-y-12 group-hover:opacity-0">Explore Vendors</span>
                                     <div class="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-                                    <span class="absolute inset-0 flex items-center justify-center text-blue-600 font-black translate-y-12 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">Browse Now</span>
+                                    <span class="absolute inset-0 flex items-center justify-center text-green-600 font-black translate-y-12 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">Browse Now</span>
                                 </a>
                                 <div class="hidden sm:flex items-center gap-4 text-white/50">
                                     <div class="w-12 h-[1px] bg-white/20"></div>
@@ -98,16 +98,16 @@
                         {{-- Liquid Glass Effect --}}
                         <div class="absolute inset-0 backdrop-blur-[2px]">
                             <div class="absolute top-0 left-0 w-full h-full">
-                                <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-blob"></div>
+                                <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-green-500/20 rounded-full blur-3xl animate-blob"></div>
                                 <div class="absolute top-1/4 left-1/3 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
-                                <div class="absolute bottom-1/3 left-1/4 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl animate-blob animation-delay-4000"></div>
+                                <div class="absolute bottom-1/3 left-1/4 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl animate-blob animation-delay-4000"></div>
                             </div>
                         </div>
                     </div>
                     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center relative z-10">
                         <div class="max-w-4xl opacity-0 translate-y-10 transition-all duration-1000 group-[.swiper-slide-active]:opacity-100 group-[.swiper-slide-active]:translate-y-0 delay-500">
-                            <span class="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/20 backdrop-blur-md border border-blue-400/30 text-blue-300 rounded-full text-xs font-black uppercase tracking-[0.2em] mb-8">
-                                <span class="w-2 h-2 bg-blue-400 rounded-full animate-ping"></span>
+                            <span class="inline-flex items-center gap-2 px-4 py-2 bg-green-500/20 backdrop-blur-md border border-green-400/30 text-green-300 rounded-full text-xs font-black uppercase tracking-[0.2em] mb-8">
+                                <span class="w-2 h-2 bg-green-400 rounded-full animate-ping"></span>
                                 Secure Trading
                             </span>
                             <h2 class="text-5xl sm:text-7xl lg:text-[90px] xl:text-[100px] font-heading font-black text-white leading-[0.95] mb-8 tracking-tight">
@@ -117,7 +117,7 @@
                                 Join 1000+ verified vendors serving buyers across 50+ countries. Trusted, transparent, and efficient.
                             </p>
                             <div class="flex items-center gap-6">
-                                <a href="{{ route('register') }}" class="px-9 py-4.5 bg-white text-slate-900 rounded-full font-black text-sm tracking-wider uppercase hover:bg-blue-600 hover:text-white transition-all shadow-xl hover:scale-105 active:scale-95">
+                                <a href="{{ route('register') }}" class="px-9 py-4.5 bg-white text-slate-900 rounded-full font-black text-sm tracking-wider uppercase hover:bg-green-600 hover:text-white transition-all shadow-xl hover:scale-105 active:scale-95">
                                     Join Platform
                                 </a>
                             </div>
@@ -145,13 +145,13 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             {{-- Section heading --}}
             <div class="text-center mb-16 max-w-2xl mx-auto reveal-section">
-                <span class="inline-flex items-center gap-2 text-blue-600 font-black uppercase tracking-[0.25em] text-[10px] mb-5">
-                    <span class="w-6 h-[1px] bg-blue-600"></span>
+                <span class="inline-flex items-center gap-2 text-green-600 font-black uppercase tracking-[0.25em] text-[10px] mb-5">
+                    <span class="w-6 h-[1px] bg-green-600"></span>
                     Platform Benefits
-                    <span class="w-6 h-[1px] bg-blue-600"></span>
+                    <span class="w-6 h-[1px] bg-green-600"></span>
                 </span>
                 <h2 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-black text-slate-900 leading-[1.05]">
-                    Where Quality Meets <br><span class="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent italic">Trust</span>
+                    Where Quality Meets <br><span class="bg-gradient-to-r from-green-600 to-emerald-700 bg-clip-text text-transparent italic">Trust</span>
                 </h2>
             </div>
 
@@ -159,7 +159,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 mb-6">
                 
                 {{-- Card 1: Verified Vendors (Large - 2 cols, tall) --}}
-                <div class="lg:col-span-2 lg:row-span-2 relative rounded-3xl overflow-hidden group reveal-left shadow-2xl bg-gradient-to-br from-blue-600 via-blue-500 to-indigo-600 p-10">
+                <div class="lg:col-span-2 lg:row-span-2 relative rounded-3xl overflow-hidden group reveal-left shadow-2xl bg-gradient-to-br from-green-600 via-green-500 to-emerald-700 p-10">
                     <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.1)_0%,transparent_50%)]"></div>
                     <div class="relative z-10 h-full flex flex-col">
                         <div class="inline-flex items-center gap-2 w-fit px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full mb-6">
@@ -186,12 +186,12 @@
 
                 {{-- Card 2: 50+ Countries --}}
                 <div class="lg:col-span-2 relative rounded-3xl overflow-hidden group reveal-up shadow-xl bg-slate-900 p-8">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/20 rounded-full blur-3xl"></div>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-green-500/20 rounded-full blur-3xl"></div>
                     <div class="relative z-10">
                         <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                             <i class="fas fa-globe text-white text-2xl"></i>
                         </div>
-                        <div class="text-5xl font-black text-white mb-2">50<span class="text-blue-400">+</span></div>
+                        <div class="text-5xl font-black text-white mb-2">50<span class="text-green-400">+</span></div>
                         <h4 class="text-lg font-bold text-white mb-2">Countries</h4>
                         <p class="text-slate-400 text-sm">Connect with vendors and buyers worldwide</p>
                     </div>
@@ -199,10 +199,10 @@
 
                 {{-- Card 3: Secure Transactions --}}
                 <div class="lg:col-span-2 relative rounded-3xl overflow-hidden group reveal-up shadow-xl bg-white p-8 border border-slate-200">
-                    <div class="absolute bottom-0 right-0 w-32 h-32 bg-blue-100 rounded-full blur-3xl"></div>
+                    <div class="absolute bottom-0 right-0 w-32 h-32 bg-green-100 rounded-full blur-3xl"></div>
                     <div class="relative z-10">
-                        <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-all">
-                            <i class="fas fa-lock text-blue-600 text-2xl group-hover:text-white transition-colors"></i>
+                        <div class="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-green-600 transition-all">
+                            <i class="fas fa-lock text-green-600 text-2xl group-hover:text-white transition-colors"></i>
                         </div>
                         <h4 class="text-2xl font-black text-slate-900 mb-2">Secure<br/>Transactions</h4>
                         <p class="text-slate-600 text-sm">Protected payment processing and secure communication</p>
@@ -223,7 +223,7 @@
 
                 {{-- Card 5: 24/7 Support --}}
                 <div class="lg:col-span-2 relative rounded-3xl overflow-hidden group reveal-up shadow-xl bg-slate-50 p-8 border-2 border-slate-200">
-                    <div class="w-14 h-14 bg-blue-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <div class="w-14 h-14 bg-green-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <i class="fas fa-headset text-white text-2xl"></i>
                     </div>
                     <h4 class="text-2xl font-black text-slate-900 mb-2">24/7 Support</h4>
@@ -239,7 +239,7 @@
                         </div>
                         <h4 class="text-2xl font-black text-white mb-2">Start Trading<br/>Today</h4>
                         <p class="text-white/70 text-sm mb-6">Join thousands of businesses on our platform</p>
-                        <a href="{{ route('register') }}" class="mt-auto inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-600 rounded-xl font-bold text-sm hover:bg-amber-300 hover:text-slate-900 transition-all group-hover:gap-4 w-fit">
+                        <a href="{{ route('register') }}" class="mt-auto inline-flex items-center gap-2 px-6 py-3 bg-white text-green-600 rounded-xl font-bold text-sm hover:bg-amber-300 hover:text-slate-900 transition-all group-hover:gap-4 w-fit">
                             <span>Get Started</span>
                             <i class="fas fa-arrow-right text-xs"></i>
                         </a>
@@ -256,16 +256,16 @@
             <div class="flex flex-col lg:flex-row items-center gap-20 lg:gap-24">
                 {{-- Visual Story --}}
                 <div class="lg:w-1/2 relative reveal-left">
-                    <span class="text-blue-600 font-black uppercase tracking-[0.2em] text-xs mb-4 block">How It Works</span>
-                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-black text-slate-900 mb-10 leading-[1.05]">Your Path to <br> <span class="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent italic">Global Trade</span></h2>
+                    <span class="text-green-600 font-black uppercase tracking-[0.2em] text-xs mb-4 block">How It Works</span>
+                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-black text-slate-900 mb-10 leading-[1.05]">Your Path to <br> <span class="bg-gradient-to-r from-green-600 to-emerald-700 bg-clip-text text-transparent italic">Global Trade</span></h2>
                     <div class="relative group">
-                        <div class="absolute -inset-4 bg-blue-100 rounded-[50px] blur-2xl group-hover:bg-blue-200 transition-all opacity-0 group-hover:opacity-100"></div>
+                        <div class="absolute -inset-4 bg-green-100 rounded-[50px] blur-2xl group-hover:bg-blue-200 transition-all opacity-0 group-hover:opacity-100"></div>
                         <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=600&fit=crop" 
                              class="rounded-[50px] shadow-2xl relative z-10 transition-all duration-700 group-hover:scale-[1.01]" alt="B2B Trading Platform">
                         
                         <div class="absolute -bottom-10 -right-10 bg-white p-8 rounded-[30px] shadow-2xl z-20 max-w-[260px] hidden xl:block border border-slate-200">
                             <p class="text-slate-900 font-bold text-sm italic leading-relaxed">"Connecting businesses worldwide with trust, transparency, and efficiency at the core of everything we do."</p>
-                            <span class="text-blue-600 text-[10px] font-black uppercase tracking-widest mt-4 block">- Our Mission</span>
+                            <span class="text-green-600 text-[10px] font-black uppercase tracking-widest mt-4 block">- Our Mission</span>
                         </div>
                     </div>
                 </div>
@@ -274,14 +274,14 @@
                 <div class="lg:w-1/2 space-y-12 py-10">
                     <div class="relative pl-12 reveal-up">
                         <div class="absolute left-0 top-0 w-[2px] h-full bg-blue-200"></div>
-                        <div class="absolute left-[-5px] top-1.5 w-[12px] h-[12px] rounded-full bg-blue-600 shadow-lg shadow-blue-600/30"></div>
+                        <div class="absolute left-[-5px] top-1.5 w-[12px] h-[12px] rounded-full bg-green-600 shadow-lg shadow-green-600/30"></div>
                         <h4 class="text-2xl font-black text-slate-900 mb-3">1. Register & Verify</h4>
                         <p class="text-slate-600 leading-relaxed text-sm">Create your account and complete the verification process. We ensure all platform members are legitimate businesses.</p>
                     </div>
 
                     <div class="relative pl-12 reveal-up">
                         <div class="absolute left-0 top-0 w-[2px] h-full bg-blue-200"></div>
-                        <div class="absolute left-[-5px] top-1.5 w-[12px] h-[12px] rounded-full bg-blue-600 animate-pulse"></div>
+                        <div class="absolute left-[-5px] top-1.5 w-[12px] h-[12px] rounded-full bg-green-600 animate-pulse"></div>
                         <h4 class="text-2xl font-black text-slate-900 mb-3">2. Browse & Connect</h4>
                         <p class="text-slate-600 leading-relaxed text-sm">Search thousands of verified vendors, review their profiles, products, and ratings. Connect directly with suppliers.</p>
                     </div>
@@ -299,8 +299,8 @@
     {{-- [QUOTE] Platform Philosophy --}}
     <section class="py-24 lg:py-36 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="max-w-5xl mx-auto text-center bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white rounded-[50px] p-12 lg:p-20 shadow-2xl border border-slate-800 relative overflow-hidden group">
-                <div class="absolute top-0 right-0 w-80 h-80 bg-blue-500/10 rounded-full translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
+            <div class="max-w-5xl mx-auto text-center bg-gradient-to-br from-slate-900 via-green-900 to-indigo-900 text-white rounded-[50px] p-12 lg:p-20 shadow-2xl border border-slate-800 relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-80 h-80 bg-green-500/10 rounded-full translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
                 <i class="fas fa-quote-left text-amber-300/20 text-8xl mb-8"></i>
                 <h2 class="text-2xl sm:text-3xl lg:text-5xl font-heading font-bold leading-snug italic mb-10 tracking-tight max-w-4xl mx-auto">
                     "In global trade, trust is everything. <br> <span class="text-amber-300 underline decoration-amber-300/20">B2B Marketplace</span> connects businesses with verified partners worldwide."
@@ -314,11 +314,11 @@
     </section>
 
     {{-- [STATS] Platform Impact --}}
-    <section class="py-20 bg-blue-600 relative overflow-hidden shadow-2xl">
+    <section class="py-20 bg-green-600 relative overflow-hidden shadow-2xl">
         <div class="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/asfalt-dark.png')]"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
-                @foreach([['1000', 'Verified Vendors'], ['50', 'Countries Served'], ['10000', 'Products Listed'], ['99', 'Success Rate %']] as [$count, $label])
+                @foreach([['50', 'Verified Vendors'], ['20', 'Countries Served'], ['500', 'Products Listed'], ['99', 'Success Rate %']] as [$count, $label])
                 <div class="text-center group">
                     <div class="text-5xl sm:text-6xl font-heading font-black text-white mb-3 transition-transform group-hover:scale-105">
                         <span class="odometer" data-count="{{ $count }}">0</span><span class="text-2xl text-amber-300 inline-block -ml-1">+</span>
@@ -334,8 +334,8 @@
     <section class="py-24 lg:py-36 bg-white relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 lg:mb-24 max-w-3xl mx-auto">
-                <span class="text-blue-600 font-black uppercase tracking-[0.2em] text-xs mb-4 block">Trusted Partners</span>
-                <h2 class="text-4xl sm:text-5xl font-heading font-black text-slate-900 leading-none">Featured <br> <span class="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent italic">Verified Vendors</span></h2>
+                <span class="text-green-600 font-black uppercase tracking-[0.2em] text-xs mb-4 block">Trusted Partners</span>
+                <h2 class="text-4xl sm:text-5xl font-heading font-black text-slate-900 leading-none">Featured <br> <span class="bg-gradient-to-r from-green-600 to-emerald-700 bg-clip-text text-transparent italic">Verified Vendors</span></h2>
             </div>
 
             @php
@@ -349,7 +349,7 @@
             @if($featuredVendors->count() > 0)
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 @foreach($featuredVendors as $vendor)
-                <a href="{{ route('vendors.show', $vendor->slug) }}" class="group relative bg-white rounded-[32px] p-8 overflow-hidden hover:-translate-y-2 transition-all duration-500 shadow-xl border border-slate-200 hover:border-blue-200">
+                <a href="{{ route('vendors.show', $vendor->slug) }}" class="group relative bg-white rounded-[32px] p-8 overflow-hidden hover:-translate-y-2 transition-all duration-500 shadow-xl border border-slate-200 hover:border-green-200">
                     <div class="absolute top-6 right-6">
                         <span class="inline-flex items-center gap-1 px-3 py-1 bg-emerald-100 border border-emerald-200 rounded-full text-emerald-700 text-[9px] font-black uppercase tracking-wider">
                             <i class="fas fa-certificate text-[8px]"></i> Verified
@@ -361,12 +361,12 @@
                         <img src="{{ asset('storage/' . $vendor->logo) }}" alt="{{ $vendor->company_name }}" class="w-full h-full object-cover">
                     </div>
                     @else
-                    <div class="w-20 h-20 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl flex items-center justify-center text-white text-2xl font-black mb-6 group-hover:scale-110 transition-transform">
+                    <div class="w-20 h-20 bg-gradient-to-br from-green-600 to-emerald-700 rounded-2xl flex items-center justify-center text-white text-2xl font-black mb-6 group-hover:scale-110 transition-transform">
                         {{ substr($vendor->company_name, 0, 1) }}
                     </div>
                     @endif
 
-                    <h4 class="text-xl font-black text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">{{ $vendor->company_name }}</h4>
+                    <h4 class="text-xl font-black text-slate-900 mb-2 group-hover:text-green-600 transition-colors">{{ $vendor->company_name }}</h4>
                     
                     @if($vendor->category)
                     <p class="text-slate-600 text-xs font-medium mb-4">{{ $vendor->category->name }}</p>
@@ -374,7 +374,7 @@
 
                     <div class="flex items-center justify-between pt-4 border-t border-slate-200">
                         <div class="flex items-center gap-2">
-                            <i class="fas fa-box text-blue-600 text-xs"></i>
+                            <i class="fas fa-box text-green-600 text-xs"></i>
                             <span class="text-slate-900 font-bold text-sm">{{ $vendor->products_count }} Products</span>
                         </div>
                         @if($vendor->country)
@@ -389,7 +389,7 @@
             </div>
 
             <div class="text-center mt-12">
-                <a href="{{ route('vendors.index') }}" class="inline-flex items-center gap-3 px-8 py-4 bg-blue-600 text-white rounded-full font-black text-sm tracking-wider uppercase hover:bg-blue-700 transition-all shadow-xl hover:scale-105">
+                <a href="{{ route('vendors.index') }}" class="inline-flex items-center gap-3 px-8 py-4 bg-green-600 text-white rounded-full font-black text-sm tracking-wider uppercase hover:bg-green-700 transition-all shadow-xl hover:scale-105">
                     <span>View All Vendors</span>
                     <i class="fas fa-arrow-right text-xs"></i>
                 </a>
@@ -405,7 +405,7 @@
     {{-- [CTA] Call to Action --}}
     <section class="py-12 lg:py-24 bg-gradient-to-b from-slate-50 to-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-gradient-to-br from-blue-600 to-indigo-600 rounded-[40px] p-12 lg:p-20 text-center relative overflow-hidden reveal-section shadow-2xl">
+            <div class="bg-gradient-to-br from-green-600 to-emerald-700 rounded-[40px] p-12 lg:p-20 text-center relative overflow-hidden reveal-section shadow-2xl">
                 <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/asfalt-dark.png')] opacity-[0.08]"></div>
                 <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/10 to-transparent"></div>
                 <div class="absolute -top-32 -left-32 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
@@ -414,7 +414,7 @@
                     <h2 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-black text-white mb-6 leading-none">Ready to Start <span class="italic text-amber-300">Trading?</span></h2>
                     <p class="text-white/80 mb-10 text-sm sm:text-base leading-relaxed">Join thousands of businesses using our platform to source products, connect with suppliers, and grow their trade networks globally.</p>
                     <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <a href="{{ route('register') }}" class="w-full sm:w-auto px-10 py-5 bg-white text-blue-600 rounded-full font-black text-sm tracking-wider uppercase hover:bg-slate-900 hover:text-white transition-all shadow-lg scale-100 hover:scale-105 active:scale-95">
+                        <a href="{{ route('register') }}" class="w-full sm:w-auto px-10 py-5 bg-white text-green-600 rounded-full font-black text-sm tracking-wider uppercase hover:bg-slate-900 hover:text-white transition-all shadow-lg scale-100 hover:scale-105 active:scale-95">
                             Create Account
                         </a>
                         <a href="{{ route('contact') }}" class="flex items-center gap-3 text-white font-black text-sm tracking-wider uppercase group hover:text-amber-300 transition-colors">

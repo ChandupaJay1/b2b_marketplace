@@ -43,11 +43,11 @@
             <tr class="hover:bg-gray-50">
                 <td class="px-5 py-4">
                     <div class="flex items-center gap-3">
-                        <div class="w-9 h-9 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
+                        <div class="w-9 h-9 rounded-full bg-green-50 flex items-center justify-center flex-shrink-0">
                             @if($user->avatar)
                                 <img src="{{ $user->avatar }}" class="w-9 h-9 rounded-full object-cover" alt="">
                             @else
-                                <span class="text-blue-700 font-bold text-sm">{{ strtoupper(substr($user->name, 0, 1)) }}</span>
+                                <span class="text-green-700 font-bold text-sm">{{ strtoupper(substr($user->name, 0, 1)) }}</span>
                             @endif
                         </div>
                         <div>
@@ -69,7 +69,7 @@
                 <td class="px-5 py-4 text-gray-500 text-xs">{{ $user->created_at->format('M d, Y') }}</td>
                 <td class="px-5 py-4">
                     <div class="flex items-center justify-end gap-2">
-                        <a href="{{ route('admin.users.edit', $user) }}" class="text-xs text-blue-600 hover:text-blue-800 font-medium">Edit</a>
+                        <a href="{{ route('admin.users.edit', $user) }}" class="text-xs text-green-600 hover:text-blue-800 font-medium">Edit</a>
                         <form action="{{ route('admin.users.toggle-status', $user) }}" method="POST">
                             @csrf @method('PATCH')
                             <button type="submit" class="text-xs {{ $user->is_active ? 'text-red-600 hover:text-red-800' : 'text-green-600 hover:text-green-800' }} font-medium">

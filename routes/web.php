@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\ProfileController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\SocialAuthController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RfqController;
@@ -18,6 +19,7 @@ use App\Http\Controllers\Admin\ProductCategoryController as AdminProductCategory
 use App\Http\Controllers\Admin\ProductSubcategoryController as AdminProductSubcategory;
 use App\Http\Controllers\Admin\RfqController as AdminRfq;
 use App\Http\Controllers\Admin\ContactController as AdminContact;
+use App\Http\Controllers\Admin\GalleryController as AdminGallery;
 use Illuminate\Support\Facades\Route;
 
 // Public routes
@@ -36,12 +38,17 @@ Route::get('/products/{slug}', [ProductController::class, 'show'])->name('produc
 Route::get('/contact', [ContactController::class, 'show'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
+// Gallery
+Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
+
 // RFQ
 Route::get('/rfq', [RfqController::class, 'create'])->name('rfq.create');
 Route::post('/rfq', [RfqController::class, 'store'])->name('rfq.store');
 
 // API: Get vendor's product categories
 Route::get('/api/vendor/{vendor}/categories', [VendorController::class, 'getCategories'])->name('api.vendor.categories');
+// API: Get vendor's products
+Route::get('/api/vendor/{vendor}/products', [VendorController::class, 'getProducts'])->name('api.vendor.products');
 
 // Auth routes
 Route::middleware('guest')->group(function () {
@@ -102,4 +109,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->grou
     Route::get('/contacts', [AdminContact::class, 'index'])->name('contacts.index');
     Route::get('/contacts/{contact}', [AdminContact::class, 'show'])->name('contacts.show');
     Route::delete('/contacts/{contact}', [AdminContact::class, 'destroy'])->name('contacts.destroy');
+
+    // Gallery
+    Route::resource('gallery', AdminGallery::class);
 });

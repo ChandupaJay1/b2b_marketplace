@@ -40,6 +40,23 @@ class VendorController extends Controller
     }
 
     /**
+     * Get all active products for a vendor (AJAX — for RFQ form)
+     */
+    public function getProducts(Vendor $vendor)
+    {
+        $products = $vendor->allProducts()
+            ->where('products.is_active', true)
+            ->get()
+            ->map(fn($p) => [
+                'id'   => $p->id,
+                'name' => $p->name,
+                'sku'  => $p->sku,
+            ]);
+
+        return response()->json(['products' => $products]);
+    }
+
+    /**
      * Get product categories for a specific vendor (AJAX)
      */
     public function getCategories(Vendor $vendor)

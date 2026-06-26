@@ -25,11 +25,11 @@
             @endif
             <div class="p-6">
                 <div class="flex items-center gap-4 mb-4">
-                    <div class="w-16 h-16 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0 border">
+                    <div class="w-16 h-16 bg-green-50 rounded-xl flex items-center justify-center flex-shrink-0 border">
                         @if($vendor->logo)
                             <img src="{{ asset('storage/' . $vendor->logo) }}" class="w-14 h-14 object-contain rounded-xl">
                         @else
-                            <span class="text-2xl font-bold text-blue-700">{{ strtoupper(substr($vendor->company_name, 0, 1)) }}</span>
+                            <span class="text-2xl font-bold text-green-700">{{ strtoupper(substr($vendor->company_name, 0, 1)) }}</span>
                         @endif
                     </div>
                     <div>
@@ -57,7 +57,7 @@
         <div class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
             <div class="p-5 border-b border-gray-100 flex justify-between items-center">
                 <h3 class="font-bold text-gray-900">Products ({{ $vendor->products->count() }})</h3>
-                <a href="{{ route('admin.products.create') }}?vendor={{ $vendor->id }}" class="text-xs text-blue-600 hover:underline">+ Add Product</a>
+                <a href="{{ route('admin.products.create') }}?vendor={{ $vendor->id }}" class="text-xs text-green-600 hover:underline">+ Add Product</a>
             </div>
             @forelse($vendor->products->take(8) as $product)
             <div class="px-5 py-3 border-b border-gray-50 flex items-center justify-between">
@@ -73,13 +73,13 @@
                     </div>
                 </div>
                 <div class="flex items-center gap-3">
-                    @if($product->price) <span class="text-sm font-medium text-blue-700">${{ number_format($product->price, 2) }}</span> @endif
+                    @if($product->price) <span class="text-sm font-medium text-green-700">${{ number_format($product->price, 2) }}</span> @endif
                     <span class="{{ $product->is_active ? 'badge-green' : 'badge-gray' }} text-xs">{{ $product->is_active ? 'Active' : 'Inactive' }}</span>
-                    <a href="{{ route('admin.products.edit', $product) }}" class="text-xs text-gray-400 hover:text-blue-600">Edit</a>
+                    <a href="{{ route('admin.products.edit', $product) }}" class="text-xs text-gray-400 hover:text-green-600">Edit</a>
                 </div>
             </div>
             @empty
-            <p class="p-5 text-sm text-gray-400 text-center">No products yet. <a href="{{ route('admin.products.create') }}" class="text-blue-600 hover:underline">Add the first product</a>.</p>
+            <p class="p-5 text-sm text-gray-400 text-center">No products yet. <a href="{{ route('admin.products.create') }}" class="text-green-600 hover:underline">Add the first product</a>.</p>
             @endforelse
         </div>
     </div>
@@ -108,7 +108,7 @@
                     <dt class="text-gray-400 text-xs">{{ $k }}</dt>
                     <dd class="font-medium text-gray-900 mt-0.5">
                         @if($isLink)
-                            <a href="{{ $v }}" target="_blank" rel="noopener" class="text-blue-600 hover:underline break-all">{{ $v }}</a>
+                            <a href="{{ $v }}" target="_blank" rel="noopener" class="text-green-600 hover:underline break-all">{{ $v }}</a>
                         @else
                             {{ $v }}
                         @endif
@@ -135,7 +135,7 @@
         <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-5">
             <h3 class="font-bold text-gray-900 mb-3">Actions</h3>
             <div class="space-y-2">
-                <a href="{{ route('vendors.show', $vendor->slug) }}" target="_blank" class="flex items-center gap-2 text-sm text-blue-600 hover:underline">
+                <a href="{{ route('vendors.show', $vendor->slug) }}" target="_blank" class="flex items-center gap-2 text-sm text-green-600 hover:underline">
                     🌐 View on Website
                 </a>
                 <form action="{{ route('admin.vendors.destroy', $vendor) }}" method="POST" onsubmit="return confirm('Delete {{ $vendor->company_name }}? This will also delete all associated products.')">

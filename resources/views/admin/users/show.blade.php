@@ -10,11 +10,11 @@
 
     <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-6 mb-5">
         <div class="flex items-center gap-4 mb-5">
-            <div class="w-16 h-16 rounded-full bg-blue-50 border-4 border-white shadow flex items-center justify-center flex-shrink-0">
+            <div class="w-16 h-16 rounded-full bg-green-50 border-4 border-white shadow flex items-center justify-center flex-shrink-0">
                 @if($user->avatar)
                     <img src="{{ $user->avatar }}" class="w-16 h-16 rounded-full object-cover" alt="">
                 @else
-                    <span class="text-2xl font-bold text-blue-700">{{ strtoupper(substr($user->name, 0, 1)) }}</span>
+                    <span class="text-2xl font-bold text-green-700">{{ strtoupper(substr($user->name, 0, 1)) }}</span>
                 @endif
             </div>
             <div>
@@ -45,7 +45,7 @@
                 <p class="font-medium text-gray-900">{{ $user->vendor->company_name }}</p>
                 <p class="text-xs text-gray-500">{{ $user->vendor->country }}</p>
             </div>
-            <a href="{{ route('admin.vendors.show', $user->vendor) }}" class="text-blue-600 text-sm hover:underline font-medium">View →</a>
+            <a href="{{ route('admin.vendors.show', $user->vendor) }}" class="text-green-600 text-sm hover:underline font-medium">View →</a>
         </div>
     </div>
     @endif

@@ -32,12 +32,12 @@
         </div>
         <a href="{{ route('admin.vendors.index', ['status' => 'pending']) }}" class="text-xs text-yellow-700 hover:underline font-medium">Review →</a>
     </div>
-    <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 flex items-center justify-between">
+    <div class="bg-green-50 border border-green-200 rounded-xl p-4 flex items-center justify-between">
         <div>
             <p class="font-semibold text-blue-800 text-sm">New RFQs</p>
-            <p class="text-2xl font-bold text-blue-700">{{ $stats['new_rfqs'] }}</p>
+            <p class="text-2xl font-bold text-green-700">{{ $stats['new_rfqs'] }}</p>
         </div>
-        <a href="{{ route('admin.rfqs.index', ['status' => 'new']) }}" class="text-xs text-blue-700 hover:underline font-medium">View →</a>
+        <a href="{{ route('admin.rfqs.index', ['status' => 'new']) }}" class="text-xs text-green-700 hover:underline font-medium">View →</a>
     </div>
     <div class="bg-red-50 border border-red-200 rounded-xl p-4 flex items-center justify-between">
         <div>
@@ -53,13 +53,13 @@
     <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
         <div class="p-5 border-b border-gray-100 flex justify-between items-center">
             <h3 class="font-bold text-gray-900">Recent Vendors</h3>
-            <a href="{{ route('admin.vendors.index') }}" class="text-xs text-blue-600 hover:underline">View all</a>
+            <a href="{{ route('admin.vendors.index') }}" class="text-xs text-green-600 hover:underline">View all</a>
         </div>
         <div class="divide-y divide-gray-50">
             @forelse($recentVendors as $vendor)
             <div class="p-4 flex items-center gap-3">
-                <div class="w-9 h-9 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <span class="text-blue-700 font-bold text-sm">{{ strtoupper(substr($vendor->company_name, 0, 1)) }}</span>
+                <div class="w-9 h-9 bg-green-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <span class="text-green-700 font-bold text-sm">{{ strtoupper(substr($vendor->company_name, 0, 1)) }}</span>
                 </div>
                 <div class="flex-1 min-w-0">
                     <p class="font-medium text-sm text-gray-900 truncate">{{ $vendor->company_name }}</p>
@@ -83,7 +83,7 @@
     <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
         <div class="p-5 border-b border-gray-100 flex justify-between items-center">
             <h3 class="font-bold text-gray-900">Recent RFQs</h3>
-            <a href="{{ route('admin.rfqs.index') }}" class="text-xs text-blue-600 hover:underline">View all</a>
+            <a href="{{ route('admin.rfqs.index') }}" class="text-xs text-green-600 hover:underline">View all</a>
         </div>
         <div class="divide-y divide-gray-50">
             @forelse($recentRfqs as $rfq)

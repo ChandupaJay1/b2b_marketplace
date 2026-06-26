@@ -7,25 +7,25 @@
 @source '../**/*.js';
 
 @theme {
-    /* B2B Marketplace Brand Colors */
-    --color-primary:       #1a56db;   /* Strong trade blue */
-    --color-primary-dark:  #1340a8;   /* Deep navy blue */
+    /* B2B Marketplace Brand Colors — Green / Vegetation Theme */
+    --color-primary:       #16a34a;   /* Fresh green */
+    --color-primary-dark:  #15803d;   /* Deep forest green */
     --color-secondary:     #0f172a;   /* Deep slate / almost black */
     --color-secondary-light: #1e293b; /* Slate 800 */
-    --color-accent:        #f59e0b;   /* Amber gold */
-    --color-accent-dark:   #d97706;   /* Deep amber */
+    --color-accent:        #84cc16;   /* Lime / vegetation highlight */
+    --color-accent-dark:   #65a30d;   /* Deep lime */
     --color-success:       #10b981;   /* Emerald */
     --color-danger:        #ef4444;   /* Red */
-    --color-surface:       #f8fafc;   /* Cool white */
-    --color-surface-dark:  #f1f5f9;   /* Slate 100 */
-    --color-glass:         rgba(248, 250, 252, 0.80);
+    --color-surface:       #f0fdf4;   /* Green-tinted white */
+    --color-surface-dark:  #dcfce7;   /* Green 100 */
+    --color-glass:         rgba(240, 253, 244, 0.80);
     --color-glass-dark:    rgba(15, 23, 42, 0.85);
 
     /* Shadows */
     --shadow-premium:  0 20px 45px -12px rgba(15, 23, 42, 0.20);
     --shadow-glass:    0 8px 32px 0 rgba(15, 23, 42, 0.08);
-    --shadow-gold:     0 12px 28px -5px rgba(245, 158, 11, 0.30);
-    --shadow-blue:     0 12px 28px -5px rgba(26, 86, 219, 0.25);
+    --shadow-gold:     0 12px 28px -5px rgba(132, 204, 22, 0.30);
+    --shadow-blue:     0 12px 28px -5px rgba(22, 163, 74, 0.30);
 
     /* Typography */
     --font-sans:    'Inter', ui-sans-serif, system-ui, sans-serif;
@@ -117,7 +117,7 @@
 
     /* Dot grid background */
     .bg-dot-pattern {
-        background-image: radial-gradient(rgba(26,86,219,0.06) 1px, transparent 0),
+        background-image: radial-gradient(rgba(22,163,74,0.06) 1px, transparent 0),
                           radial-gradient(rgba(15,23,42,0.03) 1px, transparent 0);
         background-size: 24px 24px;
         background-position: 0 0, 12px 12px;
@@ -131,7 +131,7 @@
         background-clip: text;
     }
     .text-gradient-gold {
-        background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 50%, #f97316 100%);
+        background: linear-gradient(135deg, #84cc16 0%, #a3e635 50%, #16a34a 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -160,7 +160,7 @@
 
     /* Animated gradient background */
     .gradient-animated {
-        background: linear-gradient(-45deg, #ee7752, #1a56db, #f59e0b);
+        background: linear-gradient(-45deg, #15803d, #16a34a, #84cc16, #4ade80);
         background-size: 400% 400%;
         animation: gradient 15s ease infinite;
     }

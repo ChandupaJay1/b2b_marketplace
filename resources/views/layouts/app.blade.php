@@ -18,9 +18,9 @@
 <body class="bg-gradient-to-b from-slate-50 via-white to-slate-50 font-sans text-slate-700 overflow-x-hidden transition-colors duration-300">
 
 {{-- ══ PRELOADER ═══════════════════════════════════════════════════════════════════════════ --}}
-{{-- <div id="preloader" class="fixed inset-0 z-[9999] flex items-center justify-center bg-gradient-to-br from-indigo-900 via-blue-900 to-slate-900 transition-opacity duration-300 overflow-hidden">
+{{-- <div id="preloader" class="fixed inset-0 z-[9999] flex items-center justify-center bg-gradient-to-br from-indigo-900 via-green-900 to-slate-900 transition-opacity duration-300 overflow-hidden">
     <div class="absolute inset-0 opacity-20">
-        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-400 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-green-400 rounded-full blur-3xl animate-pulse"></div>
         <div class="absolute bottom-1/4 right-1/4 w-72 h-72 bg-indigo-400 rounded-full blur-3xl animate-pulse" style="animation-delay:.5s"></div>
     </div>
     <div class="relative flex flex-col items-center gap-6 px-4">
@@ -40,7 +40,7 @@
                 </svg>
             </div>
             <div class="relative w-20 h-20 flex items-center justify-center animate-float">
-                <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-2xl shadow-blue-500/50">
+                <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-700 rounded-2xl flex items-center justify-center shadow-2xl shadow-green-500/50">
                     <span class="text-white font-black text-3xl" style="font-family: var(--font-heading);">B</span>
                 </div>
             </div>
@@ -63,7 +63,7 @@
 
                 {{-- Logo --}}
                 <a href="{{ route('home') }}" class="flex items-center gap-2 group flex-shrink-0">
-                    <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <div class="w-8 h-8 bg-gradient-to-br from-green-500 to-emerald-700 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                         <span class="text-white font-black text-base" style="font-family: var(--font-heading);">B</span>
                     </div>
                     <span class="hidden sm:block font-heading font-bold text-white text-sm">B2B Marketplace</span>
@@ -75,6 +75,7 @@
                         ['home',            'Home',         route('home')],
                         ['vendors.index',   'Vendors',      route('vendors.index')],
                         ['products.index',  'Products',     route('products.index')],
+                        ['gallery',         'Gallery',      route('gallery')],
                         ['about',           'About',        route('about')],
                         ['contact',         'Contact',      route('contact')],
                     ] as [$routeName, $label, $url])
@@ -90,7 +91,7 @@
                 {{-- Right Actions --}}
                 <div class="flex items-center gap-4">
                     {{-- Get Quote Button --}}
-                    <a href="{{ route('rfq.create') }}" class="hidden md:inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors">
+                    <a href="{{ route('rfq.create') }}" class="hidden md:inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors">
                         <i class="fas fa-plus text-[10px]"></i>
                         <span>Get Quote</span>
                     </a>
@@ -100,7 +101,7 @@
                         {{-- Notification Bell --}}
                         <button class="relative w-9 h-9 flex items-center justify-center text-slate-400 hover:text-white hover:bg-[#2a2d3a] rounded-lg transition-all">
                             <i class="fas fa-bell text-sm"></i>
-                            <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-blue-500 rounded-full"></span>
+                            <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-green-500 rounded-full"></span>
                         </button>
 
                         {{-- User Dropdown --}}
@@ -109,7 +110,7 @@
                                 @if(Auth::user()->avatar)
                                     <img src="{{ Auth::user()->avatar }}" class="w-8 h-8 rounded-full object-cover ring-2 ring-[#2a2d3a]" alt="">
                                 @else
-                                    <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center">
+                                    <div class="w-8 h-8 bg-gradient-to-br from-green-500 to-emerald-700 rounded-full flex items-center justify-center">
                                         <span class="text-white font-bold text-xs">{{ strtoupper(substr(Auth::user()->name,0,1)) }}</span>
                                     </div>
                                 @endif
@@ -153,7 +154,7 @@
                         <a href="{{ route('login') }}" class="hidden sm:inline-flex text-sm font-semibold text-slate-400 hover:text-white transition-colors">
                             Login
                         </a>
-                        <a href="{{ route('register') }}" class="hidden sm:inline-flex bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors">
+                        <a href="{{ route('register') }}" class="hidden sm:inline-flex bg-green-600 hover:bg-green-700 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors">
                             Sign Up
                         </a>
                     @endauth
@@ -203,7 +204,7 @@
                     <a href="{{ route('login') }}" class="flex items-center justify-center px-4 py-2.5 rounded-lg border border-[#2a2d3a] font-semibold text-sm text-slate-300 hover:text-white hover:bg-[#2a2d3a] transition-all">
                         <i class="fas fa-sign-in-alt mr-2"></i> Login
                     </a>
-                    <a href="{{ route('register') }}" class="flex items-center justify-center px-4 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 font-semibold text-sm text-white transition-all">
+                    <a href="{{ route('register') }}" class="flex items-center justify-center px-4 py-2.5 rounded-lg bg-green-600 hover:bg-green-700 font-semibold text-sm text-white transition-all">
                         <i class="fas fa-user-plus mr-2"></i> Sign Up
                     </a>
                 @endguest
@@ -213,7 +214,7 @@
                             @if(Auth::user()->avatar)
                                 <img src="{{ Auth::user()->avatar }}" class="w-10 h-10 rounded-full object-cover ring-2 ring-[#2a2d3a]" alt="">
                             @else
-                                <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center">
+                                <div class="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-700 rounded-full flex items-center justify-center">
                                     <span class="text-white font-bold text-sm">{{ strtoupper(substr(Auth::user()->name,0,1)) }}</span>
                                 </div>
                             @endif
@@ -250,12 +251,12 @@
             
             {{-- Header with gradient --}}
             <div class="relative p-6 border-b border-white/10 overflow-hidden">
-                <div class="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-pink-600/20"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-green-600\/20 via-purple-600/20 to-pink-600/20"></div>
                 <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSA2MCAwIEwgMCAwIDAgNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMC41IiBvcGFjaXR5PSIwLjA1Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-30"></div>
                 
                 <div class="relative flex items-center justify-between">
                     <div class="flex items-center gap-3">
-                        <div class="w-11 h-11 bg-gradient-to-tr from-blue-500 via-purple-500 to-pink-500 rounded-xl flex items-center justify-center shadow-xl">
+                        <div class="w-11 h-11 bg-gradient-to-tr from-green-500 via-emerald-500 to-teal-500 rounded-xl flex items-center justify-center shadow-xl">
                             <span class="text-white font-black text-xl drop-shadow-lg" style="font-family: var(--font-heading);">B</span>
                         </div>
                         <div>
@@ -272,9 +273,10 @@
             {{-- Navigation Links --}}
             <div class="flex-1 overflow-y-auto p-5 space-y-2">
                 @foreach([
-                    [route('home'),           'Home',           'fas fa-home',         'from-blue-600 to-blue-500'],
+                    [route('home'),           'Home',           'fas fa-home',         'from-green-600 to-green-500'],
                     [route('vendors.index'),  'Browse Vendors', 'fas fa-store',        'from-purple-600 to-purple-500'],
-                    [route('products.index'), 'Browse Products','fas fa-boxes',        'from-indigo-600 to-indigo-500'],
+                    [route('products.index'), 'Browse Products','fas fa-boxes',        'from-emerald-600 to-emerald-500'],
+                    [route('gallery'),        'Gallery',        'fas fa-images',       'from-pink-600 to-pink-500'],
                     [route('about'),          'About Us',       'fas fa-info-circle',  'from-emerald-600 to-emerald-500'],
                     [route('contact'),        'Contact',        'fas fa-envelope',     'from-orange-600 to-orange-500'],
                 ] as [$url, $label, $icon, $gradient])
@@ -311,8 +313,8 @@
                         <span>Login to Account</span>
                     </a>
                     <a href="{{ route('register') }}" class="group relative overflow-hidden flex items-center justify-center gap-2.5 px-6 py-4 rounded-2xl font-bold text-[15px] text-white transition-all">
-                        <div class="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600"></div>
-                        <div class="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 blur opacity-30 group-hover:opacity-50 transition-opacity"></div>
+                        <div class="absolute inset-0 bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600"></div>
+                        <div class="absolute inset-0 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 blur opacity-30 group-hover:opacity-50 transition-opacity"></div>
                         <i class="fas fa-sparkles text-base relative z-10"></i> 
                         <span class="relative z-10 drop-shadow">Create Account</span>
                     </a>
@@ -324,7 +326,7 @@
                             @if(Auth::user()->avatar)
                                 <img src="{{ Auth::user()->avatar }}" class="w-12 h-12 rounded-xl object-cover ring-2 ring-purple-500/50 shadow-lg" alt="">
                             @else
-                                <div class="w-12 h-12 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-xl flex items-center justify-center shadow-lg">
+                                <div class="w-12 h-12 bg-gradient-to-br from-green-500 via-emerald-500 to-teal-500 rounded-xl flex items-center justify-center shadow-lg">
                                     <span class="text-white font-bold text-base drop-shadow">{{ strtoupper(substr(Auth::user()->name,0,1)) }}</span>
                                 </div>
                             @endif
@@ -336,8 +338,8 @@
                     </div>
 
                     <a href="{{ route('profile') }}" class="flex items-center gap-3.5 px-5 py-3.5 text-sm font-bold text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all group border border-transparent hover:border-white/10">
-                        <div class="w-9 h-9 bg-blue-500/20 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-user text-blue-400"></i>
+                        <div class="w-9 h-9 bg-green-500/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-user text-green-400"></i>
                         </div>
                         <span>My Profile</span>
                         <i class="fas fa-arrow-right text-[10px] ml-auto opacity-0 group-hover:opacity-100 transition-opacity"></i>
@@ -397,8 +399,8 @@
 <footer class="bg-gradient-to-b from-slate-900 via-slate-800 to-slate-950 text-white relative overflow-hidden">
     {{-- Background decoration --}}
     <div class="absolute inset-0 opacity-30">
-        <div class="absolute top-0 right-0 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 left-0 w-80 h-80 bg-indigo-500 rounded-full blur-3xl"></div>
+        <div class="absolute top-0 right-0 w-96 h-96 bg-green-500 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-80 h-80 bg-emerald-500 rounded-full blur-3xl"></div>
     </div>
 
     {{-- Newsletter Section --}}
@@ -408,15 +410,15 @@
                 <div>
                     <span class="text-amber-400 text-xs font-bold uppercase tracking-[0.25em] block mb-3">Stay Updated</span>
                     <h3 class="font-heading font-black text-2xl md:text-3xl leading-snug mb-2">
-                        Latest <span class="bg-gradient-to-r from-blue-400 via-indigo-400 to-blue-400 bg-clip-text text-transparent">Vendors & Products</span>
+                        Latest <span class="bg-gradient-to-r from-green-400 via-emerald-400 to-green-400 bg-clip-text text-transparent">Vendors & Products</span>
                     </h3>
                     <p class="text-slate-400 text-sm">Never miss new opportunities from verified manufacturers</p>
                 </div>
                 <form class="flex flex-col sm:flex-row gap-3"
                       onsubmit="event.preventDefault();const btn=this.querySelector('button');btn.innerHTML='<i class=\'fas fa-check\'></i> Subscribed';btn.disabled=true;">
                     <input type="email" placeholder="your@company.com" required
-                        class="flex-1 bg-slate-700/50 border border-slate-600 text-white placeholder:text-slate-400 text-sm font-medium rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500/60 focus:border-transparent transition-all hover:bg-slate-700">
-                    <button type="submit" class="bg-gradient-to-r from-blue-600 to-indigo-600 hover:shadow-xl hover:shadow-blue-600/40 text-white font-bold text-xs uppercase tracking-wide px-7 py-3 rounded-lg transition-all duration-300 whitespace-nowrap hover:scale-105 active:scale-95">
+                        class="flex-1 bg-slate-700/50 border border-slate-600 text-white placeholder:text-slate-400 text-sm font-medium rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-green-500/60 focus:border-transparent transition-all hover:bg-slate-700">
+                    <button type="submit" class="bg-gradient-to-r from-green-600 to-emerald-700 hover:shadow-xl hover:shadow-green-600/40 text-white font-bold text-xs uppercase tracking-wide px-7 py-3 rounded-lg transition-all duration-300 whitespace-nowrap hover:scale-105 active:scale-95">
                         Subscribe
                     </button>
                 </form>
@@ -446,7 +448,7 @@
                         ['fab fa-twitter', '#'],
                         ['fab fa-instagram', '#'],
                     ] as [$icon, $url])
-                    <a href="{{ $url }}" class="w-8 h-8 rounded-lg bg-slate-700 border border-slate-600 flex items-center justify-center text-slate-400 hover:text-white hover:bg-blue-600 hover:border-blue-600 transition-all duration-300 text-xs hover:scale-110">
+                    <a href="{{ $url }}" class="w-8 h-8 rounded-lg bg-slate-700 border border-slate-600 flex items-center justify-center text-slate-400 hover:text-white hover:bg-green-600 hover:border-green-600 transition-all duration-300 text-xs hover:scale-110">
                         <i class="{{ $icon }}"></i>
                     </a>
                     @endforeach
@@ -456,17 +458,18 @@
             {{-- Quick Links --}}
             <div>
                 <h4 class="font-heading font-black text-white text-xs uppercase tracking-[0.2em] mb-5 flex items-center gap-2">
-                    <span class="w-1.5 h-1.5 bg-blue-400 rounded-full"></span> Platform
+                    <span class="w-1.5 h-1.5 bg-green-400 rounded-full"></span> Platform
                 </h4>
                 <ul class="space-y-3">
                     @foreach([
                         ['Home', route('home')],
                         ['Vendors', route('vendors.index')],
                         ['Products', route('products.index')],
+                        ['Gallery', route('gallery')],
                         ['About Us', route('about')],
                     ] as [$label, $url])
-                    <li><a href="{{ $url }}" class="text-slate-400 text-xs hover:text-blue-400 transition-colors font-medium flex items-center gap-2 group">
-                        <span class="w-1 h-px bg-blue-400 opacity-0 group-hover:opacity-100 transition-opacity"></span>{{ $label }}
+                    <li><a href="{{ $url }}" class="text-slate-400 text-xs hover:text-green-400 transition-colors font-medium flex items-center gap-2 group">
+                        <span class="w-1 h-px bg-green-400 opacity-0 group-hover:opacity-100 transition-opacity"></span>{{ $label }}
                     </a></li>
                     @endforeach
                 </ul>
@@ -475,7 +478,7 @@
             {{-- For Buyers --}}
             <div>
                 <h4 class="font-heading font-black text-white text-xs uppercase tracking-[0.2em] mb-5 flex items-center gap-2">
-                    <span class="w-1.5 h-1.5 bg-blue-400 rounded-full"></span> For Buyers
+                    <span class="w-1.5 h-1.5 bg-green-400 rounded-full"></span> For Buyers
                 </h4>
                 <ul class="space-y-3">
                     @foreach([
@@ -484,8 +487,8 @@
                         ['Browse Products', route('products.index')],
                         ['Contact Support', route('contact')],
                     ] as [$label, $url])
-                    <li><a href="{{ $url }}" class="text-slate-400 text-xs hover:text-blue-400 transition-colors font-medium flex items-center gap-2 group">
-                        <span class="w-1 h-px bg-blue-400 opacity-0 group-hover:opacity-100 transition-opacity"></span>{{ $label }}
+                    <li><a href="{{ $url }}" class="text-slate-400 text-xs hover:text-green-400 transition-colors font-medium flex items-center gap-2 group">
+                        <span class="w-1 h-px bg-green-400 opacity-0 group-hover:opacity-100 transition-opacity"></span>{{ $label }}
                     </a></li>
                     @endforeach
                 </ul>
@@ -494,24 +497,24 @@
             {{-- Support --}}
             <div>
                 <h4 class="font-heading font-black text-white text-xs uppercase tracking-[0.2em] mb-5 flex items-center gap-2">
-                    <span class="w-1.5 h-1.5 bg-blue-400 rounded-full"></span> Contact
+                    <span class="w-1.5 h-1.5 bg-green-400 rounded-full"></span> Contact
                 </h4>
                 <div class="space-y-3.5">
                     <div>
                         <p class="text-xs text-slate-400 font-bold mb-1">Email</p>
-                        <a href="mailto:info@b2bmarket.com" class="text-slate-300 text-xs hover:text-blue-400 transition-colors">info@b2bmarket.com</a>
+                        <a href="mailto:info@b2bmarket.com" class="text-slate-300 text-xs hover:text-green-400 transition-colors">info@b2bmarket.com</a>
                     </div>
                     <div>
                         <p class="text-xs text-slate-400 font-bold mb-1">Phone</p>
-                        <a href="tel:+15551234567" class="text-slate-300 text-xs hover:text-blue-400 transition-colors">+1 (555) 123-4567</a>
+                        <a href="tel:+15551234567" class="text-slate-300 text-xs hover:text-green-400 transition-colors">+1 (555) 123-4567</a>
                     </div>
                     <div class="pt-2">
                         @auth
-                            <a href="{{ route('profile') }}" class="inline-flex items-center gap-2 text-blue-400 text-xs font-bold hover:text-blue-300 transition-colors">
+                            <a href="{{ route('profile') }}" class="inline-flex items-center gap-2 text-green-400 text-xs font-bold hover:text-green-300 transition-colors">
                                 <i class="fas fa-user"></i> Account
                             </a>
                         @else
-                            <a href="{{ route('register') }}" class="inline-flex items-center gap-2 text-blue-400 text-xs font-bold hover:text-blue-300 transition-colors">
+                            <a href="{{ route('register') }}" class="inline-flex items-center gap-2 text-green-400 text-xs font-bold hover:text-green-300 transition-colors">
                                 <i class="fas fa-user-plus"></i> Register Free
                             </a>
                         @endauth
@@ -523,7 +526,7 @@
         {{-- Footer bottom --}}
         <div class="border-t border-slate-700 pt-8 md:pt-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-medium">
             <p>&copy; {{ date('Y') }} B2B Marketplace. All rights reserved.</p>
-            <p class="flex items-center gap-2">Built with <i class="fas fa-heart text-red-500"></i> using Laravel & Tailwind</p>
+            <p class="flex items-center gap-2">&copy; Developed By NerdTech Labs.</p>
         </div>
     </div>
 </footer>

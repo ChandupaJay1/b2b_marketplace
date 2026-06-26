@@ -15,7 +15,7 @@
         {{-- Logo --}}
         <div class="h-16 flex items-center justify-between px-6 bg-gray-950 flex-shrink-0">
             <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-2">
-                <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                <div class="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center">
                     <span class="text-white font-bold">B</span>
                 </div>
                 <span class="font-bold text-white text-sm">B2B Admin</span>
@@ -30,7 +30,7 @@
             @php
                 function adminNavLink($route, $icon, $label, $activeRoutes = null) {
                     $isActive = $activeRoutes ? request()->routeIs($activeRoutes) : request()->routeIs($route);
-                    $activeClass = $isActive ? 'bg-blue-700 text-white' : 'text-gray-400 hover:bg-gray-800 hover:text-white';
+                    $activeClass = $isActive ? 'bg-green-700 text-white' : 'text-gray-400 hover:bg-gray-800 hover:text-white';
                     echo '<a href="' . route($route) . '" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ' . $activeClass . '">' .
                          '<span class="text-lg">' . $icon . '</span>' . $label . '</a>';
                 }
@@ -38,47 +38,54 @@
 
             <div class="mb-2">
                 <p class="px-3 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wider">Overview</p>
-                <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors {{ request()->routeIs('admin.dashboard') ? 'bg-blue-700 text-white' : 'text-gray-400 hover:bg-gray-800 hover:text-white' }}">
+                <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors {{ request()->routeIs('admin.dashboard') ? 'bg-green-700 text-white' : 'text-gray-400 hover:bg-gray-800 hover:text-white' }}">
                     <span>📊</span> Dashboard
                 </a>
             </div>
 
             <div class="mb-2">
                 <p class="px-3 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wider mt-3">User Management</p>
-                <a href="{{ route('admin.users.index') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors {{ request()->routeIs('admin.users.*') ? 'bg-blue-700 text-white' : 'text-gray-400 hover:bg-gray-800 hover:text-white' }}">
+                <a href="{{ route('admin.users.index') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors {{ request()->routeIs('admin.users.*') ? 'bg-green-700 text-white' : 'text-gray-400 hover:bg-gray-800 hover:text-white' }}">
                     <span>👥</span> Users
                 </a>
             </div>
 
             <div class="mb-2">
                 <p class="px-3 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wider mt-3">Vendor Management</p>
-                <a href="{{ route('admin.vendor-categories.index') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors {{ request()->routeIs('admin.vendor-categories.*') ? 'bg-blue-700 text-white' : 'text-gray-400 hover:bg-gray-800 hover:text-white' }}">
+                <a href="{{ route('admin.vendor-categories.index') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors {{ request()->routeIs('admin.vendor-categories.*') ? 'bg-green-700 text-white' : 'text-gray-400 hover:bg-gray-800 hover:text-white' }}">
                     <span>📁</span> Vendor Categories
                 </a>
-                <a href="{{ route('admin.vendors.index') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors {{ request()->routeIs('admin.vendors.*') ? 'bg-blue-700 text-white' : 'text-gray-400 hover:bg-gray-800 hover:text-white' }}">
+                <a href="{{ route('admin.vendors.index') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors {{ request()->routeIs('admin.vendors.*') ? 'bg-green-700 text-white' : 'text-gray-400 hover:bg-gray-800 hover:text-white' }}">
                     <span>🏭</span> Vendors
                 </a>
             </div>
 
             <div class="mb-2">
                 <p class="px-3 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wider mt-3">Product Management</p>
-                <a href="{{ route('admin.product-categories.index') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors {{ request()->routeIs('admin.product-categories.*') ? 'bg-blue-700 text-white' : 'text-gray-400 hover:bg-gray-800 hover:text-white' }}">
+                <a href="{{ route('admin.product-categories.index') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors {{ request()->routeIs('admin.product-categories.*') ? 'bg-green-700 text-white' : 'text-gray-400 hover:bg-gray-800 hover:text-white' }}">
                     <span>📂</span> Product Categories
                 </a>
-                <a href="{{ route('admin.product-subcategories.index') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors {{ request()->routeIs('admin.product-subcategories.*') ? 'bg-blue-700 text-white' : 'text-gray-400 hover:bg-gray-800 hover:text-white' }}">
+                <a href="{{ route('admin.product-subcategories.index') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors {{ request()->routeIs('admin.product-subcategories.*') ? 'bg-green-700 text-white' : 'text-gray-400 hover:bg-gray-800 hover:text-white' }}">
                     <span>🗂️</span> Subcategories
                 </a>
-                <a href="{{ route('admin.products.index') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors {{ request()->routeIs('admin.products.*') ? 'bg-blue-700 text-white' : 'text-gray-400 hover:bg-gray-800 hover:text-white' }}">
+                <a href="{{ route('admin.products.index') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors {{ request()->routeIs('admin.products.*') ? 'bg-green-700 text-white' : 'text-gray-400 hover:bg-gray-800 hover:text-white' }}">
                     <span>📦</span> Products
                 </a>
             </div>
 
             <div class="mb-2">
+                <p class="px-3 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wider mt-3">Content</p>
+                <a href="{{ route('admin.gallery.index') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors {{ request()->routeIs('admin.gallery.*') ? 'bg-green-700 text-white' : 'text-gray-400 hover:bg-gray-800 hover:text-white' }}">
+                    <span>🖼️</span> Gallery
+                </a>
+            </div>
+
+            <div class="mb-2">
                 <p class="px-3 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wider mt-3">Inquiries</p>
-                <a href="{{ route('admin.rfqs.index') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors {{ request()->routeIs('admin.rfqs.*') ? 'bg-blue-700 text-white' : 'text-gray-400 hover:bg-gray-800 hover:text-white' }}">
+                <a href="{{ route('admin.rfqs.index') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors {{ request()->routeIs('admin.rfqs.*') ? 'bg-green-700 text-white' : 'text-gray-400 hover:bg-gray-800 hover:text-white' }}">
                     <span>📋</span> RFQs
                 </a>
-                <a href="{{ route('admin.contacts.index') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors {{ request()->routeIs('admin.contacts.*') ? 'bg-blue-700 text-white' : 'text-gray-400 hover:bg-gray-800 hover:text-white' }}">
+                <a href="{{ route('admin.contacts.index') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors {{ request()->routeIs('admin.contacts.*') ? 'bg-green-700 text-white' : 'text-gray-400 hover:bg-gray-800 hover:text-white' }}">
                     <span>✉️</span> Messages
                 </a>
             </div>
@@ -87,7 +94,7 @@
         {{-- User Profile --}}
         <div class="border-t border-gray-800 p-4 flex-shrink-0">
             <div class="flex items-center gap-3 mb-3">
-                <div class="w-9 h-9 bg-blue-700 rounded-full flex items-center justify-center flex-shrink-0">
+                <div class="w-9 h-9 bg-green-700 rounded-full flex items-center justify-center flex-shrink-0">
                     <span class="text-white font-bold text-sm">{{ strtoupper(substr(Auth::user()->name, 0, 1)) }}</span>
                 </div>
                 <div class="min-w-0">
@@ -158,5 +165,7 @@
         overlay.classList.add('hidden');
     });
 </script>
+
+@stack('scripts')
 </body>
 </html>

@@ -25,7 +25,7 @@
                 <td class="px-5 py-4 text-gray-500">{{ $cat->products_count }}</td>
                 <td class="px-5 py-4"><span class="{{ $cat->is_active ? 'badge-green' : 'badge-gray' }}">{{ $cat->is_active ? 'Active' : 'Inactive' }}</span></td>
                 <td class="px-5 py-4 text-right">
-                    <a href="{{ route('admin.product-categories.edit', $cat) }}" class="text-xs text-blue-600 hover:text-blue-800 font-medium mr-3">Edit</a>
+                    <a href="{{ route('admin.product-categories.edit', $cat) }}" class="text-xs text-green-600 hover:text-blue-800 font-medium mr-3">Edit</a>
                     <form action="{{ route('admin.product-categories.destroy', $cat) }}" method="POST" class="inline" onsubmit="return confirm('Delete?')">
                         @csrf @method('DELETE')
                         <button type="submit" class="text-xs text-gray-400 hover:text-red-600 font-medium">Delete</button>
