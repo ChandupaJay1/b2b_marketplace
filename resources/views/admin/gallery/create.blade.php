@@ -3,15 +3,15 @@
 
 @section('content')
 <div class="flex items-center gap-3 mb-6">
-    <a href="{{ route('admin.gallery.index') }}" class="text-gray-400 hover:text-gray-600 transition-colors">
+    <a href="{{ route('admin.gallery.index') }}" class="text-secondary/50 hover:text-secondary/60 transition-colors">
         <i class="fas fa-arrow-left"></i>
     </a>
-    <h2 class="text-lg font-bold text-gray-900">Add Gallery Image</h2>
+    <h2 class="text-lg font-bold text-secondary">Add Gallery Image</h2>
 </div>
 
 <div class="max-w-2xl">
     <form action="{{ route('admin.gallery.store') }}" method="POST" enctype="multipart/form-data"
-          class="bg-white rounded-xl border border-gray-100 shadow-sm p-6 space-y-5">
+          class="bg-white rounded-xl border border-secondary/5 shadow-sm p-6 space-y-5">
         @csrf
 
         {{-- Image Upload --}}
@@ -20,16 +20,16 @@
             {{-- Hidden input OUTSIDE the drop zone --}}
             <input type="file" name="image" id="image-input" accept="image/*" required class="hidden">
             <div id="drop-zone"
-                 class="border-2 border-dashed border-gray-200 rounded-xl p-8 text-center cursor-pointer hover:border-green-400 hover:bg-green-50/30 transition-all">
+                 class="border-2 border-dashed border-secondary/10 rounded-xl p-8 text-center cursor-pointer hover:border-primary hover:bg-primary/10/30 transition-all">
                 <div id="preview-container" class="hidden mb-4">
                     <img id="preview-img" src="" alt="" class="max-h-52 mx-auto rounded-xl object-cover shadow">
                 </div>
                 <div id="upload-placeholder">
-                    <div class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mx-auto mb-3">
-                        <i class="fas fa-cloud-upload-alt text-gray-400 text-xl"></i>
+                    <div class="w-12 h-12 bg-surface rounded-xl flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-cloud-upload-alt text-secondary/50 text-xl"></i>
                     </div>
-                    <p class="text-sm font-semibold text-gray-600">Click to upload or drag & drop</p>
-                    <p class="text-xs text-gray-400 mt-1">PNG, JPG, WEBP — max 5MB</p>
+                    <p class="text-sm font-semibold text-secondary/60">Click to upload or drag & drop</p>
+                    <p class="text-xs text-secondary/50 mt-1">PNG, JPG, WEBP — max 5MB</p>
                 </div>
             </div>
             @error('image')<p class="text-red-500 text-xs mt-1">{{ $message }}</p>@enderror
@@ -79,14 +79,14 @@
             <div class="flex items-end pb-1">
                 <label class="flex items-center gap-2 cursor-pointer">
                     <input type="checkbox" name="is_active" value="1" checked
-                           class="rounded border-gray-300 text-green-600 accent-green-600">
-                    <span class="text-sm font-medium text-gray-700">Active (visible on site)</span>
+                           class="rounded border-secondary/20 text-primary accent-primary">
+                    <span class="text-sm font-medium text-secondary/70">Active (visible on site)</span>
                 </label>
             </div>
         </div>
 
         {{-- Actions --}}
-        <div class="flex gap-3 pt-2 border-t border-gray-100">
+        <div class="flex gap-3 pt-2 border-t border-secondary/5">
             <button type="submit" class="btn-primary py-2.5 px-6">
                 <i class="fas fa-save mr-1.5"></i> Save Image
             </button>
@@ -107,14 +107,14 @@
 
     dropZone.addEventListener('dragover', e => {
         e.preventDefault();
-        dropZone.classList.add('border-green-400', 'bg-green-50/30');
+        dropZone.classList.add('border-primary', 'bg-primary/10/30');
     });
     dropZone.addEventListener('dragleave', () => {
-        dropZone.classList.remove('border-green-400', 'bg-green-50/30');
+        dropZone.classList.remove('border-primary', 'bg-primary/10/30');
     });
     dropZone.addEventListener('drop', e => {
         e.preventDefault();
-        dropZone.classList.remove('border-green-400', 'bg-green-50/30');
+        dropZone.classList.remove('border-primary', 'bg-primary/10/30');
         if (e.dataTransfer.files[0]) {
             input.files = e.dataTransfer.files;
             showPreview(e.dataTransfer.files[0]);

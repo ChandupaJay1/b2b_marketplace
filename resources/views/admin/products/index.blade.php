@@ -3,11 +3,11 @@
 
 @section('content')
 <div class="flex items-center justify-between mb-6">
-    <h2 class="text-lg font-bold text-gray-900">All Products</h2>
+    <h2 class="text-lg font-bold text-secondary">All Products</h2>
     <a href="{{ route('admin.products.create') }}" class="btn-primary text-sm py-2.5">+ Add Product</a>
 </div>
 
-<div class="bg-white rounded-xl border border-gray-100 shadow-sm p-4 mb-5">
+<div class="bg-white rounded-xl border border-secondary/5 shadow-sm p-4 mb-5">
     <form method="GET" class="flex flex-wrap gap-4 items-end">
         <div class="flex-1 min-w-40">
             <label class="label">Search</label>
@@ -36,56 +36,56 @@
     </form>
 </div>
 
-<div class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+<div class="bg-white rounded-xl border border-secondary/5 shadow-sm overflow-hidden">
     <table class="w-full text-sm">
-        <thead class="bg-gray-50 border-b border-gray-100">
+        <thead class="bg-surface border-b border-secondary/5">
             <tr>
-                <th class="px-5 py-3.5 text-left text-xs font-semibold text-gray-500 uppercase">Product</th>
-                <th class="px-5 py-3.5 text-left text-xs font-semibold text-gray-500 uppercase">Vendor</th>
-                <th class="px-5 py-3.5 text-left text-xs font-semibold text-gray-500 uppercase">Category</th>
-                <th class="px-5 py-3.5 text-left text-xs font-semibold text-gray-500 uppercase">Price</th>
-                <th class="px-5 py-3.5 text-left text-xs font-semibold text-gray-500 uppercase">Status</th>
-                <th class="px-5 py-3.5 text-right text-xs font-semibold text-gray-500 uppercase">Actions</th>
+                <th class="px-5 py-3.5 text-left text-xs font-semibold text-secondary/50 uppercase">Product</th>
+                <th class="px-5 py-3.5 text-left text-xs font-semibold text-secondary/50 uppercase">Vendor</th>
+                <th class="px-5 py-3.5 text-left text-xs font-semibold text-secondary/50 uppercase">Category</th>
+                <th class="px-5 py-3.5 text-left text-xs font-semibold text-secondary/50 uppercase">Price</th>
+                <th class="px-5 py-3.5 text-left text-xs font-semibold text-secondary/50 uppercase">Status</th>
+                <th class="px-5 py-3.5 text-right text-xs font-semibold text-secondary/50 uppercase">Actions</th>
             </tr>
         </thead>
-        <tbody class="divide-y divide-gray-50">
+        <tbody class="divide-y divide-secondary/5">
             @forelse($products as $product)
-            <tr class="hover:bg-gray-50">
+            <tr class="hover:bg-surface">
                 <td class="px-5 py-4">
                     <div class="flex items-center gap-3">
                         @if($product->main_image)
                             <img src="{{ asset('storage/' . $product->main_image) }}" class="w-9 h-9 rounded-xl object-cover">
                         @else
-                            <div class="w-9 h-9 bg-gray-100 rounded-xl flex items-center justify-center text-gray-400">📦</div>
+                            <div class="w-9 h-9 bg-surface rounded-xl flex items-center justify-center text-secondary/50">📦</div>
                         @endif
                         <div>
-                            <p class="font-medium text-gray-900">{{ $product->name }}</p>
-                            <p class="text-xs text-gray-400">{{ $product->sku }}</p>
+                            <p class="font-medium text-secondary">{{ $product->name }}</p>
+                            <p class="text-xs text-secondary/50">{{ $product->sku }}</p>
                         </div>
                     </div>
                 </td>
-                <td class="px-5 py-4 text-gray-500 text-xs">{{ $product->vendor?->company_name }}</td>
-                <td class="px-5 py-4 text-gray-500 text-xs">{{ $product->category?->name }}</td>
-                <td class="px-5 py-4 text-gray-700 font-medium">${{ $product->price ? number_format($product->price, 2) : '—' }}</td>
+                <td class="px-5 py-4 text-secondary/50 text-xs">{{ $product->vendor?->company_name }}</td>
+                <td class="px-5 py-4 text-secondary/50 text-xs">{{ $product->category?->name }}</td>
+                <td class="px-5 py-4 text-secondary/70 font-medium">${{ $product->price ? number_format($product->price, 2) : '—' }}</td>
                 <td class="px-5 py-4">
                     <div class="flex gap-1">
-                        <span class="{{ $product->is_active ? 'badge-green' : 'badge-gray' }} text-xs">{{ $product->is_active ? 'Active' : 'Inactive' }}</span>
+                        <span class="{{ $product->is_active ? 'badge-success' : 'badge-gray' }} text-xs">{{ $product->is_active ? 'Active' : 'Inactive' }}</span>
                         @if($product->is_featured) <span class="badge-yellow text-xs">Featured</span> @endif
                     </div>
                 </td>
                 <td class="px-5 py-4 text-right">
-                    <a href="{{ route('admin.products.edit', $product) }}" class="text-xs text-green-600 hover:text-blue-800 font-medium mr-3">Edit</a>
+                    <a href="{{ route('admin.products.edit', $product) }}" class="text-xs text-primary hover:text-blue-800 font-medium mr-3">Edit</a>
                     <form action="{{ route('admin.products.destroy', $product) }}" method="POST" class="inline" onsubmit="return confirm('Delete this product?')">
                         @csrf @method('DELETE')
-                        <button type="submit" class="text-xs text-gray-400 hover:text-red-600 font-medium">Delete</button>
+                        <button type="submit" class="text-xs text-secondary/50 hover:text-red-600 font-medium">Delete</button>
                     </form>
                 </td>
             </tr>
             @empty
-            <tr><td colspan="6" class="px-5 py-10 text-center text-gray-400">No products found</td></tr>
+            <tr><td colspan="6" class="px-5 py-10 text-center text-secondary/50">No products found</td></tr>
             @endforelse
         </tbody>
     </table>
-    <div class="p-4 border-t border-gray-100">{{ $products->withQueryString()->links() }}</div>
+    <div class="p-4 border-t border-secondary/5">{{ $products->withQueryString()->links() }}</div>
 </div>
 @endsection

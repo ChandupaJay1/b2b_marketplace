@@ -9,8 +9,9 @@ class Rfq extends Model
     protected $table = 'rfqs';
 
     protected $fillable = [
-        'user_id', 'vendor_id', 'product_id', 'name', 'email', 'phone',
-        'company', 'country', 'product_description', 'quantity', 'unit',
+        'user_id', 'vendor_id', 'name', 'email', 'phone',
+        'company', 'country', 'city',
+        'product_category_id', 'target_price', 'delivery_location',
         'additional_requirements', 'status',
     ];
 
@@ -24,8 +25,8 @@ class Rfq extends Model
         return $this->belongsTo(Vendor::class);
     }
 
-    public function product()
+    public function products()
     {
-        return $this->belongsTo(Product::class);
+        return $this->hasMany(RfqProduct::class);
     }
 }

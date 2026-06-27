@@ -7,25 +7,25 @@
 @source '../**/*.js';
 
 @theme {
-    /* B2B Marketplace Brand Colors — Green / Vegetation Theme */
-    --color-primary:       #16a34a;   /* Fresh green */
-    --color-primary-dark:  #15803d;   /* Deep forest green */
-    --color-secondary:     #0f172a;   /* Deep slate / almost black */
-    --color-secondary-light: #1e293b; /* Slate 800 */
-    --color-accent:        #84cc16;   /* Lime / vegetation highlight */
-    --color-accent-dark:   #65a30d;   /* Deep lime */
-    --color-success:       #10b981;   /* Emerald */
+    /* B2B Marketplace Brand Colors — Green Theme */
+    --color-primary:       #5FBD73;   /* Primary Green */
+    --color-primary-dark:  #4b9b5e;   /* Primary Dark */
+    --color-secondary:     #2d2d2d;   /* Dark text / headings */
+    --color-secondary-light: #454545; /* Lighter secondary */
+    --color-accent:        #F8B803;   /* Yellow Accent */
+    --color-accent-dark:   #d9a003;   /* Dark Accent */
+    --color-success:       #5FBD73;   /* Success */
     --color-danger:        #ef4444;   /* Red */
-    --color-surface:       #f0fdf4;   /* Green-tinted white */
-    --color-surface-dark:  #dcfce7;   /* Green 100 */
-    --color-glass:         rgba(240, 253, 244, 0.80);
-    --color-glass-dark:    rgba(15, 23, 42, 0.85);
+    --color-surface:       #F4F4F4;   /* Page background */
+    --color-surface-dark:  #e8e8e8;   /* Surface variant */
+    --color-glass:         rgba(255, 255, 255, 0.70);
+    --color-glass-dark:    rgba(45, 45, 45, 0.85);
 
     /* Shadows */
-    --shadow-premium:  0 20px 45px -12px rgba(15, 23, 42, 0.20);
-    --shadow-glass:    0 8px 32px 0 rgba(15, 23, 42, 0.08);
-    --shadow-gold:     0 12px 28px -5px rgba(132, 204, 22, 0.30);
-    --shadow-blue:     0 12px 28px -5px rgba(22, 163, 74, 0.30);
+    --shadow-premium:  0 20px 45px -12px rgba(45, 45, 45, 0.20);
+    --shadow-glass:    0 8px 32px 0 rgba(45, 45, 45, 0.08);
+    --shadow-gold:     0 12px 28px -5px rgba(248, 184, 3, 0.30);
+    --shadow-blue:     0 12px 28px -5px rgba(95, 189, 115, 0.30);
 
     /* Typography */
     --font-sans:    'Inter', ui-sans-serif, system-ui, sans-serif;
@@ -117,8 +117,8 @@
 
     /* Dot grid background */
     .bg-dot-pattern {
-        background-image: radial-gradient(rgba(22,163,74,0.06) 1px, transparent 0),
-                          radial-gradient(rgba(15,23,42,0.03) 1px, transparent 0);
+        background-image: radial-gradient(rgba(95,189,115,0.06) 1px, transparent 0),
+                          radial-gradient(rgba(45,45,45,0.03) 1px, transparent 0);
         background-size: 24px 24px;
         background-position: 0 0, 12px 12px;
     }
@@ -131,7 +131,7 @@
         background-clip: text;
     }
     .text-gradient-gold {
-        background: linear-gradient(135deg, #84cc16 0%, #a3e635 50%, #16a34a 100%);
+        background: linear-gradient(135deg, #F8B803 0%, #fcd34d 50%, #d9a003 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -139,13 +139,13 @@
 
     /* Glass morphism */
     .glass {
-        background: rgba(248, 250, 252, 0.75);
+        background: rgba(255, 255, 255, 0.70);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
-        border: 1px solid rgba(15, 23, 42, 0.06);
+        border: 1px solid rgba(45, 45, 45, 0.06);
     }
     .glass-dark {
-        background: rgba(15, 23, 42, 0.82);
+        background: rgba(45, 45, 45, 0.82);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         border: 1px solid rgba(255, 255, 255, 0.06);
@@ -153,14 +153,14 @@
 
     /* Modern blur background */
     .bg-blur {
-        background: rgba(248, 250, 252, 0.7);
+        background: rgba(255, 255, 255, 0.7);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
     }
 
     /* Animated gradient background */
     .gradient-animated {
-        background: linear-gradient(-45deg, #15803d, #16a34a, #84cc16, #4ade80);
+        background: linear-gradient(-45deg, #4b9b5e, #5FBD73, #F8B803, #fcd34d);
         background-size: 400% 400%;
         animation: gradient 15s ease infinite;
     }
