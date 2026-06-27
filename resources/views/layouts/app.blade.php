@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'B2B Marketplace — Global Trade Platform')</title>
+    <title>@yield('title', 'Ethical Offerings Expo Market')</title>
     <meta name="description" content="@yield('meta_description', 'Discover local manufacturers and connect with verified vendors for international trade.')">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="{{ asset('images/logos/ethical_logo.jpeg') }}" type="image/jpeg">
     <!-- Swiper -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
@@ -63,10 +64,8 @@
 
                 {{-- Logo --}}
                 <a href="{{ route('home') }}" class="flex items-center gap-2 group flex-shrink-0">
-                    <div class="w-8 h-8 bg-gradient-to-br from-green-500 to-emerald-700 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <span class="text-white font-black text-base" style="font-family: var(--font-heading);">B</span>
-                    </div>
-                    <span class="hidden sm:block font-heading font-bold text-white text-sm">B2B Marketplace</span>
+                    <img src="{{ asset('images/logos/ethical_logo.jpeg') }}" alt="Ethical Offerings Expo Market logo" class="w-8 h-8 object-cover rounded-lg" />
+                    <span class="hidden sm:block font-heading font-bold text-white text-sm">Ethical Offerings Expo Market</span>
                 </a>
 
                 {{-- Desktop Nav Menu --}}
@@ -436,7 +435,7 @@
                         <span class="text-white font-black text-lg" style="font-family:var(--font-heading)">B</span>
                     </div>
                     <div>
-                        <p class="font-heading font-black text-white text-xs">B2B Marketplace</p>
+                        <p class="font-heading font-black text-white text-xs">Ethical Offerings Expo Market</p>
                         <p class="text-[8px] text-slate-400 uppercase tracking-[0.15em]">Global Trade</p>
                     </div>
                 </div>
@@ -525,7 +524,7 @@
 
         {{-- Footer bottom --}}
         <div class="border-t border-slate-700 pt-8 md:pt-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-medium">
-            <p>&copy; {{ date('Y') }} B2B Marketplace. All rights reserved.</p>
+            <p>&copy; {{ date('Y') }} Ethical Offerings Expo Market. All rights reserved.</p>
             <p class="flex items-center gap-2">&copy; Developed By NerdTech Labs.</p>
         </div>
     </div>
