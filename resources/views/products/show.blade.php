@@ -144,7 +144,7 @@
                 </p>
             </div>
             @if($product->vendors->count() > 1)
-            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-green-50 border border-green-200 text-green-700 text-xs font-bold rounded-full">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-primary/5 border border-primary/20 text-primary-dark text-xs font-bold rounded-full">
                 <i class="fas fa-balance-scale text-[10px]"></i> Price Comparison
             </span>
             @endif
@@ -176,7 +176,7 @@
                     </span>
                     @endif
                     @if($isCheapest)
-                    <span class="px-2.5 py-1 bg-green-500 text-white text-[9px] font-black uppercase tracking-widest rounded-full shadow-sm">
+                    <span class="px-2.5 py-1 bg-primary/50 text-white text-[9px] font-black uppercase tracking-widest rounded-full shadow-sm">
                         💰 Best Price
                     </span>
                     @endif

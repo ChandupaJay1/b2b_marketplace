@@ -8,11 +8,11 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {{-- Avatar & Quick Info --}}
         <div class="card p-6 text-center">
-            <div class="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden bg-green-50 border-4 border-white shadow">
+            <div class="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden bg-primary/5 border-4 border-white shadow">
                 @if($user->avatar)
                     <img src="{{ $user->avatar }}" alt="{{ $user->name }}" class="w-full h-full object-cover">
                 @else
-                    <div class="w-full h-full flex items-center justify-center text-3xl font-bold text-green-700">
+                    <div class="w-full h-full flex items-center justify-center text-3xl font-bold text-primary-dark">
                         {{ strtoupper(substr($user->name, 0, 1)) }}
                     </div>
                 @endif
