@@ -9,6 +9,7 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="{{ asset('images/logos/ethical_logo.jpeg') }}" type="image/jpeg">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @stack('styles')
