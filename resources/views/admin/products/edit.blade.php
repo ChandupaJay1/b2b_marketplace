@@ -3,9 +3,9 @@
 
 @section('content')
 <div class="max-w-2xl">
-    <div class="mb-6"><a href="{{ route('admin.products.index') }}" class="text-sm text-gray-500 hover:text-gray-700">← Back</a></div>
-    <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-6">
-        <h2 class="font-bold text-gray-900 text-lg mb-6">Edit: {{ $product->name }}</h2>
+    <div class="mb-6"><a href="{{ route('admin.products.index') }}" class="text-sm text-secondary/50 hover:text-secondary/70">← Back</a></div>
+    <div class="bg-white rounded-xl border border-secondary/5 shadow-sm p-6">
+        <h2 class="font-bold text-secondary text-lg mb-6">Edit: {{ $product->name }}</h2>
         <form action="{{ route('admin.products.update', $product) }}" method="POST" enctype="multipart/form-data" class="space-y-5">
             @csrf @method('PUT')
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -80,7 +80,7 @@
             </div>
             @if($product->images->count())
             <div>
-                <p class="text-sm font-medium text-gray-700 mb-2">Existing Gallery</p>
+                <p class="text-sm font-medium text-secondary/70 mb-2">Existing Gallery</p>
                 <div class="flex gap-2 flex-wrap">
                     @foreach($product->images as $img)
                         <img src="{{ asset('storage/' . $img->image) }}" class="w-16 h-16 object-cover rounded-xl border">
@@ -91,11 +91,11 @@
             <div class="flex items-center gap-6">
                 <div class="flex items-center gap-2">
                     <input type="checkbox" id="is_active" name="is_active" value="1" @checked(old('is_active', $product->is_active)) class="rounded">
-                    <label for="is_active" class="text-sm text-gray-700">Active</label>
+                    <label for="is_active" class="text-sm text-secondary/70">Active</label>
                 </div>
                 <div class="flex items-center gap-2">
                     <input type="checkbox" id="is_featured" name="is_featured" value="1" @checked(old('is_featured', $product->is_featured)) class="rounded">
-                    <label for="is_featured" class="text-sm text-gray-700">Featured</label>
+                    <label for="is_featured" class="text-sm text-secondary/70">Featured</label>
                 </div>
             </div>
             <div class="flex gap-3">

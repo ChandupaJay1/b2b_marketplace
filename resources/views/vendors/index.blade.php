@@ -90,7 +90,7 @@
                         {{-- Featured badge --}}
                         @if($vendor->is_featured)
                             <div class="absolute top-4 right-4">
-                                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-accent to-yellow-500 text-secondary text-[10px] font-black uppercase tracking-wider rounded-full shadow-lg backdrop-blur-sm">
+                                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-accent to-accent-dark text-secondary text-[10px] font-black uppercase tracking-wider rounded-full shadow-lg backdrop-blur-sm">
                                     <i class="fas fa-star text-[9px]"></i>
                                     Featured
                                 </span>
@@ -111,7 +111,7 @@
                                     @endif
                                 </div>
                                 {{-- Verified badge --}}
-                                <div class="absolute -bottom-1 -right-1 w-7 h-7 bg-green-500 rounded-full flex items-center justify-center border-2 border-white shadow-sm">
+                                <div class="absolute -bottom-1 -right-1 w-7 h-7 bg-primary/50 rounded-full flex items-center justify-center border-2 border-white shadow-sm">
                                     <i class="fas fa-check text-white text-[10px]"></i>
                                 </div>
                             </div>
