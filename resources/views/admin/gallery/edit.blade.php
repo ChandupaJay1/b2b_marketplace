@@ -3,15 +3,15 @@
 
 @section('content')
 <div class="flex items-center gap-3 mb-6">
-    <a href="{{ route('admin.gallery.index') }}" class="text-gray-400 hover:text-gray-600 transition-colors">
+    <a href="{{ route('admin.gallery.index') }}" class="text-secondary/50 hover:text-secondary/60 transition-colors">
         <i class="fas fa-arrow-left"></i>
     </a>
-    <h2 class="text-lg font-bold text-gray-900">Edit Gallery Image</h2>
+    <h2 class="text-lg font-bold text-secondary">Edit Gallery Image</h2>
 </div>
 
 <div class="max-w-2xl">
     <form action="{{ route('admin.gallery.update', $gallery) }}" method="POST" enctype="multipart/form-data"
-          class="bg-white rounded-xl border border-gray-100 shadow-sm p-6 space-y-5">
+          class="bg-white rounded-xl border border-secondary/5 shadow-sm p-6 space-y-5">
         @csrf
         @method('PUT')
 
@@ -20,20 +20,20 @@
             <label class="label">Image</label>
             <div class="mb-3">
                 <img src="{{ asset('storage/' . $gallery->image) }}" alt="{{ $gallery->title }}"
-                     class="h-40 rounded-xl object-cover shadow border border-gray-100">
-                <p class="text-xs text-gray-400 mt-1.5">Current image — upload a new one to replace it</p>
+                     class="h-40 rounded-xl object-cover shadow border border-secondary/5">
+                <p class="text-xs text-secondary/50 mt-1.5">Current image — upload a new one to replace it</p>
             </div>
             {{-- Hidden input OUTSIDE the drop zone --}}
             <input type="file" name="image" id="image-input" accept="image/*" class="hidden">
             <div id="drop-zone"
-                 class="border-2 border-dashed border-gray-200 rounded-xl p-6 text-center cursor-pointer hover:border-green-400 hover:bg-green-50/30 transition-all">
+                 class="border-2 border-dashed border-secondary/10 rounded-xl p-6 text-center cursor-pointer hover:border-primary hover:bg-primary/10/30 transition-all">
                 <div id="preview-container" class="hidden mb-3">
                     <img id="preview-img" src="" alt="" class="max-h-40 mx-auto rounded-xl object-cover shadow">
                 </div>
                 <div id="upload-placeholder">
-                    <i class="fas fa-cloud-upload-alt text-gray-400 text-xl mb-2"></i>
-                    <p class="text-sm font-semibold text-gray-600">Click to upload new image</p>
-                    <p class="text-xs text-gray-400 mt-0.5">PNG, JPG, WEBP — max 5MB</p>
+                    <i class="fas fa-cloud-upload-alt text-secondary/50 text-xl mb-2"></i>
+                    <p class="text-sm font-semibold text-secondary/60">Click to upload new image</p>
+                    <p class="text-xs text-secondary/50 mt-0.5">PNG, JPG, WEBP — max 5MB</p>
                 </div>
             </div>
             @error('image')<p class="text-red-500 text-xs mt-1">{{ $message }}</p>@enderror
@@ -81,14 +81,14 @@
                 <label class="flex items-center gap-2 cursor-pointer">
                     <input type="checkbox" name="is_active" value="1"
                            {{ old('is_active', $gallery->is_active) ? 'checked' : '' }}
-                           class="rounded border-gray-300 accent-green-600">
-                    <span class="text-sm font-medium text-gray-700">Active (visible on site)</span>
+                           class="rounded border-secondary/20 accent-primary">
+                    <span class="text-sm font-medium text-secondary/70">Active (visible on site)</span>
                 </label>
             </div>
         </div>
 
         {{-- Actions --}}
-        <div class="flex gap-3 pt-2 border-t border-gray-100">
+        <div class="flex gap-3 pt-2 border-t border-secondary/5">
             <button type="submit" class="btn-primary py-2.5 px-6">
                 <i class="fas fa-save mr-1.5"></i> Update Image
             </button>
@@ -107,11 +107,11 @@
 
     dropZone.addEventListener('click', () => input.click());
 
-    dropZone.addEventListener('dragover',  e => { e.preventDefault(); dropZone.classList.add('border-green-400', 'bg-green-50/30'); });
-    dropZone.addEventListener('dragleave', ()  => dropZone.classList.remove('border-green-400', 'bg-green-50/30'));
+    dropZone.addEventListener('dragover',  e => { e.preventDefault(); dropZone.classList.add('border-primary', 'bg-primary/10/30'); });
+    dropZone.addEventListener('dragleave', ()  => dropZone.classList.remove('border-primary', 'bg-primary/10/30'));
     dropZone.addEventListener('drop', e => {
         e.preventDefault();
-        dropZone.classList.remove('border-green-400', 'bg-green-50/30');
+        dropZone.classList.remove('border-primary', 'bg-primary/10/30');
         if (e.dataTransfer.files[0]) { input.files = e.dataTransfer.files; showPreview(e.dataTransfer.files[0]); }
     });
 
