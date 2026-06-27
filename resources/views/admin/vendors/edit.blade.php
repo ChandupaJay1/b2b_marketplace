@@ -3,9 +3,9 @@
 
 @section('content')
 <div class="max-w-2xl">
-    <div class="mb-6"><a href="{{ route('admin.vendors.index') }}" class="text-sm text-gray-500 hover:text-gray-700">← Back to Vendors</a></div>
-    <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-6">
-        <h2 class="font-bold text-gray-900 text-lg mb-6">Edit: {{ $vendor->company_name }}</h2>
+    <div class="mb-6"><a href="{{ route('admin.vendors.index') }}" class="text-sm text-secondary/50 hover:text-secondary/70">← Back to Vendors</a></div>
+    <div class="bg-white rounded-xl border border-secondary/5 shadow-sm p-6">
+        <h2 class="font-bold text-secondary text-lg mb-6">Edit: {{ $vendor->company_name }}</h2>
         <form action="{{ route('admin.vendors.update', $vendor) }}" method="POST" enctype="multipart/form-data" class="space-y-5">
             @csrf @method('PUT')
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -96,8 +96,8 @@
                 </div>
             </div>
             <div class="flex items-center gap-2">
-                <input type="checkbox" id="is_featured" name="is_featured" value="1" @checked(old('is_featured', $vendor->is_featured)) class="rounded border-gray-300">
-                <label for="is_featured" class="text-sm text-gray-700">Mark as Featured Vendor</label>
+                <input type="checkbox" id="is_featured" name="is_featured" value="1" @checked(old('is_featured', $vendor->is_featured)) class="rounded border-secondary/20">
+                <label for="is_featured" class="text-sm text-secondary/70">Mark as Featured Vendor</label>
             </div>
             <div class="flex gap-3 pt-2">
                 <button type="submit" class="btn-primary text-sm">Save Changes</button>

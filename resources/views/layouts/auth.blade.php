@@ -14,24 +14,24 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @stack('styles')
 </head>
-<body class="bg-gradient-to-b from-slate-50 via-white to-slate-50 font-sans text-slate-700 overflow-x-hidden">
+<body class="bg-gradient-to-b from-surface via-white to-surface font-sans text-secondary overflow-x-hidden">
 
 {{-- Flash Messages --}}
 @if(session('success'))
-<div id="flash-msg" class="fixed top-6 right-6 z-40 max-w-sm bg-white rounded-xl shadow-xl border-l-4 border-emerald-500 p-4 flex items-center gap-3 animate-in slide-in-from-top">
-    <div class="w-6 h-6 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0"><i class="fas fa-check text-emerald-600 text-xs"></i></div>
+<div id="flash-msg" class="fixed top-6 right-6 z-40 max-w-sm bg-white rounded-xl shadow-xl border-l-4 border-primary p-4 flex items-center gap-3 animate-in slide-in-from-top">
+    <div class="w-6 h-6 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0"><i class="fas fa-check text-primary text-xs"></i></div>
     <div>
-        <p class="text-xs font-bold text-slate-900">Success</p>
-        <p class="text-sm font-medium text-slate-600">{{ session('success') }}</p>
+        <p class="text-xs font-bold text-secondary">Success</p>
+        <p class="text-sm font-medium text-secondary/60">{{ session('success') }}</p>
     </div>
 </div>
 @endif
 @if(session('error'))
-<div id="flash-msg" class="fixed top-6 right-6 z-40 max-w-sm bg-white rounded-xl shadow-xl border-l-4 border-red-500 p-4 flex items-center gap-3 animate-in slide-in-from-top">
-    <div class="w-6 h-6 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0"><i class="fas fa-exclamation-circle text-red-600 text-xs"></i></div>
+<div id="flash-msg" class="fixed top-6 right-6 z-40 max-w-sm bg-white rounded-xl shadow-xl border-l-4 border-danger p-4 flex items-center gap-3 animate-in slide-in-from-top">
+    <div class="w-6 h-6 bg-danger/10 rounded-lg flex items-center justify-center flex-shrink-0"><i class="fas fa-exclamation-circle text-danger text-xs"></i></div>
     <div>
-        <p class="text-xs font-bold text-slate-900">Error</p>
-        <p class="text-sm font-medium text-slate-600">{{ session('error') }}</p>
+        <p class="text-xs font-bold text-secondary">Error</p>
+        <p class="text-sm font-medium text-secondary/60">{{ session('error') }}</p>
     </div>
 </div>
 @endif
@@ -44,10 +44,10 @@
 <script>
     // Auto-dismiss flash messages
     const flash = document.getElementById('flash-msg');
-    if (flash) setTimeout(() => { 
-        flash.style.opacity = '0'; 
+    if (flash) setTimeout(() => {
+        flash.style.opacity = '0';
         flash.style.transform = 'translateY(-20px)';
-        setTimeout(() => flash.remove(), 400); 
+        setTimeout(() => flash.remove(), 400);
     }, 5000);
 </script>
 @stack('scripts')
