@@ -3,9 +3,9 @@
 
 @section('content')
 <div class="max-w-2xl">
-    <div class="mb-6"><a href="{{ route('admin.products.index') }}" class="text-sm text-gray-500 hover:text-gray-700">← Back</a></div>
-    <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-6">
-        <h2 class="font-bold text-gray-900 text-lg mb-6">Add New Product</h2>
+    <div class="mb-6"><a href="{{ route('admin.products.index') }}" class="text-sm text-secondary/50 hover:text-secondary/70">← Back</a></div>
+    <div class="bg-white rounded-xl border border-secondary/5 shadow-sm p-6">
+        <h2 class="font-bold text-secondary text-lg mb-6">Add New Product</h2>
         <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data" class="space-y-5">
             @csrf
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -83,12 +83,12 @@
             {{-- Additional Vendors Section --}}
             <div class="border-t pt-5 mt-5">
                 <div class="flex items-center justify-between mb-4">
-                    <h3 class="font-bold text-gray-900">Additional Vendors (Optional)</h3>
-                    <button type="button" onclick="addVendorRow()" class="text-sm text-green-600 hover:text-green-700 font-medium">
+                    <h3 class="font-bold text-secondary">Additional Vendors (Optional)</h3>
+                    <button type="button" onclick="addVendorRow()" class="text-sm text-primary hover:text-primary-dark font-medium">
                         + Add Vendor
                     </button>
                 </div>
-                <p class="text-xs text-gray-500 mb-4">Add other vendors who sell this product. You can set different pricing for each vendor.</p>
+                <p class="text-xs text-secondary/50 mb-4">Add other vendors who sell this product. You can set different pricing for each vendor.</p>
                 
                 <div id="vendors-container" class="space-y-3">
                     {{-- Vendor rows will be added here dynamically --}}
@@ -98,11 +98,11 @@
             <div class="flex items-center gap-6">
                 <div class="flex items-center gap-2">
                     <input type="checkbox" id="is_active" name="is_active" value="1" @checked(old('is_active', true)) class="rounded">
-                    <label for="is_active" class="text-sm text-gray-700">Active</label>
+                    <label for="is_active" class="text-sm text-secondary/70">Active</label>
                 </div>
                 <div class="flex items-center gap-2">
                     <input type="checkbox" id="is_featured" name="is_featured" value="1" @checked(old('is_featured')) class="rounded">
-                    <label for="is_featured" class="text-sm text-gray-700">Featured</label>
+                    <label for="is_featured" class="text-sm text-secondary/70">Featured</label>
                 </div>
             </div>
             <div class="flex gap-3">
@@ -119,12 +119,12 @@ let vendorRowIndex = 0;
 function addVendorRow() {
     const container = document.getElementById('vendors-container');
     const row = document.createElement('div');
-    row.className = 'grid grid-cols-12 gap-3 p-4 bg-gray-50 rounded-lg border border-gray-200';
+    row.className = 'grid grid-cols-12 gap-3 p-4 bg-surface rounded-lg border border-secondary/10';
     row.id = `vendor-row-${vendorRowIndex}`;
     
     row.innerHTML = `
         <div class="col-span-12 sm:col-span-4">
-            <label class="text-xs text-gray-600 font-medium">Vendor</label>
+            <label class="text-xs text-secondary/60 font-medium">Vendor</label>
             <select name="additional_vendors[]" class="input-field text-sm mt-1" required>
                 <option value="">Select Vendor</option>
                 @foreach($vendors as $v)
@@ -133,15 +133,15 @@ function addVendorRow() {
             </select>
         </div>
         <div class="col-span-6 sm:col-span-3">
-            <label class="text-xs text-gray-600 font-medium">Price (USD)</label>
+            <label class="text-xs text-secondary/60 font-medium">Price (USD)</label>
             <input type="number" name="vendor_prices[]" step="0.01" min="0" class="input-field text-sm mt-1" placeholder="0.00">
         </div>
         <div class="col-span-6 sm:col-span-2">
-            <label class="text-xs text-gray-600 font-medium">MOQ</label>
+            <label class="text-xs text-secondary/60 font-medium">MOQ</label>
             <input type="number" name="vendor_moqs[]" min="1" value="1" class="input-field text-sm mt-1">
         </div>
         <div class="col-span-10 sm:col-span-2">
-            <label class="text-xs text-gray-600 font-medium">SKU</label>
+            <label class="text-xs text-secondary/60 font-medium">SKU</label>
             <input type="text" name="vendor_skus[]" class="input-field text-sm mt-1" placeholder="SKU">
         </div>
         <div class="col-span-2 sm:col-span-1 flex items-end">

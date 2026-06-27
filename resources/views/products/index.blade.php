@@ -110,8 +110,8 @@
         <div class="flex items-center gap-2 overflow-x-auto scrollbar-hide">
             @foreach($categories as $cat)
             <a href="#cat-{{ $cat->slug }}"
-               class="flex-shrink-0 px-4 py-1.5 rounded-full text-xs font-bold bg-slate-100 text-slate-600
-                      hover:bg-green-600 hover:text-white transition-all duration-200 flex items-center gap-1.5">
+               class="flex-shrink-0 px-4 py-1.5 rounded-full text-xs font-bold bg-surface-dark text-secondary/60
+                      hover:bg-primary hover:text-white transition-all duration-200 flex items-center gap-1.5">
                 {{ $cat->name }}
                 <span class="opacity-50 text-[10px]">{{ $cat->products_count }}</span>
             </a>
@@ -120,7 +120,7 @@
     </div>
 </div>
 
-<div class="bg-slate-50 py-10 space-y-14">
+<div class="bg-surface py-10 space-y-14">
     @foreach($categories as $cat)
     @if($cat->featuredProducts->count())
 
@@ -132,7 +132,7 @@
             <div class="flex items-center justify-between mb-5">
                 <div class="flex items-center gap-4">
                     {{-- Accent bar --}}
-                    <div class="w-1 h-10 bg-gradient-to-b from-green-500 to-emerald-700 rounded-full"></div>
+                    <div class="w-1 h-10 bg-gradient-to-b from-primary to-primary-dark rounded-full"></div>
                     <div>
                         <h2 class="font-heading font-black text-secondary text-xl sm:text-2xl leading-none">
                             {{ $cat->name }}
@@ -153,7 +153,7 @@
             {{-- Horizontal scroll row --}}
             <div class="relative">
                 {{-- Fade edge right --}}
-                <div class="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none"></div>
+                <div class="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-surface to-transparent z-10 pointer-events-none"></div>
 
                 <div class="flex gap-5 overflow-x-auto scrollbar-hide pb-3 -mx-1 px-1">
                     @foreach($cat->featuredProducts as $product)

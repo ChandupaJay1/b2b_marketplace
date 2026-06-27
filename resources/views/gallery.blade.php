@@ -5,13 +5,13 @@
 @section('content')
 
 {{-- ── Hero ──────────────────────────────────────────────────────── --}}
-<section class="relative overflow-hidden bg-gradient-to-br from-slate-900 via-green-950 to-slate-900 pt-28 pb-20">
+<section class="relative overflow-hidden bg-gradient-to-br from-secondary via-primary-dark to-secondary pt-28 pb-20">
 
     {{-- Animated background blobs --}}
     <div class="absolute inset-0 pointer-events-none">
-        <div class="absolute -top-20 -left-20 w-[500px] h-[500px] bg-green-500/20 rounded-full blur-[120px] animate-pulse"></div>
-        <div class="absolute -bottom-20 -right-20 w-[400px] h-[400px] bg-emerald-400/15 rounded-full blur-[100px] animate-pulse" style="animation-delay:1s"></div>
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-green-600/10 rounded-full blur-[80px]"></div>
+        <div class="absolute -top-20 -left-20 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] animate-pulse"></div>
+        <div class="absolute -bottom-20 -right-20 w-[400px] h-[400px] bg-primary/20 rounded-full blur-[100px] animate-pulse" style="animation-delay:1s"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-primary/10 rounded-full blur-[80px]"></div>
     </div>
 
     {{-- Grid pattern overlay --}}
@@ -20,18 +20,18 @@
 
     <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-6">
-            <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-            <span class="text-green-300 text-[10px] font-bold uppercase tracking-[0.3em]">Visual Showcase</span>
+            <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+            <span class="text-primary/60 text-[10px] font-bold uppercase tracking-[0.3em]">Visual Showcase</span>
         </div>
 
         <h1 class="font-heading font-black text-white text-5xl sm:text-6xl lg:text-7xl leading-none mb-6 tracking-tight">
             Our <span class="relative inline-block">
-                <span class="bg-gradient-to-r from-green-300 via-emerald-300 to-lime-300 bg-clip-text text-transparent italic">Gallery</span>
-                <span class="absolute -bottom-2 left-0 right-0 h-0.5 bg-gradient-to-r from-green-400 via-emerald-400 to-lime-400 rounded-full opacity-60"></span>
+                <span class="bg-gradient-to-r from-primary via-accent to-primary-dark bg-clip-text text-transparent italic">Gallery</span>
+                <span class="absolute -bottom-2 left-0 right-0 h-0.5 bg-gradient-to-r from-primary via-accent to-primary-dark rounded-full opacity-60"></span>
             </span>
         </h1>
 
-        <p class="text-slate-300/80 text-base font-medium max-w-lg mx-auto leading-relaxed mb-10">
+        <p class="text-white/60/80 text-base font-medium max-w-lg mx-auto leading-relaxed mb-10">
             A curated look at our products, vendors, trade events, and global partnerships.
         </p>
 
@@ -39,17 +39,17 @@
         <div class="inline-flex items-center gap-6 sm:gap-10 bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl px-8 py-4">
             <div class="text-center">
                 <p class="text-2xl font-black text-white font-heading">{{ $items->count() }}</p>
-                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider mt-0.5">Photos</p>
+                <p class="text-[10px] text-white/50 font-bold uppercase tracking-wider mt-0.5">Photos</p>
             </div>
             <div class="w-px h-8 bg-white/10"></div>
             <div class="text-center">
                 <p class="text-2xl font-black text-white font-heading">{{ $categories->count() }}</p>
-                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider mt-0.5">Categories</p>
+                <p class="text-[10px] text-white/50 font-bold uppercase tracking-wider mt-0.5">Categories</p>
             </div>
             <div class="w-px h-8 bg-white/10"></div>
             <div class="text-center">
                 <p class="text-2xl font-black text-white font-heading">HD</p>
-                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider mt-0.5">Quality</p>
+                <p class="text-[10px] text-white/50 font-bold uppercase tracking-wider mt-0.5">Quality</p>
             </div>
         </div>
     </div>
@@ -64,14 +64,14 @@
             <div class="flex items-center gap-2 overflow-x-auto scrollbar-hide flex-1 min-w-0">
                 <a href="{{ route('gallery') }}"
                    class="flex-shrink-0 px-4 py-1.5 rounded-full text-xs font-bold transition-all duration-200
-                          {{ !request('category') ? 'bg-green-600 text-white shadow-sm shadow-green-200' : 'bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-700' }}">
+                          {{ !request('category') ? 'bg-primary text-white shadow-sm shadow-primary/20' : 'bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-700' }}">
                     All <span class="ml-1 opacity-60">({{ $items->count() }})</span>
                 </a>
                 @foreach($categories as $cat)
                 @php $catCount = $items->where('category', $cat)->count(); @endphp
                 <a href="{{ route('gallery', ['category' => $cat]) }}"
                    class="flex-shrink-0 px-4 py-1.5 rounded-full text-xs font-bold transition-all duration-200
-                          {{ request('category') === $cat ? 'bg-green-600 text-white shadow-sm shadow-green-200' : 'bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-700' }}">
+                          {{ request('category') === $cat ? 'bg-primary text-white shadow-sm shadow-primary/20' : 'bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-700' }}">
                     {{ $cat }} <span class="ml-1 opacity-60">({{ $catCount }})</span>
                 </a>
                 @endforeach
@@ -80,12 +80,12 @@
             {{-- View toggle --}}
             <div class="flex items-center gap-1 bg-slate-100 rounded-xl p-1 flex-shrink-0">
                 <button id="btn-masonry" onclick="setView('masonry')"
-                        class="w-8 h-8 rounded-lg flex items-center justify-center transition-all bg-white shadow-sm text-green-600"
+                        class="w-8 h-8 rounded-lg flex items-center justify-center transition-all bg-white shadow-sm text-primary"
                         title="Masonry view">
                     <i class="fas fa-th-large text-xs"></i>
                 </button>
                 <button id="btn-grid" onclick="setView('grid')"
-                        class="w-8 h-8 rounded-lg flex items-center justify-center transition-all text-slate-400 hover:text-slate-600"
+                        class="w-8 h-8 rounded-lg flex items-center justify-center transition-all text-white/50 hover:text-slate-600"
                         title="Grid view">
                     <i class="fas fa-th text-xs"></i>
                 </button>
@@ -134,7 +134,7 @@
                         <p class="text-white/65 text-xs mt-0.5 line-clamp-2 leading-snug">{{ $item->caption }}</p>
                         @endif
                         @if($item->category)
-                        <span class="inline-flex items-center gap-1 mt-2 px-2.5 py-0.5 bg-green-500/90 backdrop-blur-sm text-white text-[10px] font-bold rounded-full">
+                        <span class="inline-flex items-center gap-1 mt-2 px-2.5 py-0.5 bg-primary/50/90 backdrop-blur-sm text-white text-[10px] font-bold rounded-full">
                             <i class="fas fa-tag text-[8px]"></i> {{ $item->category }}
                         </span>
                         @endif
@@ -173,7 +173,7 @@
                                 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3">
                         <p class="text-white font-bold text-xs line-clamp-1">{{ $item->title }}</p>
                         @if($item->category)
-                        <span class="inline-flex items-center gap-1 mt-1 px-2 py-0.5 bg-green-500/90 text-white text-[9px] font-bold rounded-full w-fit">
+                        <span class="inline-flex items-center gap-1 mt-1 px-2 py-0.5 bg-primary/50/90 text-white text-[9px] font-bold rounded-full w-fit">
                             {{ $item->category }}
                         </span>
                         @endif
@@ -196,12 +196,12 @@
                 <div class="w-24 h-24 bg-white rounded-3xl flex items-center justify-center shadow-md">
                     <i class="fas fa-images text-slate-200 text-4xl"></i>
                 </div>
-                <div class="absolute -top-1 -right-1 w-7 h-7 bg-green-500 rounded-full flex items-center justify-center">
+                <div class="absolute -top-1 -right-1 w-7 h-7 bg-primary/50 rounded-full flex items-center justify-center">
                     <i class="fas fa-plus text-white text-xs"></i>
                 </div>
             </div>
             <h3 class="text-slate-700 font-black text-xl mb-2 font-heading">No images yet</h3>
-            <p class="text-slate-400 text-sm max-w-xs">Gallery images will appear here once they are uploaded by our team.</p>
+            <p class="text-white/50 text-sm max-w-xs">Gallery images will appear here once they are uploaded by our team.</p>
         </div>
 
         @endif
@@ -265,7 +265,7 @@
                     <p id="lb-desc" class="text-white/50 text-xs mt-0.5 line-clamp-2"></p>
                 </div>
                 <span id="lb-cat"
-                      class="flex-shrink-0 px-3 py-1 bg-green-500/20 border border-green-500/30 text-green-300
+                      class="flex-shrink-0 px-3 py-1 bg-primary/20 border border-primary/50/30 text-primary/60
                              text-[10px] font-bold rounded-full hidden"></span>
             </div>
 
@@ -292,17 +292,17 @@
         if (v === 'masonry') {
             masonry.classList.remove('hidden');
             grid.classList.add('hidden');
-            btnM.classList.add('bg-white', 'shadow-sm', 'text-green-600');
-            btnM.classList.remove('text-slate-400');
-            btnG.classList.remove('bg-white', 'shadow-sm', 'text-green-600');
-            btnG.classList.add('text-slate-400');
+            btnM.classList.add('bg-white', 'shadow-sm', 'text-primary');
+            btnM.classList.remove('text-white/50');
+            btnG.classList.remove('bg-white', 'shadow-sm', 'text-primary');
+            btnG.classList.add('text-white/50');
         } else {
             grid.classList.remove('hidden');
             masonry.classList.add('hidden');
-            btnG.classList.add('bg-white', 'shadow-sm', 'text-green-600');
-            btnG.classList.remove('text-slate-400');
-            btnM.classList.remove('bg-white', 'shadow-sm', 'text-green-600');
-            btnM.classList.add('text-slate-400');
+            btnG.classList.add('bg-white', 'shadow-sm', 'text-primary');
+            btnG.classList.remove('text-white/50');
+            btnM.classList.remove('bg-white', 'shadow-sm', 'text-primary');
+            btnM.classList.add('text-white/50');
         }
         triggerReveal();
     }
@@ -369,7 +369,7 @@
         // Update active thumb
         document.querySelectorAll('.lb-thumb').forEach((t, i) => {
             t.classList.toggle('ring-2', i === currentIndex);
-            t.classList.toggle('ring-green-400', i === currentIndex);
+            t.classList.toggle('ring-primary', i === currentIndex);
             t.classList.toggle('opacity-100', i === currentIndex);
             t.classList.toggle('opacity-40', i !== currentIndex);
         });
@@ -378,7 +378,7 @@
     function buildThumbs() {
         lbThumbs.innerHTML = gallery.map((item, i) => `
             <button class="lb-thumb flex-shrink-0 w-12 h-12 rounded-xl overflow-hidden transition-all
-                           ${i === currentIndex ? 'ring-2 ring-green-400 opacity-100' : 'opacity-40 hover:opacity-70'}"
+                           ${i === currentIndex ? 'ring-2 ring-primary opacity-100' : 'opacity-40 hover:opacity-70'}"
                     onclick="jumpTo(${i})">
                 <img src="${item.src}" alt="" class="w-full h-full object-cover">
             </button>
