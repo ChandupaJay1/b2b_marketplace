@@ -269,7 +269,7 @@
                 <div class="flex items-center gap-3 mb-4">
                     <img src="{{ asset('images/logos/ethical_logo.jpeg') }}" alt="Ethical Offerings Expo Market logo" class="w-10 h-10 object-cover rounded-lg shadow-lg shadow-accent/50" />
                     <div>
-                        <p class="font-heading font-black text-white text-xs">Ethical Offerings Expo Market</p>
+                        <p class="font-heading font-black text-white text-xs">Ethical Offering Expo Market</p>
                         <p class="text-[8px] text-white/40 uppercase tracking-[0.15em]">Global Trade</p>
                     </div>
                 </div>
@@ -335,11 +335,12 @@
                 <div class="space-y-3.5">
                     <div>
                         <p class="text-xs text-white/50 font-bold mb-1">Email</p>
-                        <a href="mailto:info@b2bmarket.com" class="text-white/60 text-xs hover:text-primary transition-colors">info@b2bmarket.com</a>
+                        <a href="mailto:ethicalofferingsl@gmail.com" class="text-white/60 text-xs hover:text-primary transition-colors">ethicalofferingsl@gmail.com</a>
                     </div>
                     <div>
                         <p class="text-xs text-white/50 font-bold mb-1">Phone</p>
-                        <a href="tel:+15551234567" class="text-white/60 text-xs hover:text-primary transition-colors">+1 (555) 123-4567</a>
+                        <a href="tel:+94772842275" class="text-white/60 text-xs hover:text-primary transition-colors">+94 77 284 2275</a>
+                        <a href="tel:+94783807154" class="text-white/60 text-xs hover:text-primary transition-colors">+94 78 380 7154</a>
                     </div>
                     <div class="pt-2">
                         @auth
@@ -358,7 +359,7 @@
 
         {{-- Footer bottom --}}
         <div class="border-t border-white/10 pt-8 md:pt-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/40 font-medium">
-            <p>&copy; {{ date('Y') }} Ethical Offerings Expo Market. All rights reserved.</p>
+            <p>&copy; {{ date('Y') }} Ethical Offering Expo Market. All rights reserved.</p>
             <p class="flex items-center gap-2">&copy; Developed By NerdTech Labs.</p>
         </div>
     </div>
