@@ -54,7 +54,7 @@
                         <i class="fas fa-envelope text-xl"></i>
                     </div>
                     <h4 class="text-xl font-black mb-2 text-slate-900">Email Us</h4>
-                    <a href="mailto:info@b2bmarketplace.com" class="text-primary font-bold text-lg mb-1 block hover:underline">info@b2bmarketplace.com</a>
+                    <a href="mailto:info@b2bmarketplace.com" class="text-primary font-bold text-lg mb-1 block hover:underline">ethicalofferingsl@gmail.com</a>
                     <p class="text-slate-600 text-xs font-medium">Available Mon – Fri, 9am to 6pm</p>
                 </div>
 
@@ -64,7 +64,8 @@
                         <i class="fas fa-phone text-xl"></i>
                     </div>
                     <h4 class="text-xl font-black mb-2 text-slate-900">Call Us</h4>
-                    <a href="tel:+11234567890" class="text-primary font-bold text-lg mb-1 block hover:underline">+1 (123) 456-7890</a>
+                    <a href="tel:+94772842275" class="text-primary font-bold text-lg mb-1 block hover:underline">+94 77 284 2275</a>
+                    <a href="tel:+94783807154" class="text-primary font-bold text-lg mb-1 block hover:underline">+94 78 380 7154</a>
                     <p class="text-slate-600 text-xs font-medium">Mon – Fri, 9am to 6pm (EST)</p>
                 </div>
 
@@ -97,7 +98,7 @@
                         <i class="fas fa-map-marker-alt text-xl"></i>
                     </div>
                     <h4 class="text-xl font-black mb-2 text-slate-900">Visit Us</h4>
-                    <p class="text-primary font-bold text-base mb-1 leading-snug">123 Business Plaza,<br>Trade Center, Suite 456</p>
+                    <p class="text-primary font-bold text-base mb-1 leading-snug">Kada 50, Viskam Piyasa<br>Anuradhapura</p>
                     <p class="text-slate-600 text-xs font-medium">View on Google Maps</p>
                 </div>
             </div>
@@ -203,7 +204,7 @@
      MAP SECTION
 ═══════════════════════════════════════════════ --}}
 <div class="h-[450px] w-full bg-slate-200 relative overflow-hidden">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387193.30596073366!2d-74.25986548248684!3d40.69714941680757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s"
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d246.73683971277234!2d80.41393936924828!3d8.323710787578573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afcf4fe242126fb%3A0x935a19fad53a2821!2sDepartment%20Of%20Industrial%20Development%20%26%20Marketing%20Complex!5e0!3m2!1sen!2slk!4v1783670591175!5m2!1sen!2slk" width="1920" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
             class="w-full h-full border-none grayscale hover:grayscale-0 transition-all duration-700"
             allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
