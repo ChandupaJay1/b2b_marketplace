@@ -105,7 +105,7 @@
 @else
 
 {{-- Category quick-jump pills --}}
-<div class="bg-white border-b border-slate-100">
+<div class="bg-white border-b border-surface">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
         <div class="flex items-center gap-2 overflow-x-auto scrollbar-hide">
             @foreach($categories as $cat)

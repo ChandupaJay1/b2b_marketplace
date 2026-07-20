@@ -94,7 +94,7 @@
         </nav>
 
         {{-- User Profile --}}
-        <div class="border-t border-gray-800 p-4 flex-shrink-0">
+        <div class="border-t border-secondary/40 p-4 flex-shrink-0">
             <div class="flex items-center gap-3 mb-3">
                 <div class="w-9 h-9 bg-primary-dark rounded-full flex items-center justify-center flex-shrink-0">
                     <span class="text-white font-bold text-sm">{{ strtoupper(substr(Auth::user()->name, 0, 1)) }}</span>
@@ -105,7 +105,7 @@
                 </div>
             </div>
             <div class="flex gap-2">
-                <a href="{{ route('home') }}" class="flex-1 text-center px-3 py-1.5 text-xs bg-[#3d3d3d] text-white/30 rounded-lg hover:bg-gray-700 transition-colors">View Site</a>
+                <a href="{{ route('home') }}" class="flex-1 text-center px-3 py-1.5 text-xs bg-[#3d3d3d] text-white/30 rounded-lg hover:bg-[#4d4d4d] transition-colors">View Site</a>
                 <form action="{{ route('logout') }}" method="POST" class="flex-1">
                     @csrf
                     <button type="submit" class="w-full px-3 py-1.5 text-xs bg-danger/20 text-danger rounded-lg hover:bg-danger/30 transition-colors">Logout</button>

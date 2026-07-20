@@ -61,7 +61,7 @@
                 <td class="px-5 py-4">
                     <div class="flex items-center justify-end gap-3 flex-wrap">
                         <a href="{{ route('admin.vendors.show', $vendor) }}" class="text-xs text-secondary/60 hover:text-secondary font-medium">View</a>
-                        <a href="{{ route('admin.vendors.edit', $vendor) }}" class="text-xs text-primary hover:text-blue-800 font-medium">Edit</a>
+                        <a href="{{ route('admin.vendors.edit', $vendor) }}" class="text-xs text-primary hover:text-primary-dark font-medium">Edit</a>
                         @if($vendor->status !== 'approved')
                         <form action="{{ route('admin.vendors.status', $vendor) }}" method="POST" class="inline">
                             @csrf @method('PATCH')
@@ -73,7 +73,7 @@
                         <form action="{{ route('admin.vendors.status', $vendor) }}" method="POST" class="inline">
                             @csrf @method('PATCH')
                             <input type="hidden" name="status" value="suspended">
-                            <button type="submit" class="text-xs text-orange-600 hover:text-orange-800 font-medium">Suspend</button>
+                            <button type="submit" class="text-xs text-accent hover:text-accent/80 font-medium">Suspend</button>
                         </form>
                         @endif
                         <form action="{{ route('admin.vendors.destroy', $vendor) }}" method="POST" onsubmit="return confirm('Delete this vendor?')">
