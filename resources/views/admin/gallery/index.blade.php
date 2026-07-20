@@ -39,7 +39,7 @@
                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
             {{-- Status badge --}}
             <div class="absolute top-2 left-2">
-                <span class="text-[10px] font-bold px-2 py-0.5 rounded-full {{ $item->is_active ? 'bg-primary/100 text-white' : 'bg-gray-400 text-white' }}">
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-full {{ $item->is_active ? 'bg-primary/100 text-white' : 'bg-secondary/50 text-white' }}">
                     {{ $item->is_active ? 'Active' : 'Hidden' }}
                 </span>
             </div>

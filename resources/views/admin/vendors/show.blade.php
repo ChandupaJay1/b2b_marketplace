@@ -60,7 +60,7 @@
                 <a href="{{ route('admin.products.create') }}?vendor={{ $vendor->id }}" class="text-xs text-primary hover:underline">+ Add Product</a>
             </div>
             @forelse($vendor->products->take(8) as $product)
-            <div class="px-5 py-3 border-b border-gray-50 flex items-center justify-between">
+            <div class="px-5 py-3 border-b border-secondary/5 flex items-center justify-between">
                 <div class="flex items-center gap-3">
                     @if($product->main_image)
                         <img src="{{ asset('storage/' . $product->main_image) }}" class="w-9 h-9 rounded-xl object-cover">

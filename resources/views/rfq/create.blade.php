@@ -9,7 +9,7 @@
 <section class="relative py-28 lg:py-40 bg-gradient-to-br from-secondary via-primary-dark to-secondary overflow-hidden">
     {{-- Gradient lines --}}
     <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/60 to-transparent"></div>
-    <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-indigo-400/40 to-transparent"></div>
+    <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/40 to-transparent"></div>
 
     {{-- Glow orbs --}}
     <div class="absolute -top-32 -left-32 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[100px] pointer-events-none"></div>
@@ -22,7 +22,7 @@
                 Get Competitive Quotes
             </span>
             <h1 class="text-5xl sm:text-6xl lg:text-8xl font-heading font-black text-white leading-[0.9] mb-6 tracking-tight">
-                Request for <br><span class="bg-gradient-to-r from-amber-300 to-orange-300 bg-clip-text text-transparent italic">Quotation</span>
+                Request for <br><span class="bg-gradient-to-r from-accent to-accent bg-clip-text text-transparent italic">Quotation</span>
             </h1>
             <p class="text-white/60 text-sm sm:text-base font-medium max-w-xl mx-auto leading-relaxed mb-10">
                 Connect with verified vendors and receive competitive quotes within 48 hours. Fast, secure, and completely free.
@@ -50,7 +50,7 @@
                 ['fa-clock', '48 hrs', 'Quote Response Time'],
             ] as [$icon, $val, $label])
             <div class="py-8 px-6 lg:px-10 text-center group">
-                <i class="fas {{ $icon }} text-white/30 text-lg mb-3 block group-hover:text-amber-300 transition-colors"></i>
+                <i class="fas {{ $icon }} text-white/30 text-lg mb-3 block group-hover:text-accent transition-colors"></i>
                 <div class="text-2xl font-heading font-black text-white mb-1">{{ $val }}</div>
                 <div class="text-white/50 text-[9px] font-bold uppercase tracking-widest">{{ $label }}</div>
             </div>
@@ -72,10 +72,10 @@
             {{-- Left: copy --}}
             <div class="lg:w-2/5 lg:sticky lg:top-32">
                 <span class="text-primary font-bold uppercase tracking-[0.2em] text-[10px] mb-4 block">Fast Track</span>
-                <h2 class="text-4xl sm:text-5xl font-heading font-black text-slate-900 leading-none mb-6">
+                <h2 class="text-4xl sm:text-5xl font-heading font-black text-secondary leading-none mb-6">
                     Submit Your <span class="bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent italic">Requirements</span>
                 </h2>
-                <p class="text-slate-600 text-sm leading-relaxed font-medium mb-10">
+                <p class="text-secondary/70 text-sm leading-relaxed font-medium mb-10">
                     Fill in your requirements and our verified vendors will respond with detailed quotations within 48 hours.
                 </p>
 
@@ -91,8 +91,8 @@
                             <i class="fas {{ $icon }} text-sm"></i>
                         </div>
                         <div>
-                            <div class="font-bold text-slate-900 text-sm">{{ $title }}</div>
-                            <div class="text-slate-600 text-xs font-medium mt-0.5">{{ $desc }}</div>
+                            <div class="font-bold text-secondary text-sm">{{ $title }}</div>
+                            <div class="text-secondary/70 text-xs font-medium mt-0.5">{{ $desc }}</div>
                         </div>
                     </div>
                     @endforeach
@@ -101,27 +101,27 @@
 
             {{-- Right: form --}}
             <div class="lg:w-3/5">
-                <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-xl border border-slate-200">
+                <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-xl border border-secondary/20">
                     <form method="POST" action="{{ route('rfq.store') }}" class="space-y-6">
                         @csrf
                         
                         {{-- Personal Information --}}
                         <div>
-                            <h3 class="text-lg font-heading font-black text-slate-900 mb-4">Contact Information</h3>
+                            <h3 class="text-lg font-heading font-black text-secondary mb-4">Contact Information</h3>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                                 <div class="space-y-2">
-                                    <label class="text-[10px] font-bold text-slate-600 ml-1 uppercase tracking-widest">Full Name *</label>
+                                    <label class="text-[10px] font-bold text-secondary/70 ml-1 uppercase tracking-widest">Full Name *</label>
                                     <input type="text" name="name" value="{{ old('name', auth()->user()->name ?? '') }}" required
-                                           class="w-full bg-slate-100 border-2 border-slate-200 rounded-xl py-4 px-6 focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all text-slate-900 font-medium text-sm"
+                                           class="w-full bg-surface border-2 border-secondary/20 rounded-xl py-4 px-6 focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all text-secondary font-medium text-sm"
                                            placeholder="Your name">
                                     @error('name')
                                         <p class="text-red-600 text-xs mt-1">{{ $message }}</p>
                                     @enderror
                                 </div>
                                 <div class="space-y-2">
-                                    <label class="text-[10px] font-bold text-slate-600 ml-1 uppercase tracking-widest">Company Name</label>
+                                    <label class="text-[10px] font-bold text-secondary/70 ml-1 uppercase tracking-widest">Company Name</label>
                                     <input type="text" name="company" value="{{ old('company') }}"
-                                           class="w-full bg-slate-100 border-2 border-slate-200 rounded-xl py-4 px-6 focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all text-slate-900 font-medium text-sm"
+                                           class="w-full bg-surface border-2 border-secondary/20 rounded-xl py-4 px-6 focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all text-secondary font-medium text-sm"
                                            placeholder="Your company">
                                     @error('company')
                                         <p class="text-red-600 text-xs mt-1">{{ $message }}</p>
@@ -131,18 +131,18 @@
 
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5">
                                 <div class="space-y-2">
-                                    <label class="text-[10px] font-bold text-slate-600 ml-1 uppercase tracking-widest">Business Email *</label>
+                                    <label class="text-[10px] font-bold text-secondary/70 ml-1 uppercase tracking-widest">Business Email *</label>
                                     <input type="email" name="email" value="{{ old('email', auth()->user()->email ?? '') }}" required
-                                           class="w-full bg-slate-100 border-2 border-slate-200 rounded-xl py-4 px-6 focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all text-slate-900 font-medium text-sm"
+                                           class="w-full bg-surface border-2 border-secondary/20 rounded-xl py-4 px-6 focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all text-secondary font-medium text-sm"
                                            placeholder="you@company.com">
                                     @error('email')
                                         <p class="text-red-600 text-xs mt-1">{{ $message }}</p>
                                     @enderror
                                 </div>
                                 <div class="space-y-2">
-                                    <label class="text-[10px] font-bold text-slate-600 ml-1 uppercase tracking-widest">Phone Number</label>
+                                    <label class="text-[10px] font-bold text-secondary/70 ml-1 uppercase tracking-widest">Phone Number</label>
                                     <input type="tel" name="phone" value="{{ old('phone') }}"
-                                           class="w-full bg-slate-100 border-2 border-slate-200 rounded-xl py-4 px-6 focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all text-slate-900 font-medium text-sm"
+                                           class="w-full bg-surface border-2 border-secondary/20 rounded-xl py-4 px-6 focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all text-secondary font-medium text-sm"
                                            placeholder="+1 234 567 8900">
                                     @error('phone')
                                         <p class="text-red-600 text-xs mt-1">{{ $message }}</p>
@@ -152,18 +152,18 @@
 
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5">
                                 <div class="space-y-2">
-                                    <label class="text-[10px] font-bold text-slate-600 ml-1 uppercase tracking-widest">Country *</label>
+                                    <label class="text-[10px] font-bold text-secondary/70 ml-1 uppercase tracking-widest">Country *</label>
                                     <input type="text" name="country" value="{{ old('country') }}" required
-                                           class="w-full bg-slate-100 border-2 border-slate-200 rounded-xl py-4 px-6 focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all text-slate-900 font-medium text-sm"
+                                           class="w-full bg-surface border-2 border-secondary/20 rounded-xl py-4 px-6 focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all text-secondary font-medium text-sm"
                                            placeholder="Your country">
                                     @error('country')
                                         <p class="text-red-600 text-xs mt-1">{{ $message }}</p>
                                     @enderror
                                 </div>
                                 <div class="space-y-2">
-                                    <label class="text-[10px] font-bold text-slate-600 ml-1 uppercase tracking-widest">City</label>
+                                    <label class="text-[10px] font-bold text-secondary/70 ml-1 uppercase tracking-widest">City</label>
                                     <input type="text" name="city" value="{{ old('city') }}"
-                                           class="w-full bg-slate-100 border-2 border-slate-200 rounded-xl py-4 px-6 focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all text-slate-900 font-medium text-sm"
+                                           class="w-full bg-surface border-2 border-secondary/20 rounded-xl py-4 px-6 focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all text-secondary font-medium text-sm"
                                            placeholder="Your city">
                                     @error('city')
                                         <p class="text-red-600 text-xs mt-1">{{ $message }}</p>
@@ -173,14 +173,14 @@
                         </div>
 
                         {{-- Product Requirements --}}
-                        <div class="border-t-2 border-slate-200 pt-6">
-                            <h3 class="text-lg font-heading font-black text-slate-900 mb-4">Product Requirements</h3>
+                        <div class="border-t-2 border-secondary/20 pt-6">
+                            <h3 class="text-lg font-heading font-black text-secondary mb-4">Product Requirements</h3>
 
                             {{-- Vendor select --}}
                             <div class="space-y-2 mb-5">
-                                <label class="text-[10px] font-bold text-slate-600 ml-1 uppercase tracking-widest">Preferred Vendor (Optional)</label>
+                                <label class="text-[10px] font-bold text-secondary/70 ml-1 uppercase tracking-widest">Preferred Vendor (Optional)</label>
                                 <select id="vendor-select" name="vendor_id"
-                                        class="w-full bg-slate-100 border-2 border-slate-200 rounded-xl py-4 px-6 focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all text-slate-900 font-medium text-sm cursor-pointer">
+                                        class="w-full bg-surface border-2 border-secondary/20 rounded-xl py-4 px-6 focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all text-secondary font-medium text-sm cursor-pointer">
                                     <option value="">Any Vendor (Send to all)</option>
                                     @foreach(\App\Models\Vendor::where('status', 'approved')->orderBy('company_name')->get() as $v)
                                         <option value="{{ $v->id }}"
@@ -192,14 +192,14 @@
                                         </option>
                                     @endforeach
                                 </select>
-                                <p class="text-xs text-slate-500 ml-1">Leave empty to receive quotes from all matching vendors</p>
+                                <p class="text-xs text-secondary/60 ml-1">Leave empty to receive quotes from all matching vendors</p>
                                 @error('vendor_id')<p class="text-red-600 text-xs mt-1">{{ $message }}</p>@enderror
                             </div>
 
                             {{-- Vendor's products suggestion chips --}}
                             <div id="vendor-products-wrap" class="mb-5 hidden">
                                 <div class="flex items-center justify-between mb-2">
-                                    <label class="text-[10px] font-bold text-slate-600 ml-1 uppercase tracking-widest">
+                                    <label class="text-[10px] font-bold text-secondary/70 ml-1 uppercase tracking-widest">
                                         Products by this Vendor
                                         <span class="text-primary ml-1 normal-case font-medium">(click to add)</span>
                                     </label>
@@ -215,7 +215,7 @@
                                     </div>
                                 </div>
                                 <div id="vendor-products-chips"
-                                     class="flex flex-wrap gap-2 max-h-36 overflow-y-auto p-3 bg-slate-50 border-2 border-slate-200 rounded-xl">
+                                     class="flex flex-wrap gap-2 max-h-36 overflow-y-auto p-3 bg-surface border-2 border-secondary/20 rounded-xl">
                                 </div>
                                 <p class="text-[10px] text-white/50 mt-1.5 ml-1">
                                     <i class="fas fa-info-circle"></i> Click a product to add it to your selection
@@ -224,10 +224,10 @@
 
                             {{-- Add custom product --}}
                             <div class="space-y-2 mb-5">
-                                <label class="text-[10px] font-bold text-slate-600 ml-1 uppercase tracking-widest">Add Product Manually</label>
+                                <label class="text-[10px] font-bold text-secondary/70 ml-1 uppercase tracking-widest">Add Product Manually</label>
                                 <div class="flex gap-2">
                                     <input type="text" id="custom-product-input"
-                                           class="flex-1 bg-slate-100 border-2 border-slate-200 rounded-xl py-4 px-6 focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all text-slate-900 font-medium text-sm"
+                                           class="flex-1 bg-surface border-2 border-secondary/20 rounded-xl py-4 px-6 focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all text-secondary font-medium text-sm"
                                            placeholder="Type a product name and press Add">
                                     <button type="button" id="add-custom-product-btn"
                                             class="btn-primary px-6 text-xs whitespace-nowrap">
@@ -238,9 +238,9 @@
 
                             {{-- Product Category --}}
                             <div class="space-y-2 mb-5">
-                                <label class="text-[10px] font-bold text-slate-600 ml-1 uppercase tracking-widest">Product Category</label>
+                                <label class="text-[10px] font-bold text-secondary/70 ml-1 uppercase tracking-widest">Product Category</label>
                                 <select name="product_category_id"
-                                        class="w-full bg-slate-100 border-2 border-slate-200 rounded-xl py-4 px-6 focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all text-slate-900 font-medium text-sm cursor-pointer">
+                                        class="w-full bg-surface border-2 border-secondary/20 rounded-xl py-4 px-6 focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all text-secondary font-medium text-sm cursor-pointer">
                                     <option value="">Select a category</option>
                                     @foreach(\App\Models\ProductCategory::where('is_active', true)->get() as $category)
                                         <option value="{{ $category->id }}" @selected(old('product_category_id') == $category->id)>
@@ -256,7 +256,7 @@
                             {{-- Selected Products Table --}}
                             <div id="selected-products-wrap" class="mb-5 {{ old('items') ? '' : 'hidden' }}">
                                 <div class="flex items-center justify-between mb-2">
-                                    <label class="text-[10px] font-bold text-slate-600 ml-1 uppercase tracking-widest">
+                                    <label class="text-[10px] font-bold text-secondary/70 ml-1 uppercase tracking-widest">
                                         Selected Products <span class="text-red-500">*</span>
                                         <span id="selected-count" class="text-primary ml-1 normal-case font-medium">(0 items)</span>
                                     </label>
@@ -264,11 +264,11 @@
                                 <div class="overflow-x-auto">
                                     <table class="w-full text-sm">
                                         <thead>
-                                            <tr class="border-b-2 border-slate-200 text-left">
-                                                <th class="pb-2 text-[10px] font-bold text-slate-500 uppercase tracking-wider w-1/2">Product</th>
-                                                <th class="pb-2 text-[10px] font-bold text-slate-500 uppercase tracking-wider w-1/5">Quantity</th>
-                                                <th class="pb-2 text-[10px] font-bold text-slate-500 uppercase tracking-wider w-1/5">Unit</th>
-                                                <th class="pb-2 text-[10px] font-bold text-slate-500 uppercase tracking-wider w-1/12"></th>
+                                            <tr class="border-b-2 border-secondary/20 text-left">
+                                                <th class="pb-2 text-[10px] font-bold text-secondary/60 uppercase tracking-wider w-1/2">Product</th>
+                                                <th class="pb-2 text-[10px] font-bold text-secondary/60 uppercase tracking-wider w-1/5">Quantity</th>
+                                                <th class="pb-2 text-[10px] font-bold text-secondary/60 uppercase tracking-wider w-1/5">Unit</th>
+                                                <th class="pb-2 text-[10px] font-bold text-secondary/60 uppercase tracking-wider w-1/12"></th>
                                             </tr>
                                         </thead>
                                         <tbody id="selected-products-tbody">
@@ -281,9 +281,9 @@
                             </div>
 
                             <div class="space-y-2 mt-5">
-                                <label class="text-[10px] font-bold text-slate-600 ml-1 uppercase tracking-widest">Target Price (Optional)</label>
+                                <label class="text-[10px] font-bold text-secondary/70 ml-1 uppercase tracking-widest">Target Price (Optional)</label>
                                 <input type="number" name="target_price" value="{{ old('target_price') }}" step="0.01" min="0"
-                                       class="w-full bg-slate-100 border-2 border-slate-200 rounded-xl py-4 px-6 focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all text-slate-900 font-medium text-sm"
+                                       class="w-full bg-surface border-2 border-secondary/20 rounded-xl py-4 px-6 focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all text-secondary font-medium text-sm"
                                        placeholder="Your target price per unit">
                                 @error('target_price')
                                     <p class="text-red-600 text-xs mt-1">{{ $message }}</p>
@@ -291,9 +291,9 @@
                             </div>
 
                             <div class="space-y-2 mt-5">
-                                <label class="text-[10px] font-bold text-slate-600 ml-1 uppercase tracking-widest">Delivery Location</label>
+                                <label class="text-[10px] font-bold text-secondary/70 ml-1 uppercase tracking-widest">Delivery Location</label>
                                 <input type="text" name="delivery_location" value="{{ old('delivery_location') }}"
-                                       class="w-full bg-slate-100 border-2 border-slate-200 rounded-xl py-4 px-6 focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all text-slate-900 font-medium text-sm"
+                                       class="w-full bg-surface border-2 border-secondary/20 rounded-xl py-4 px-6 focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all text-secondary font-medium text-sm"
                                        placeholder="Port/City for delivery">
                                 @error('delivery_location')
                                     <p class="text-red-600 text-xs mt-1">{{ $message }}</p>
@@ -301,9 +301,9 @@
                             </div>
 
                             <div class="space-y-2 mt-5">
-                                <label class="text-[10px] font-bold text-slate-600 ml-1 uppercase tracking-widest">Additional Requirements</label>
+                                <label class="text-[10px] font-bold text-secondary/70 ml-1 uppercase tracking-widest">Additional Requirements</label>
                                 <textarea name="additional_requirements" rows="4"
-                                          class="w-full bg-slate-100 border-2 border-slate-200 rounded-xl py-4 px-6 focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all text-slate-900 font-medium text-sm resize-none"
+                                          class="w-full bg-surface border-2 border-secondary/20 rounded-xl py-4 px-6 focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all text-secondary font-medium text-sm resize-none"
                                           placeholder="Specifications, certifications needed, packaging requirements, delivery timeline...">{{ old('additional_requirements') }}</textarea>
                                 @error('additional_requirements')
                                     <p class="text-red-600 text-xs mt-1">{{ $message }}</p>
@@ -314,7 +314,7 @@
                         {{-- Terms Agreement --}}
                         <div class="flex items-start gap-3 p-4 bg-primary/5 rounded-xl border border-primary/20">
                             <input type="checkbox" name="agree_terms" id="agree_terms" required class="mt-1 rounded text-primary">
-                            <label for="agree_terms" class="text-xs text-slate-700 font-medium">
+                            <label for="agree_terms" class="text-xs text-secondary/80 font-medium">
                                 I agree to share my information with verified vendors and accept the <a href="#" class="text-primary hover:underline">Terms & Conditions</a>
                             </label>
                         </div>
@@ -326,7 +326,7 @@
                             <i class="fas fa-arrow-right relative z-10 text-sm group-hover:translate-x-2 transition-transform"></i>
                         </button>
 
-                        <p class="text-center text-xs text-slate-500 font-medium">
+                        <p class="text-center text-xs text-secondary/60 font-medium">
                             By submitting, you'll receive quotes from multiple verified vendors within 48 hours.
                         </p>
                     </form>
@@ -340,11 +340,11 @@
 {{-- ═══════════════════════════════════════════════
      HOW IT WORKS
 ═══════════════════════════════════════════════ --}}
-<section class="py-20 bg-white border-t border-slate-200">
+<section class="py-20 bg-white border-t border-secondary/20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-14">
             <span class="text-primary font-bold uppercase tracking-[0.2em] text-[10px] mb-3 block">Simple Process</span>
-            <h2 class="text-4xl sm:text-5xl font-heading font-black text-slate-900 leading-none">
+            <h2 class="text-4xl sm:text-5xl font-heading font-black text-secondary leading-none">
                 How It <span class="bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent italic">Works</span>
             </h2>
         </div>
@@ -361,12 +361,12 @@
                     <div class="w-20 h-20 bg-gradient-to-br from-primary to-primary-dark rounded-2xl flex items-center justify-center text-white text-2xl group-hover:scale-110 transition-transform duration-300 shadow-lg">
                         <i class="fas {{ $icon }}"></i>
                     </div>
-                    <div class="absolute -top-2 -right-2 w-8 h-8 bg-amber-500 text-white rounded-full flex items-center justify-center text-sm font-black">
+                    <div class="absolute -top-2 -right-2 w-8 h-8 bg-accent text-white rounded-full flex items-center justify-center text-sm font-black">
                         {{ $num }}
                     </div>
                 </div>
-                <h3 class="font-heading font-black text-slate-900 text-lg mb-2">{{ $title }}</h3>
-                <p class="text-slate-600 text-sm font-medium">{{ $desc }}</p>
+                <h3 class="font-heading font-black text-secondary text-lg mb-2">{{ $title }}</h3>
+                <p class="text-secondary/70 text-sm font-medium">{{ $desc }}</p>
             </div>
             @endforeach
         </div>
@@ -422,24 +422,24 @@
         selectedTbody.innerHTML = '';
         items.forEach((item, idx) => {
             const tr = document.createElement('tr');
-            tr.className = 'border-b border-slate-100 animate-slide-in';
+            tr.className = 'border-b border-surface animate-slide-in';
             tr.dataset.index = idx;
 
             tr.innerHTML = `
                 <td class="py-3 pr-2">
                     <input type="hidden" name="items[${idx}][product_id]" value="${item.productId || ''}">
                     <input type="hidden" name="items[${idx}][product_name]" value="${item.name}">
-                    <span class="font-medium text-slate-900 text-sm">${item.name}</span>
+                    <span class="font-medium text-secondary text-sm">${item.name}</span>
                 </td>
                 <td class="py-3 px-1">
                     <input type="number" name="items[${idx}][quantity]" value="${item.quantity}"
                            min="1" step="any"
-                           class="item-qty w-full bg-slate-100 border-2 border-slate-200 rounded-lg py-2 px-3 text-sm font-medium text-slate-900 focus:ring-2 focus:ring-primary/50 focus:border-transparent"
+                           class="item-qty w-full bg-surface border-2 border-secondary/20 rounded-lg py-2 px-3 text-sm font-medium text-secondary focus:ring-2 focus:ring-primary/50 focus:border-transparent"
                            placeholder="Qty">
                 </td>
                 <td class="py-3 px-1">
                     <select name="items[${idx}][unit]"
-                            class="item-unit w-full bg-slate-100 border-2 border-slate-200 rounded-lg py-2 px-3 text-sm font-medium text-slate-900 focus:ring-2 focus:ring-primary/50 focus:border-transparent cursor-pointer">
+                            class="item-unit w-full bg-surface border-2 border-secondary/20 rounded-lg py-2 px-3 text-sm font-medium text-secondary focus:ring-2 focus:ring-primary/50 focus:border-transparent cursor-pointer">
                         ${UNITS.map(u => `<option value="${u}" ${u === item.unit ? 'selected' : ''}>${u.charAt(0).toUpperCase() + u.slice(1)}${u === 'kg' ? ' (kg)' : u === 'tons' ? '' : u === 'liters' ? '' : ''}</option>`).join('')}
                     </select>
                 </td>
@@ -539,7 +539,7 @@
                 products.forEach(p => {
                     const chip = document.createElement('button');
                     chip.type = 'button';
-                    chip.className = 'px-3 py-1.5 rounded-full text-xs font-bold border-2 border-slate-200 text-slate-600 hover:border-primary/50 hover:text-primary hover:bg-primary/5 transition-all duration-150 flex items-center gap-1.5';
+                    chip.className = 'px-3 py-1.5 rounded-full text-xs font-bold border-2 border-secondary/20 text-secondary/70 hover:border-primary/50 hover:text-primary hover:bg-primary/5 transition-all duration-150 flex items-center gap-1.5';
                     chip.innerHTML = `<i class="fas fa-plus text-[9px] text-primary"></i>${p.name}${p.sku ? '<span class="opacity-40 font-normal ml-1 text-[9px]">#' + p.sku + '</span>' : ''}`;
 
                     chip.addEventListener('click', () => {

@@ -25,7 +25,7 @@
                 <td class="px-5 py-4 text-secondary/50">{{ $sub->products_count }}</td>
                 <td class="px-5 py-4"><span class="{{ $sub->is_active ? 'badge-success' : 'badge-gray' }}">{{ $sub->is_active ? 'Active' : 'Inactive' }}</span></td>
                 <td class="px-5 py-4 text-right">
-                    <a href="{{ route('admin.product-subcategories.edit', $sub) }}" class="text-xs text-primary hover:text-blue-800 font-medium mr-3">Edit</a>
+                    <a href="{{ route('admin.product-subcategories.edit', $sub) }}" class="text-xs text-primary hover:text-primary-dark font-medium mr-3">Edit</a>
                     <form action="{{ route('admin.product-subcategories.destroy', $sub) }}" method="POST" class="inline" onsubmit="return confirm('Delete?')">
                         @csrf @method('DELETE')
                         <button type="submit" class="text-xs text-secondary/50 hover:text-red-600 font-medium">Delete</button>

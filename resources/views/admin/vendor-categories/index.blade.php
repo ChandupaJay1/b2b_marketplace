@@ -39,7 +39,7 @@
                 <td class="px-5 py-4 text-secondary/50">{{ $cat->sort_order }}</td>
                 <td class="px-5 py-4">
                     <div class="flex items-center justify-end gap-3">
-                        <a href="{{ route('admin.vendor-categories.edit', $cat) }}" class="text-xs text-primary hover:text-blue-800 font-medium">Edit</a>
+                        <a href="{{ route('admin.vendor-categories.edit', $cat) }}" class="text-xs text-primary hover:text-primary-dark font-medium">Edit</a>
                         <form action="{{ route('admin.vendor-categories.destroy', $cat) }}" method="POST" onsubmit="return confirm('Delete this category?')">
                             @csrf @method('DELETE')
                             <button type="submit" class="text-xs text-secondary/50 hover:text-red-600 font-medium">Delete</button>

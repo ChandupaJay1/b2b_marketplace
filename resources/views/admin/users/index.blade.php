@@ -69,7 +69,7 @@
                 <td class="px-5 py-4 text-secondary/50 text-xs">{{ $user->created_at->format('M d, Y') }}</td>
                 <td class="px-5 py-4">
                     <div class="flex items-center justify-end gap-2">
-                        <a href="{{ route('admin.users.edit', $user) }}" class="text-xs text-primary hover:text-blue-800 font-medium">Edit</a>
+                        <a href="{{ route('admin.users.edit', $user) }}" class="text-xs text-primary hover:text-primary-dark font-medium">Edit</a>
                         <form action="{{ route('admin.users.toggle-status', $user) }}" method="POST">
                             @csrf @method('PATCH')
                             <button type="submit" class="text-xs {{ $user->is_active ? 'text-red-600 hover:text-red-800' : 'text-primary hover:text-primary-dark' }} font-medium">

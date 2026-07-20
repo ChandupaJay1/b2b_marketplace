@@ -56,7 +56,7 @@
 </section>
 
 {{-- ── Toolbar (Filter + View Toggle) ──────────────────────────────── --}}
-<div class="sticky top-16 z-30 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm">
+<div class="sticky top-16 z-30 bg-white/95 backdrop-blur-md border-b border-secondary/20 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between gap-4 py-3">
 
@@ -64,28 +64,28 @@
             <div class="flex items-center gap-2 overflow-x-auto scrollbar-hide flex-1 min-w-0">
                 <a href="{{ route('gallery') }}"
                    class="flex-shrink-0 px-4 py-1.5 rounded-full text-xs font-bold transition-all duration-200
-                          {{ !request('category') ? 'bg-primary text-white shadow-sm shadow-primary/20' : 'bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-700' }}">
+                          {{ !request('category') ? 'bg-primary text-white shadow-sm shadow-primary/20' : 'bg-surface text-secondary/60 hover:bg-secondary/20 hover:text-secondary/80' }}">
                     All <span class="ml-1 opacity-60">({{ $items->count() }})</span>
                 </a>
                 @foreach($categories as $cat)
                 @php $catCount = $items->where('category', $cat)->count(); @endphp
                 <a href="{{ route('gallery', ['category' => $cat]) }}"
                    class="flex-shrink-0 px-4 py-1.5 rounded-full text-xs font-bold transition-all duration-200
-                          {{ request('category') === $cat ? 'bg-primary text-white shadow-sm shadow-primary/20' : 'bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-700' }}">
+                          {{ request('category') === $cat ? 'bg-primary text-white shadow-sm shadow-primary/20' : 'bg-surface text-secondary/60 hover:bg-secondary/20 hover:text-secondary/80' }}">
                     {{ $cat }} <span class="ml-1 opacity-60">({{ $catCount }})</span>
                 </a>
                 @endforeach
             </div>
 
             {{-- View toggle --}}
-            <div class="flex items-center gap-1 bg-slate-100 rounded-xl p-1 flex-shrink-0">
+            <div class="flex items-center gap-1 bg-surface rounded-xl p-1 flex-shrink-0">
                 <button id="btn-masonry" onclick="setView('masonry')"
                         class="w-8 h-8 rounded-lg flex items-center justify-center transition-all bg-white shadow-sm text-primary"
                         title="Masonry view">
                     <i class="fas fa-th-large text-xs"></i>
                 </button>
                 <button id="btn-grid" onclick="setView('grid')"
-                        class="w-8 h-8 rounded-lg flex items-center justify-center transition-all text-white/50 hover:text-slate-600"
+                        class="w-8 h-8 rounded-lg flex items-center justify-center transition-all text-white/50 hover:text-secondary/70"
                         title="Grid view">
                     <i class="fas fa-th text-xs"></i>
                 </button>
@@ -95,7 +95,7 @@
 </div>
 
 {{-- ── Gallery ───────────────────────────────────────────────────── --}}
-<section class="py-12 lg:py-20 bg-slate-50 min-h-[60vh]">
+<section class="py-12 lg:py-20 bg-surface min-h-[60vh]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {{-- Always build the JS data array (empty if no items) --}}
@@ -116,7 +116,7 @@
             <div class="break-inside-avoid mb-4 gallery-item opacity-0 translate-y-4 transition-all duration-500"
                  style="transition-delay: {{ ($i % 12) * 60 }}ms"
                  onclick="openLightbox({{ $i }})">
-                <div class="group relative overflow-hidden rounded-2xl cursor-pointer bg-slate-200 shadow hover:shadow-xl transition-shadow duration-300">
+                <div class="group relative overflow-hidden rounded-2xl cursor-pointer bg-secondary/20 shadow hover:shadow-xl transition-shadow duration-300">
                     <img src="{{ asset('storage/' . $item->image) }}"
                          alt="{{ $item->title }}"
                          loading="lazy"
@@ -164,7 +164,7 @@
             <div class="gallery-item opacity-0 translate-y-4 transition-all duration-500"
                  style="transition-delay: {{ ($i % 12) * 50 }}ms"
                  onclick="openLightbox({{ $i }})">
-                <div class="group relative aspect-square overflow-hidden rounded-2xl cursor-pointer bg-slate-200 shadow hover:shadow-xl transition-shadow duration-300">
+                <div class="group relative aspect-square overflow-hidden rounded-2xl cursor-pointer bg-secondary/20 shadow hover:shadow-xl transition-shadow duration-300">
                     <img src="{{ asset('storage/' . $item->image) }}"
                          alt="{{ $item->title }}"
                          loading="lazy"
@@ -194,13 +194,13 @@
         <div class="flex flex-col items-center justify-center py-32 text-center">
             <div class="relative mb-6">
                 <div class="w-24 h-24 bg-white rounded-3xl flex items-center justify-center shadow-md">
-                    <i class="fas fa-images text-slate-200 text-4xl"></i>
+                    <i class="fas fa-images text-secondary/20 text-4xl"></i>
                 </div>
                 <div class="absolute -top-1 -right-1 w-7 h-7 bg-primary/50 rounded-full flex items-center justify-center">
                     <i class="fas fa-plus text-white text-xs"></i>
                 </div>
             </div>
-            <h3 class="text-slate-700 font-black text-xl mb-2 font-heading">No images yet</h3>
+            <h3 class="text-secondary/80 font-black text-xl mb-2 font-heading">No images yet</h3>
             <p class="text-white/50 text-sm max-w-xs">Gallery images will appear here once they are uploaded by our team.</p>
         </div>
 

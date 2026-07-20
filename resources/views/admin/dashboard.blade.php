@@ -5,22 +5,46 @@
 
 {{-- Stats --}}
 <div class="grid grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
-    @foreach([
-        ['👥', 'Total Users',     $stats['total_users'],     'blue'],
-        ['🏭', 'Total Vendors',   $stats['total_vendors'],   'indigo'],
-        ['✅', 'Active Vendors',  $stats['approved_vendors'],'green'],
-        ['📦', 'Total Products',  $stats['total_products'],  'purple'],
-        ['📋', 'Total RFQs',      $stats['total_rfqs'],      'amber'],
-    ] as [$icon, $label, $value, $color])
     <div class="bg-white rounded-xl shadow-sm p-5 border border-secondary/5">
         <div class="flex items-center justify-between mb-3">
-            <span class="text-2xl">{{ $icon }}</span>
-            <span class="text-xs font-medium text-{{ $color }}-600 bg-{{ $color }}-50 px-2 py-0.5 rounded-full">Total</span>
+            <span class="text-2xl">👥</span>
+            <span class="text-xs font-medium text-primary bg-primary/10 px-2 py-0.5 rounded-full">Total</span>
         </div>
-        <p class="text-2xl font-bold text-secondary">{{ number_format($value) }}</p>
-        <p class="text-xs text-secondary/50 mt-1">{{ $label }}</p>
+        <p class="text-2xl font-bold text-secondary">{{ number_format($stats['total_users']) }}</p>
+        <p class="text-xs text-secondary/50 mt-1">Total Users</p>
     </div>
-    @endforeach
+    <div class="bg-white rounded-xl shadow-sm p-5 border border-secondary/5">
+        <div class="flex items-center justify-between mb-3">
+            <span class="text-2xl">🏭</span>
+            <span class="text-xs font-medium text-primary-dark bg-primary-dark/10 px-2 py-0.5 rounded-full">Total</span>
+        </div>
+        <p class="text-2xl font-bold text-secondary">{{ number_format($stats['total_vendors']) }}</p>
+        <p class="text-xs text-secondary/50 mt-1">Total Vendors</p>
+    </div>
+    <div class="bg-white rounded-xl shadow-sm p-5 border border-secondary/5">
+        <div class="flex items-center justify-between mb-3">
+            <span class="text-2xl">✅</span>
+            <span class="text-xs font-medium text-primary bg-primary/10 px-2 py-0.5 rounded-full">Total</span>
+        </div>
+        <p class="text-2xl font-bold text-secondary">{{ number_format($stats['approved_vendors']) }}</p>
+        <p class="text-xs text-secondary/50 mt-1">Active Vendors</p>
+    </div>
+    <div class="bg-white rounded-xl shadow-sm p-5 border border-secondary/5">
+        <div class="flex items-center justify-between mb-3">
+            <span class="text-2xl">📦</span>
+            <span class="text-xs font-medium text-accent bg-accent/10 px-2 py-0.5 rounded-full">Total</span>
+        </div>
+        <p class="text-2xl font-bold text-secondary">{{ number_format($stats['total_products']) }}</p>
+        <p class="text-xs text-secondary/50 mt-1">Total Products</p>
+    </div>
+    <div class="bg-white rounded-xl shadow-sm p-5 border border-secondary/5">
+        <div class="flex items-center justify-between mb-3">
+            <span class="text-2xl">📋</span>
+            <span class="text-xs font-medium text-accent bg-accent/10 px-2 py-0.5 rounded-full">Total</span>
+        </div>
+        <p class="text-2xl font-bold text-secondary">{{ number_format($stats['total_rfqs']) }}</p>
+        <p class="text-xs text-secondary/50 mt-1">Total RFQs</p>
+    </div>
 </div>
 
 {{-- Alert Rows --}}
@@ -34,7 +58,7 @@
     </div>
     <div class="bg-primary/10 border border-primary/20 rounded-xl p-4 flex items-center justify-between">
         <div>
-            <p class="font-semibold text-blue-800 text-sm">New RFQs</p>
+            <p class="font-semibold text-primary-dark text-sm">New RFQs</p>
             <p class="text-2xl font-bold text-primary-dark">{{ $stats['new_rfqs'] }}</p>
         </div>
         <a href="{{ route('admin.rfqs.index', ['status' => 'new']) }}" class="text-xs text-primary-dark hover:underline font-medium">View →</a>
