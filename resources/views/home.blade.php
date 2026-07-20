@@ -3,134 +3,40 @@
 @section('title', 'B2B Marketplace | Global Trade Platform')
 
 @section('content')
-    {{-- [HERO] Cinematic Immersive Slider --}}
-    <section class="relative h-screen min-h-[700px] overflow-hidden bg-gradient-to-br from-secondary via-primary-dark to-secondary">
-        <div class="swiper thm-swiper__slider h-full bg-noise-overlay" data-swiper-options='{
-            "slidesPerView": 1,
-            "loop": true,
-            "effect": "fade",
-            "speed": 1500,
-            "autoplay": { "delay": 7000, "disableOnInteraction": false },
-            "pagination": { "el": ".hero-pagination", "clickable": true }
-        }'>
-            <div class="swiper-wrapper h-full">
-                {{-- Slide 1: Connect with Vendors --}}
-                <div class="swiper-slide group relative h-full">
-                    <div class="absolute inset-0 scale-110 transition-transform duration-[10000ms] group-[.swiper-slide-active]:scale-100">
-                        <img src="{{ asset('images/slider/img-1.jpg') }}" class="w-full h-full object-cover" alt="B2B Marketplace">
-                        <div class="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/60 to-transparent"></div>
-                        {{-- Liquid Glass Effect --}}
-                        <div class="absolute inset-0 backdrop-blur-[2px]">
-                            <div class="absolute top-0 left-0 w-full h-full">
-                                <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-blob"></div>
-                                <div class="absolute top-1/3 right-1/3 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
-                                <div class="absolute bottom-1/4 left-1/3 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-blob animation-delay-4000"></div>
-                            </div>
-                        </div>
+    {{-- [HERO] Video Background --}}
+    <section class="relative h-screen min-h-[700px] overflow-hidden">
+        <div class="absolute inset-0 overflow-hidden">
+            <video autoplay muted loop playsinline class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-[100vw] min-h-[100vh] object-cover" 
+                src="{{ asset('videos/16_MANA Ceylon Manufacture (Pvt) Ltd..mp4') }}"></video>
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-r from-secondary/90 via-secondary/50 to-transparent"></div>
+        <div class="absolute inset-0 backdrop-blur-[2px]">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-blob"></div>
+            <div class="absolute top-1/3 right-1/3 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
+            <div class="absolute bottom-1/4 left-1/3 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-blob animation-delay-4000"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center relative z-10">
+            <div class="max-w-4xl">
+                <span class="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 backdrop-blur-md border border-primary/30 text-primary/60 rounded-full text-xs font-black uppercase tracking-[0.2em] mb-8">
+                    <span class="w-2 h-2 bg-primary rounded-full animate-ping"></span>
+                    Global B2B Platform
+                </span>
+                <h1 class="text-5xl sm:text-7xl lg:text-[90px] xl:text-[100px] font-heading font-black text-white leading-[0.95] mb-8 tracking-tight">
+                    Connect with <br> <span class="bg-gradient-to-r from-accent to-accent-dark bg-clip-text text-transparent italic">Verified</span> <br> Vendors
+                </h1>
+                <p class="text-xl sm:text-2xl font-medium text-white/60 mb-12 max-w-xl leading-relaxed">
+                    Source quality products from verified suppliers worldwide. Secure, transparent, and efficient B2B trading platform.
+                </p>
+                <div class="flex items-center gap-6">
+                    <a href="{{ route('vendors.index') }}" class="group relative px-9 py-4.5 bg-primary text-white rounded-full font-black text-sm tracking-wider uppercase overflow-hidden transition-all shadow-lg shadow-primary/30 flex items-center justify-center scale-100 hover:scale-105 active:scale-95">
+                        <span class="relative z-10 transition-all duration-300 group-hover:-translate-y-12 group-hover:opacity-0">Explore Vendors</span>
+                        <div class="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                        <span class="absolute inset-0 flex items-center justify-center text-primary font-black translate-y-12 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">Browse Now</span>
+                    </a>
+                    <div class="hidden sm:flex items-center gap-4 text-white/50">
+                        <div class="w-12 h-[1px] bg-white/20"></div>
+                        <span class="text-xs font-bold uppercase tracking-widest italic">Trusted Platform</span>
                     </div>
-                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center relative z-10">
-                        <div class="max-w-4xl opacity-0 translate-y-10 transition-all duration-1000 group-[.swiper-slide-active]:opacity-100 group-[.swiper-slide-active]:translate-y-0 delay-500">
-                            <span class="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 backdrop-blur-md border border-primary/30 text-primary/60 rounded-full text-xs font-black uppercase tracking-[0.2em] mb-8">
-                                <span class="w-2 h-2 bg-primary rounded-full animate-ping"></span>
-                                Global B2B Platform
-                            </span>
-                            <h1 class="text-5xl sm:text-7xl lg:text-[90px] xl:text-[100px] font-heading font-black text-white leading-[0.95] mb-8 tracking-tight">
-                                Connect with <br> <span class="bg-gradient-to-r from-amber-300 to-orange-300 bg-clip-text text-transparent italic">Verified</span> <br> Vendors
-                            </h1>
-                            <p class="text-xl sm:text-2xl font-medium text-white/60 mb-12 max-w-xl leading-relaxed">
-                                Source quality products from verified suppliers worldwide. Secure, transparent, and efficient B2B trading platform.
-                            </p>
-                            <div class="flex items-center gap-6">
-                                <a href="{{ route('vendors.index') }}" class="group relative px-9 py-4.5 bg-primary text-white rounded-full font-black text-sm tracking-wider uppercase overflow-hidden transition-all shadow-lg shadow-primary/30 flex items-center justify-center scale-100 hover:scale-105 active:scale-95">
-                                    <span class="relative z-10 transition-all duration-300 group-hover:-translate-y-12 group-hover:opacity-0">Explore Vendors</span>
-                                    <div class="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-                                    <span class="absolute inset-0 flex items-center justify-center text-primary font-black translate-y-12 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">Browse Now</span>
-                                </a>
-                                <div class="hidden sm:flex items-center gap-4 text-white/50">
-                                    <div class="w-12 h-[1px] bg-white/20"></div>
-                                    <span class="text-xs font-bold uppercase tracking-widest italic">Trusted Platform</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {{-- Slide 2: Request Quotations --}}
-                <div class="swiper-slide group relative h-full">
-                    <div class="absolute inset-0 scale-110 transition-transform duration-[10000ms] group-[.swiper-slide-active]:scale-100">
-                        <img src="{{ asset('images/slider/img-2.jpg') }}" class="w-full h-full object-cover" alt="Request for Quotation">
-                        <div class="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/60 to-transparent"></div>
-                        {{-- Liquid Glass Effect --}}
-                        <div class="absolute inset-0 backdrop-blur-[2px]">
-                            <div class="absolute top-0 left-0 w-full h-full">
-                                <div class="absolute top-1/3 right-1/4 w-96 h-96 bg-amber-500/20 rounded-full blur-3xl animate-blob"></div>
-                                <div class="absolute bottom-1/3 left-1/4 w-96 h-96 bg-orange-500/20 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
-                                <div class="absolute top-1/2 right-1/3 w-96 h-96 bg-yellow-500/20 rounded-full blur-3xl animate-blob animation-delay-4000"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center relative z-10">
-                        <div class="max-w-4xl opacity-0 translate-y-10 transition-all duration-1000 group-[.swiper-slide-active]:opacity-100 group-[.swiper-slide-active]:translate-y-0 delay-500">
-                            <span class="inline-flex items-center gap-2 px-4 py-2 bg-amber-500/20 backdrop-blur-md border border-amber-400/30 text-amber-300 rounded-full text-xs font-black uppercase tracking-[0.2em] mb-8">
-                                <span class="w-2 h-2 bg-amber-400 rounded-full animate-ping"></span>
-                                Smart Sourcing
-                            </span>
-                            <h2 class="text-5xl sm:text-7xl lg:text-[90px] xl:text-[100px] font-heading font-black text-white leading-[0.95] mb-8 tracking-tight">
-                                Request for <br> <span class="bg-gradient-to-r from-amber-300 to-orange-300 bg-clip-text text-transparent italic">Quotation</span>
-                            </h2>
-                            <p class="text-xl sm:text-2xl font-medium text-white/60 mb-12 max-w-xl leading-relaxed">
-                                Submit your requirements once. Receive competitive quotes from multiple verified vendors within 48 hours.
-                            </p>
-                            <div class="flex items-center gap-6">
-                                <a href="{{ route('rfq.create') }}" class="px-9 py-4.5 bg-transparent border-2 border-white text-white rounded-full font-black text-sm tracking-wider uppercase hover:bg-white hover:text-secondary transition-all shadow-lg hover:scale-105 active:scale-95">
-                                    Get Quotes Now
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {{-- Slide 3: Global Trade Network --}}
-                <div class="swiper-slide group relative h-full">
-                    <div class="absolute inset-0 scale-110 transition-transform duration-[10000ms] group-[.swiper-slide-active]:scale-100">
-                        <img src="{{ asset('images/slider/img-3.jpg') }}" class="w-full h-full object-cover" alt="Global Trade Network">
-                        <div class="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/60 to-transparent"></div>
-                        {{-- Liquid Glass Effect --}}
-                        <div class="absolute inset-0 backdrop-blur-[2px]">
-                            <div class="absolute top-0 left-0 w-full h-full">
-                                <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-blob"></div>
-                                <div class="absolute top-1/4 left-1/3 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
-                                <div class="absolute bottom-1/3 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-blob animation-delay-4000"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center relative z-10">
-                        <div class="max-w-4xl opacity-0 translate-y-10 transition-all duration-1000 group-[.swiper-slide-active]:opacity-100 group-[.swiper-slide-active]:translate-y-0 delay-500">
-                            <span class="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 backdrop-blur-md border border-primary/30 text-primary/60 rounded-full text-xs font-black uppercase tracking-[0.2em] mb-8">
-                                <span class="w-2 h-2 bg-primary rounded-full animate-ping"></span>
-                                Secure Trading
-                            </span>
-                            <h2 class="text-5xl sm:text-7xl lg:text-[90px] xl:text-[100px] font-heading font-black text-white leading-[0.95] mb-8 tracking-tight">
-                                Global Trade <br> <span class="bg-gradient-to-r from-amber-300 to-orange-300 bg-clip-text text-transparent italic">Network</span>
-                            </h2>
-                            <p class="text-xl sm:text-2xl font-medium text-white/60 mb-12 max-w-xl leading-relaxed">
-                                Join 1000+ verified vendors serving buyers across 50+ countries. Trusted, transparent, and efficient.
-                            </p>
-                            <div class="flex items-center gap-6">
-                                <a href="{{ route('register') }}" class="px-9 py-4.5 bg-white text-secondary rounded-full font-black text-sm tracking-wider uppercase hover:bg-primary hover:text-white transition-all shadow-xl hover:scale-105 active:scale-95">
-                                    Join Platform
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {{-- Hero Extras --}}
-            <div class="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-between items-end pointer-events-none">
-                <div class="hero-pagination flex gap-2 pointer-events-auto"></div>
-                <div class="hidden lg:block animate-bounce opacity-30">
-                    <div class="w-px h-24 bg-gradient-to-b from-white to-transparent"></div>
                 </div>
             </div>
         </div>
@@ -139,8 +45,8 @@
     {{-- [BENTO GRID] Why Choose Us --}}
     <section class="py-20 lg:py-32 bg-gradient-to-b from-surface to-white relative overflow-hidden">
         {{-- Background texture --}}
-        <div class="absolute -top-40 -right-40 w-[600px] h-[600px] bg-blue-200/20 rounded-full blur-[120px] pointer-events-none"></div>
-        <div class="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-indigo-200/20 rounded-full blur-[100px] pointer-events-none"></div>
+        <div class="absolute -top-40 -right-40 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[100px] pointer-events-none"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             {{-- Section heading --}}
@@ -167,13 +73,13 @@
                             <span class="text-white text-[10px] font-bold uppercase tracking-wider">Verified & Trusted</span>
                         </div>
                         <h3 class="text-4xl lg:text-5xl font-black text-white leading-[1.1] mb-4">
-                            100%<br/>Verified<br/><span class="text-amber-300">Vendors</span>
+                            100%<br/>Verified<br/><span class="text-accent">Vendors</span>
                         </h3>
                         <p class="text-white/70 text-sm leading-relaxed mb-auto">
                             Every vendor undergoes rigorous verification before joining our platform.
                         </p>
                         <div class="mt-8 flex items-center gap-3 p-4 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20">
-                            <div class="w-12 h-12 bg-amber-400 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <div class="w-12 h-12 bg-accent rounded-xl flex items-center justify-center flex-shrink-0">
                                 <i class="fas fa-shield-check text-secondary text-xl"></i>
                             </div>
                             <div>
@@ -188,7 +94,7 @@
                 <div class="lg:col-span-2 relative rounded-3xl overflow-hidden group reveal-up shadow-xl bg-secondary p-8">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full blur-3xl"></div>
                     <div class="relative z-10">
-                        <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <div class="w-14 h-14 bg-gradient-to-br from-primary to-primary-dark rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                             <i class="fas fa-globe text-white text-2xl"></i>
                         </div>
                         <div class="text-5xl font-black text-white mb-2">50<span class="text-primary">+</span></div>
@@ -210,7 +116,7 @@
                 </div>
 
                 {{-- Card 4: RFQ System --}}
-                <div class="lg:col-span-2 relative rounded-3xl overflow-hidden group reveal-up shadow-xl bg-gradient-to-br from-amber-400 to-orange-500 p-8">
+                <div class="lg:col-span-2 relative rounded-3xl overflow-hidden group reveal-up shadow-xl bg-gradient-to-br from-primary to-primary-dark p-8">
                     <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=%2240%22 height=%2240%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath d=%22M0 20h40M20 0v40%22 stroke=%22white%22 stroke-width=%220.5%22 opacity=%220.1%22/%3E%3C/svg%3E')]"></div>
                     <div class="relative z-10">
                         <div class="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6">
@@ -233,7 +139,7 @@
                 </div>
 
                 {{-- Card 6: Start Trading (CTA) --}}
-                <div class="lg:col-span-6 relative rounded-3xl overflow-hidden group reveal-up shadow-2xl bg-gradient-to-br from-indigo-600 to-blue-600 p-10">
+                <div class="lg:col-span-6 relative rounded-3xl overflow-hidden group reveal-up shadow-2xl bg-gradient-to-br from-primary to-primary-dark p-10">
                     <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(255,255,255,0.1)_0%,transparent_50%)]"></div>
                     <div class="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-6">
                         <div class="flex items-center gap-6">
@@ -245,7 +151,7 @@
                                 <p class="text-white/70 text-sm mt-1">Join thousands of businesses on our platform</p>
                             </div>
                         </div>
-                        <a href="{{ route('register') }}" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary rounded-xl font-bold text-sm hover:bg-amber-300 hover:text-secondary transition-all group-hover:gap-4 flex-shrink-0 shadow-xl">
+                        <a href="{{ route('register') }}" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary rounded-xl font-bold text-sm hover:bg-accent hover:text-secondary transition-all group-hover:gap-4 flex-shrink-0 shadow-xl">
                             <span>Get Started Free</span>
                             <i class="fas fa-arrow-right text-xs"></i>
                         </a>
@@ -265,7 +171,7 @@
                     <span class="text-primary font-black uppercase tracking-[0.2em] text-xs mb-4 block">How It Works</span>
                     <h2 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-black text-secondary mb-10 leading-[1.05]">Your Path to <br> <span class="bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent italic">Global Trade</span></h2>
                     <div class="relative group">
-                        <div class="absolute -inset-4 bg-primary/10 rounded-[50px] blur-2xl group-hover:bg-blue-200 transition-all opacity-0 group-hover:opacity-100"></div>
+                        <div class="absolute -inset-4 bg-primary/10 rounded-[50px] blur-2xl group-hover:bg-primary/20 transition-all opacity-0 group-hover:opacity-100"></div>
                         <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=600&fit=crop" 
                              class="rounded-[50px] shadow-2xl relative z-10 transition-all duration-700 group-hover:scale-[1.01]" alt="B2B Trading Platform">
                         
@@ -279,14 +185,14 @@
                 {{-- Timeline Journey --}}
                 <div class="lg:w-1/2 space-y-12 py-10">
                     <div class="relative pl-12 reveal-up">
-                        <div class="absolute left-0 top-0 w-[2px] h-full bg-blue-200"></div>
+                        <div class="absolute left-0 top-0 w-[2px] h-full bg-primary/20"></div>
                         <div class="absolute left-[-5px] top-1.5 w-[12px] h-[12px] rounded-full bg-primary shadow-lg shadow-primary/30"></div>
                         <h4 class="text-2xl font-black text-secondary mb-3">1. Register & Verify</h4>
                         <p class="text-secondary/60 leading-relaxed text-sm">Create your account and complete the verification process. We ensure all platform members are legitimate businesses.</p>
                     </div>
 
                     <div class="relative pl-12 reveal-up">
-                        <div class="absolute left-0 top-0 w-[2px] h-full bg-blue-200"></div>
+                        <div class="absolute left-0 top-0 w-[2px] h-full bg-primary/20"></div>
                         <div class="absolute left-[-5px] top-1.5 w-[12px] h-[12px] rounded-full bg-primary animate-pulse"></div>
                         <h4 class="text-2xl font-black text-secondary mb-3">2. Browse & Connect</h4>
                         <p class="text-secondary/60 leading-relaxed text-sm">Search thousands of verified vendors, review their profiles, products, and ratings. Connect directly with suppliers.</p>
@@ -305,15 +211,15 @@
     {{-- [QUOTE] Platform Philosophy --}}
     <section class="py-24 lg:py-36 bg-gradient-to-b from-surface to-white relative overflow-hidden border-t border-secondary/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="max-w-5xl mx-auto text-center bg-gradient-to-br from-slate-900 via-primary-dark to-indigo-900 text-white rounded-[50px] p-12 lg:p-20 shadow-2xl border border-slate-800 relative overflow-hidden group">
+            <div class="max-w-5xl mx-auto text-center bg-gradient-to-br from-secondary via-primary-dark to-primary-dark text-white rounded-[50px] p-12 lg:p-20 shadow-2xl border border-secondary/30 relative overflow-hidden group">
                 <div class="absolute top-0 right-0 w-80 h-80 bg-primary/10 rounded-full translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
-                <i class="fas fa-quote-left text-amber-300/20 text-8xl mb-8"></i>
+                <i class="fas fa-quote-left text-accent/20 text-8xl mb-8"></i>
                 <h2 class="text-2xl sm:text-3xl lg:text-5xl font-heading font-bold leading-snug italic mb-10 tracking-tight max-w-4xl mx-auto">
-                    "In global trade, trust is everything. <br> <span class="text-amber-300 underline decoration-amber-300/20">B2B Marketplace</span> connects businesses with verified partners worldwide."
+                    "In global trade, trust is everything. <br> <span class="text-accent underline decoration-accent/20">B2B Marketplace</span> connects businesses with verified partners worldwide."
                 </h2>
                 <div class="flex flex-col items-center gap-4">
-                    <div class="w-16 h-[2px] bg-amber-300/30"></div>
-                    <span class="text-amber-300 font-black tracking-[0.3em] uppercase text-[10px]">Global Trade Excellence</span>
+                    <div class="w-16 h-[2px] bg-accent/30"></div>
+                    <span class="text-accent font-black tracking-[0.3em] uppercase text-[10px]">Global Trade Excellence</span>
                 </div>
             </div>
         </div>
@@ -327,7 +233,7 @@
                 @foreach([['50', 'Verified Vendors'], ['20', 'Countries Served'], ['500', 'Products Listed'], ['99', 'Success Rate %']] as [$count, $label])
                 <div class="text-center group">
                     <div class="text-5xl sm:text-6xl font-heading font-black text-white mb-3 transition-transform group-hover:scale-105">
-                        <span class="odometer" data-count="{{ $count }}">0</span><span class="text-2xl text-amber-300 inline-block -ml-1">+</span>
+                        <span class="odometer" data-count="{{ $count }}">0</span><span class="text-2xl text-accent inline-block -ml-1">+</span>
                     </div>
                     <span class="text-white/70 font-black uppercase tracking-[0.2em] text-[10px] block">{{ $label }}</span>
                 </div>
@@ -417,13 +323,13 @@
                 <div class="absolute -top-32 -left-32 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
                 
                 <div class="relative z-10 max-w-2xl mx-auto">
-                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-black text-white mb-6 leading-none">Ready to Start <span class="italic text-amber-300">Trading?</span></h2>
+                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-black text-white mb-6 leading-none">Ready to Start <span class="italic text-accent">Trading?</span></h2>
                     <p class="text-white/80 mb-10 text-sm sm:text-base leading-relaxed">Join thousands of businesses using our platform to source products, connect with suppliers, and grow their trade networks globally.</p>
                     <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                         <a href="{{ route('register') }}" class="w-full sm:w-auto px-10 py-5 bg-white text-primary rounded-full font-black text-sm tracking-wider uppercase hover:bg-secondary hover:text-white transition-all shadow-lg scale-100 hover:scale-105 active:scale-95">
                             Create Account
                         </a>
-                        <a href="{{ route('contact') }}" class="flex items-center gap-3 text-white font-black text-sm tracking-wider uppercase group hover:text-amber-300 transition-colors">
+                        <a href="{{ route('contact') }}" class="flex items-center gap-3 text-white font-black text-sm tracking-wider uppercase group hover:text-accent transition-colors">
                             <div class="w-12 h-12 bg-white/10 border border-white/25 rounded-full flex items-center justify-center group-hover:bg-white/20 transition-all shadow-md">
                                 <i class="fas fa-envelope text-xs"></i>
                             </div>
@@ -441,28 +347,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/odometer.min.js"></script>
     
     <style>
-        /* Swiper Pagination Styling */
-        .hero-pagination {
-            display: flex;
-            gap: 8px;
-            align-items: center;
-        }
-        .hero-pagination .swiper-pagination-bullet {
-            width: 8px;
-            height: 8px;
-            background: rgba(255, 255, 255, 0.4);
-            border-radius: 9999px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .hero-pagination .swiper-pagination-bullet-active {
-            width: 32px;
-            background: rgba(255, 255, 255, 0.9);
-        }
-        .hero-pagination .swiper-pagination-bullet:hover {
-            background: rgba(255, 255, 255, 0.6);
-        }
-
         /* Liquid Glass Blob Animation */
         @keyframes blob {
             0%, 100% {
@@ -499,34 +383,6 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Initialize Hero Swiper Slider
-            if (typeof Swiper !== 'undefined') {
-                const heroSwiper = new Swiper('.thm-swiper__slider', {
-                    slidesPerView: 1,
-                    loop: true,
-                    effect: 'fade',
-                    speed: 1500,
-                    autoplay: {
-                        delay: 7000,
-                        disableOnInteraction: false,
-                    },
-                    fadeEffect: {
-                        crossFade: true
-                    },
-                    pagination: {
-                        el: '.hero-pagination',
-                        clickable: true,
-                    },
-                    on: {
-                        init: function () {
-                            console.log('Hero Swiper initialized successfully');
-                        }
-                    }
-                });
-            } else {
-                console.error('Swiper is not loaded');
-            }
-
             // Odometer Logic
             const odometers = document.querySelectorAll('.odometer');
             const oObserver = new IntersectionObserver((entries) => {

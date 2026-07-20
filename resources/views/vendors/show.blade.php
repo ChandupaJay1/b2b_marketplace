@@ -28,7 +28,7 @@
                     @if($vendor->is_featured)
                         <span class="badge-yellow text-[9px]">⭐ Featured</span>
                     @endif
-                    <span class="badge-green text-[9px]">✓ Verified</span>
+                    <span class="badge-success text-[9px]">✓ Verified</span>
                 </div>
                 <div class="flex flex-wrap gap-4 text-sm text-secondary/50 font-semibold mb-4">
                     <span class="flex items-center gap-1.5"><i class="fas fa-tag text-primary text-[10px]"></i>{{ $vendor->category->name ?? 'General' }}</span>

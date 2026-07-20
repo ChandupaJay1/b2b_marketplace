@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <h1 class="text-2xl font-bold text-gray-900 mb-8">My Profile</h1>
+    <h1 class="text-2xl font-bold text-secondary mb-8">My Profile</h1>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {{-- Avatar & Quick Info --}}
@@ -17,24 +17,24 @@
                     </div>
                 @endif
             </div>
-            <h2 class="font-bold text-gray-900 text-lg">{{ $user->name }}</h2>
-            <p class="text-gray-500 text-sm">{{ $user->email }}</p>
+            <h2 class="font-bold text-secondary text-lg">{{ $user->name }}</h2>
+            <p class="text-secondary/60 text-sm">{{ $user->email }}</p>
             <div class="mt-3">
                 @foreach($user->roles as $role)
-                    <span class="badge-blue">{{ ucfirst($role->name) }}</span>
+                    <span class="badge-primary">{{ ucfirst($role->name) }}</span>
                 @endforeach
             </div>
             @if($user->country)
-                <p class="text-gray-500 text-sm mt-2">🌍 {{ $user->country }}</p>
+                <p class="text-secondary/60 text-sm mt-2">🌍 {{ $user->country }}</p>
             @endif
-            <p class="text-xs text-gray-400 mt-4">Member since {{ $user->created_at->format('M Y') }}</p>
+            <p class="text-xs text-secondary/50 mt-4">Member since {{ $user->created_at->format('M Y') }}</p>
         </div>
 
         {{-- Forms --}}
         <div class="lg:col-span-2 space-y-6">
             {{-- Profile Info --}}
             <div class="card p-6">
-                <h3 class="font-bold text-gray-900 mb-5">Update Profile</h3>
+                <h3 class="font-bold text-secondary mb-5">Update Profile</h3>
                 <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data" class="space-y-4">
                     @csrf @method('PUT')
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -67,7 +67,7 @@
 
             {{-- Change Password --}}
             <div class="card p-6">
-                <h3 class="font-bold text-gray-900 mb-5">Change Password</h3>
+                <h3 class="font-bold text-secondary mb-5">Change Password</h3>
                 <form action="{{ route('profile.password') }}" method="POST" class="space-y-4">
                     @csrf @method('PUT')
                     <div>
