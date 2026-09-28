@@ -41,6 +41,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             ProductCategorySeeder::class,
             VendorExcelSeeder::class,
+            DemoProductSeeder::class,
         ]);
     }
 }

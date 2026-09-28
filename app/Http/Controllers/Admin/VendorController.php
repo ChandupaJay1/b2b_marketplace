@@ -64,7 +64,8 @@ class VendorController extends Controller
     public function show(Vendor $vendor)
     {
         $vendor->load(['category', 'products']);
-        return view('admin.vendors.show', compact('vendor'));
+        $allProducts = \App\Models\Product::orderBy('name')->get();
+        return view('admin.vendors.show', compact('vendor', 'allProducts'));
     }
 
     public function edit(Vendor $vendor)
@@ -117,5 +118,21 @@ class VendorController extends Controller
         $vendor->update(['status' => $request->status]);
 
         return back()->with('success', 'Vendor status updated to ' . ucfirst($request->status) . '.');
+    }
+
+    public function assignProduct(Request $request, Vendor $vendor)
+    {
+        $request->validate([
+            'product_id' => 'required|exists:products,id'
+        ]);
+
+        $product = \App\Models\Product::find($request->product_id);
+        
+        // Re-assign the primary vendor
+        $product->update([
+            'vendor_id' => $vendor->id
+        ]);
+
+        return back()->with('success', 'Product assigned successfully!');
     }
 }

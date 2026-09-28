@@ -24,7 +24,7 @@ class ProductCategorySeeder extends Seeder
             ],
             'Dehydrated & Processed Foods' => [
                 'Dehydrated Vegetables & Spices',
-                'Dehydrated Spices',
+                'Spices',
                 'Dehydrated Herbal Products',
                 'Dehydrated Mushrooms',
             ],
