@@ -45,6 +45,25 @@ class Product extends Model
             ->first();
     }
 
+    // Get all vendors including the primary one even if it's not in the pivot table (for seeded data)
+    public function getAllVendorsAttribute()
+    {
+        $vendors = $this->vendors;
+        
+        if ($this->vendor && !$vendors->contains('id', $this->vendor_id)) {
+            $primaryVendor = clone $this->vendor;
+            $primaryVendor->pivot = (object)[
+                'is_primary' => true,
+                'price' => $this->price,
+                'min_order_quantity' => $this->min_order_quantity,
+                'sku' => $this->sku
+            ];
+            $vendors->prepend($primaryVendor);
+        }
+        
+        return $vendors;
+    }
+
     // Get active vendors for this product
     public function activeVendors()
     {
