@@ -38,10 +38,15 @@ class Vendor extends Model
             ->withTimestamps();
     }
 
-    // Get all products this vendor sells (including both owned and shared)
     public function allProducts()
     {
-        return $this->productsMultiple()->wherePivot('is_active', true);
+        return Product::where(function($query) {
+            $query->where('vendor_id', $this->id)
+                  ->orWhereHas('vendors', function($q) {
+                      $q->where('vendor_id', $this->id)
+                        ->where('product_vendor.is_active', true);
+                  });
+        });
     }
 
     public function rfqs()

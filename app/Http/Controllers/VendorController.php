@@ -33,8 +33,8 @@ class VendorController extends Controller
 
     public function show(string $slug)
     {
-        $vendor   = Vendor::where('slug', $slug)->where('status', 'approved')->with(['category', 'products.category'])->firstOrFail();
-        $products = $vendor->products()->where('is_active', true)->with('category')->paginate(12);
+        $vendor   = Vendor::where('slug', $slug)->where('status', 'approved')->with(['category'])->firstOrFail();
+        $products = $vendor->allProducts()->where('products.is_active', true)->with('category')->paginate(12);
 
         return view('vendors.show', compact('vendor', 'products'));
     }
@@ -61,12 +61,8 @@ class VendorController extends Controller
      */
     public function getCategories(Vendor $vendor)
     {
-        // Get unique product categories from ALL vendor's products (both owned and through pivot table)
-        $ownedProducts = $vendor->products()->with('category')->get();
-        $sharedProducts = $vendor->allProducts()->with('category')->get();
-        
-        // Merge both collections
-        $allProducts = $ownedProducts->merge($sharedProducts);
+        // Get unique product categories from ALL vendor's products
+        $allProducts = $vendor->allProducts()->with('category')->get();
         
         // Extract unique categories
         $categories = $allProducts
