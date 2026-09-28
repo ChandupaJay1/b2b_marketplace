@@ -57,7 +57,10 @@
         <div class="bg-white rounded-xl border border-secondary/5 shadow-sm overflow-hidden">
             <div class="p-5 border-b border-secondary/5 flex justify-between items-center">
                 <h3 class="font-bold text-secondary">Products ({{ $vendor->products->count() }})</h3>
-                <a href="{{ route('admin.products.create') }}?vendor={{ $vendor->id }}" class="text-xs text-primary hover:underline">+ Add Product</a>
+                <div class="flex items-center gap-3">
+                    <button type="button" onclick="document.getElementById('assignProductModal').classList.remove('hidden')" class="text-xs text-primary hover:underline font-medium">Assign Existing Product</button>
+                    <a href="{{ route('admin.products.create') }}?vendor={{ $vendor->id }}" class="text-xs text-primary hover:underline font-medium">+ Add New Product</a>
+                </div>
             </div>
             @forelse($vendor->products->take(8) as $product)
             <div class="px-5 py-3 border-b border-secondary/5 flex items-center justify-between">
@@ -144,6 +147,37 @@
                 </form>
             </div>
         </div>
+    </div>
+</div>
+
+{{-- Assign Product Modal --}}
+<div id="assignProductModal" class="fixed inset-0 bg-secondary/80 hidden flex items-center justify-center z-50 p-4 backdrop-blur-sm">
+    <div class="bg-white rounded-xl p-6 w-full max-w-md shadow-2xl">
+        <div class="flex justify-between items-center mb-5">
+            <h3 class="font-bold text-lg text-secondary">Assign Existing Product</h3>
+            <button type="button" onclick="document.getElementById('assignProductModal').classList.add('hidden')" class="text-secondary/50 hover:text-secondary">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <form action="{{ route('admin.vendors.assign-product', $vendor) }}" method="POST">
+            @csrf
+            <div class="mb-5">
+                <label class="label mb-2 block">Select Product</label>
+                <select name="product_id" class="input-field w-full text-sm" required>
+                    <option value="">Search and select a product...</option>
+                    @foreach($allProducts as $p)
+                        <option value="{{ $p->id }}" @disabled($p->vendor_id == $vendor->id)>
+                            @if($p->vendor_id == $vendor->id) ✔️ @endif {{ $p->name }} ({{ $p->sku ?? 'No SKU' }})
+                        </option>
+                    @endforeach
+                </select>
+                <p class="text-xs text-secondary/50 mt-2">This will change the primary vendor of the selected product to {{ $vendor->company_name }}.</p>
+            </div>
+            <div class="flex justify-end gap-3">
+                <button type="button" onclick="document.getElementById('assignProductModal').classList.add('hidden')" class="btn-secondary text-sm">Cancel</button>
+                <button type="submit" class="btn-primary text-sm">Assign Product</button>
+            </div>
+        </form>
     </div>
 </div>
 @endsection

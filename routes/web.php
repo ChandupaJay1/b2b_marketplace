@@ -89,6 +89,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->grou
     // Vendors
     Route::resource('vendors', AdminVendor::class);
     Route::patch('/vendors/{vendor}/status', [AdminVendor::class, 'updateStatus'])->name('vendors.status');
+    Route::post('/vendors/{vendor}/assign-product', [AdminVendor::class, 'assignProduct'])->name('vendors.assign-product');
 
     // Product Categories
     Route::resource('product-categories', AdminProductCategory::class);
