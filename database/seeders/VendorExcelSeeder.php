@@ -8,53 +8,24 @@ use Illuminate\Support\Facades\DB;
 
 class VendorExcelSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        // 1. Insert Categories First
+        // 1. Insert 6 Main Categories
         $categories = [
-            ['name' => 'Paper products', 'slug' => 'paper-products', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Vergin coconut oil products', 'slug' => 'vergin-coconut-oil-products', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Dehydrated foods (herbal, spices)', 'slug' => 'dehydrated-foods-herbal-spices', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Traditional rice', 'slug' => 'traditional-rice', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Rice flour products', 'slug' => 'rice-flour-products', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Dehydrated Foods (Herbal, Spices)', 'slug' => 'dehydrated-foods-herbal-spices', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Coconut husk chips', 'slug' => 'coconut-husk-chips', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Dehydrated foods (spices)', 'slug' => 'dehydrated-foods-spices', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Dairy products', 'slug' => 'dairy-products', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Banana fruits', 'slug' => 'banana-fruits', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Fruits juice', 'slug' => 'fruits-juice', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Coconut shell charcoal', 'slug' => 'coconut-shell-charcoal', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'King coconut fruits', 'slug' => 'king-coconut-fruits', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Fruits juice, Sweet bites', 'slug' => 'fruits-juice-sweet-bites', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Sesame sweet bites', 'slug' => 'sesame-sweet-bites', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Food oil (Sesame, Butter tree, Neem, Mustard)', 'slug' => 'food-oil-sesame-butter-tree-neem-mustard', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Dehydrated foods (herbal paroducts)', 'slug' => 'dehydrated-foods-herbal-paroducts', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Cassava chips, Spicy bites', 'slug' => 'cassava-chips-spicy-bites', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Sweet bites (Ash pumpkin)', 'slug' => 'sweet-bites-ash-pumpkin', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Mushroom production Dehydrated foods', 'slug' => 'mushroom-production-dehydrated-foods', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Mushroom production', 'slug' => 'mushroom-production', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Milk toffee', 'slug' => 'milk-toffee', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Passion fruits production', 'slug' => 'passion-fruits-production', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Animal (chicken) feed', 'slug' => 'animal-chicken-feed', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Noodles, Pasta, Bites', 'slug' => 'noodles-pasta-bites', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'King coconut fruits, Papaya', 'slug' => 'king-coconut-fruits-papaya', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Mushroom production/ Banana chips', 'slug' => 'mushroom-production-banana-chips', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Fruit drink', 'slug' => 'fruit-drink', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Sesami sweets', 'slug' => 'sesami-sweets', 'created_at' => now(), 'updated_at' => now()]
+            ['name' => 'Industrial & Other Products', 'slug' => 'industrial-other-products', 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'Grains & Oils', 'slug' => 'grains-oils', 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'Dehydrated & Processed Foods', 'slug' => 'dehydrated-processed-foods', 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'Food & Beverages', 'slug' => 'food-beverages', 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'Agriculture & Fresh Produce', 'slug' => 'agriculture-fresh-produce', 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'Snacks & Sweets', 'slug' => 'snacks-sweets', 'created_at' => now(), 'updated_at' => now()]
         ];
         
-        // Use insertOrIgnore to prevent duplicates if run multiple times
         DB::table('vendor_categories')->insertOrIgnore($categories);
         
-        // Ensure "Uncategorized" exists for safety
         DB::table('vendor_categories')->insertOrIgnore([
             ['name' => 'Uncategorized', 'slug' => 'uncategorized', 'created_at' => now(), 'updated_at' => now()]
         ]);
 
-        // Fetch all categories to map IDs
         $dbCategories = DB::table('vendor_categories')->get();
         $categoryIds = [];
         foreach($dbCategories as $cat) {
@@ -62,12 +33,12 @@ class VendorExcelSeeder extends Seeder
         }
         $uncategorizedId = $categoryIds['Uncategorized'] ?? 1;
 
-        // 2. Insert Vendors mapped to the category IDs
+        // 2. Insert Vendors mapped to the Main Category IDs
         $vendors = [
             [
                 'company_name' => 'MANA Ceylon Manufactures (Pvt) Ltd.',
                 'slug' => 'mana-ceylon-manufactures-pvt-ltd',
-                'vendor_category_id' => $categoryIds['Paper products'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Industrial & Other Products'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -90,7 +61,7 @@ class VendorExcelSeeder extends Seeder
             [
                 'company_name' => 'Crystal Pearl (Pvt) Ltd.',
                 'slug' => 'crystal-pearl-pvt-ltd',
-                'vendor_category_id' => $categoryIds['Vergin coconut oil products'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Grains & Oils'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -113,7 +84,7 @@ class VendorExcelSeeder extends Seeder
             [
                 'company_name' => 'N-Ceylon ',
                 'slug' => 'n-ceylon',
-                'vendor_category_id' => $categoryIds['Dehydrated foods (herbal, spices)'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Dehydrated & Processed Foods'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -136,7 +107,7 @@ class VendorExcelSeeder extends Seeder
             [
                 'company_name' => 'RM Products',
                 'slug' => 'rm-products',
-                'vendor_category_id' => $categoryIds['Dehydrated foods (herbal, spices)'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Dehydrated & Processed Foods'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -159,7 +130,7 @@ class VendorExcelSeeder extends Seeder
             [
                 'company_name' => 'Pramode Rice',
                 'slug' => 'pramode-rice',
-                'vendor_category_id' => $categoryIds['Traditional rice'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Grains & Oils'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -182,7 +153,7 @@ class VendorExcelSeeder extends Seeder
             [
                 'company_name' => 'Tyni Tiyana Enterprises',
                 'slug' => 'tyni-tiyana-enterprises',
-                'vendor_category_id' => $categoryIds['Dehydrated foods (herbal, spices)'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Dehydrated & Processed Foods'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -205,7 +176,7 @@ class VendorExcelSeeder extends Seeder
             [
                 'company_name' => 'Mihiri Food Products ',
                 'slug' => 'mihiri-food-products',
-                'vendor_category_id' => $categoryIds['Rice flour products'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Grains & Oils'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -228,7 +199,7 @@ class VendorExcelSeeder extends Seeder
             [
                 'company_name' => 'Kalara Products',
                 'slug' => 'kalara-products',
-                'vendor_category_id' => $categoryIds['Dehydrated Foods (Herbal, Spices)'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Dehydrated & Processed Foods'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -251,7 +222,7 @@ class VendorExcelSeeder extends Seeder
             [
                 'company_name' => 'Sasoba Enterprises',
                 'slug' => 'sasoba-enterprises',
-                'vendor_category_id' => $categoryIds['Coconut husk chips'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Industrial & Other Products'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -274,7 +245,7 @@ class VendorExcelSeeder extends Seeder
             [
                 'company_name' => 'Ranjith Products',
                 'slug' => 'ranjith-products',
-                'vendor_category_id' => $categoryIds['Dehydrated foods (spices)'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Dehydrated & Processed Foods'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -297,7 +268,7 @@ class VendorExcelSeeder extends Seeder
             [
                 'company_name' => 'Parami Dairy (Pvt) Ltd.',
                 'slug' => 'parami-dairy-pvt-ltd',
-                'vendor_category_id' => $categoryIds['Dairy products'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Food & Beverages'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -320,7 +291,7 @@ class VendorExcelSeeder extends Seeder
             [
                 'company_name' => 'Rajanganaya A-park Ltd (PUC)',
                 'slug' => 'rajanganaya-a-park-ltd-puc',
-                'vendor_category_id' => $categoryIds['Banana fruits'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Agriculture & Fresh Produce'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -343,7 +314,7 @@ class VendorExcelSeeder extends Seeder
             [
                 'company_name' => 'Saratha Product and Services',
                 'slug' => 'saratha-product-and-services',
-                'vendor_category_id' => $categoryIds['Dehydrated foods (herbal, spices)'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Dehydrated & Processed Foods'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -366,7 +337,7 @@ class VendorExcelSeeder extends Seeder
             [
                 'company_name' => 'Lanka Kings Food Products',
                 'slug' => 'lanka-kings-food-products',
-                'vendor_category_id' => $categoryIds['Fruits juice'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Food & Beverages'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -389,7 +360,7 @@ class VendorExcelSeeder extends Seeder
             [
                 'company_name' => 'Coco Heat Lanka Enterprises (Pathilana)',
                 'slug' => 'coco-heat-lanka-enterprises-pathilana',
-                'vendor_category_id' => $categoryIds['Coconut shell charcoal'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Industrial & Other Products'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -412,7 +383,7 @@ class VendorExcelSeeder extends Seeder
             [
                 'company_name' => 'S&M Agro (Pvt) Ltd. (Sampath)',
                 'slug' => 's-m-agro-pvt-ltd-sampath',
-                'vendor_category_id' => $categoryIds['King coconut fruits'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Agriculture & Fresh Produce'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -435,7 +406,7 @@ class VendorExcelSeeder extends Seeder
             [
                 'company_name' => 'Royal Food Lanka (Pvt) Ltd.',
                 'slug' => 'royal-food-lanka-pvt-ltd',
-                'vendor_category_id' => $categoryIds['Fruits juice, Sweet bites'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Snacks & Sweets'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -458,7 +429,7 @@ class VendorExcelSeeder extends Seeder
             [
                 'company_name' => 'Sameera Sesame Product',
                 'slug' => 'sameera-sesame-product',
-                'vendor_category_id' => $categoryIds['Sesame sweet bites'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Snacks & Sweets'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -481,7 +452,7 @@ class VendorExcelSeeder extends Seeder
             [
                 'company_name' => 'Devaki Agro Industries (Pvt) Ltd.',
                 'slug' => 'devaki-agro-industries-pvt-ltd',
-                'vendor_category_id' => $categoryIds['Food oil (Sesame, Butter tree, Neem, Mustard)'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Grains & Oils'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -504,7 +475,7 @@ class VendorExcelSeeder extends Seeder
             [
                 'company_name' => 'Rain Eco Products (Pvt) Ltd.',
                 'slug' => 'rain-eco-products-pvt-ltd',
-                'vendor_category_id' => $categoryIds['Dehydrated foods (herbal paroducts)'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Dehydrated & Processed Foods'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -527,7 +498,7 @@ class VendorExcelSeeder extends Seeder
             [
                 'company_name' => 'Jayamali Herbal & Grain Products',
                 'slug' => 'jayamali-herbal-grain-products',
-                'vendor_category_id' => $categoryIds['Dehydrated foods (herbal paroducts)'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Dehydrated & Processed Foods'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -550,7 +521,7 @@ class VendorExcelSeeder extends Seeder
             [
                 'company_name' => 'Minchi Bite Products',
                 'slug' => 'minchi-bite-products',
-                'vendor_category_id' => $categoryIds['Cassava chips, Spicy bites'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Snacks & Sweets'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -573,7 +544,7 @@ class VendorExcelSeeder extends Seeder
             [
                 'company_name' => 'Welagedara Products',
                 'slug' => 'welagedara-products',
-                'vendor_category_id' => $categoryIds['Dehydrated foods (spices)'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Dehydrated & Processed Foods'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -596,7 +567,7 @@ class VendorExcelSeeder extends Seeder
             [
                 'company_name' => 'Lithara Products (Pvt) Ltd. ',
                 'slug' => 'lithara-products-pvt-ltd',
-                'vendor_category_id' => $categoryIds['Dehydrated foods (spices)'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Dehydrated & Processed Foods'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -619,7 +590,7 @@ class VendorExcelSeeder extends Seeder
             [
                 'company_name' => 'Vonro Milk Products',
                 'slug' => 'vonro-milk-products',
-                'vendor_category_id' => $categoryIds['Dairy products'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Food & Beverages'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -642,7 +613,7 @@ class VendorExcelSeeder extends Seeder
             [
                 'company_name' => 'Weerasinha Spice Products',
                 'slug' => 'weerasinha-spice-products',
-                'vendor_category_id' => $categoryIds['Dehydrated foods (spices)'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Dehydrated & Processed Foods'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -665,7 +636,7 @@ class VendorExcelSeeder extends Seeder
             [
                 'company_name' => 'NKD Products (Nanayakkara)',
                 'slug' => 'nkd-products-nanayakkara',
-                'vendor_category_id' => $categoryIds['Dehydrated foods (spices)'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Dehydrated & Processed Foods'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -688,7 +659,7 @@ class VendorExcelSeeder extends Seeder
             [
                 'company_name' => 'Amasha Sweet House',
                 'slug' => 'amasha-sweet-house',
-                'vendor_category_id' => $categoryIds['Sweet bites (Ash pumpkin)'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Snacks & Sweets'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -711,7 +682,7 @@ class VendorExcelSeeder extends Seeder
             [
                 'company_name' => 'Rusiru Yoghurt',
                 'slug' => 'rusiru-yoghurt',
-                'vendor_category_id' => $categoryIds['Dairy products'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Food & Beverages'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -734,7 +705,7 @@ class VendorExcelSeeder extends Seeder
             [
                 'company_name' => 'Ulankulama Dairies (Pvt) Ltd.',
                 'slug' => 'ulankulama-dairies-pvt-ltd',
-                'vendor_category_id' => $categoryIds['Dairy products'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Food & Beverages'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -757,7 +728,7 @@ class VendorExcelSeeder extends Seeder
             [
                 'company_name' => 'Healthy Foods Lanka Exports (Pvt) Ltd.',
                 'slug' => 'healthy-foods-lanka-exports-pvt-ltd',
-                'vendor_category_id' => $categoryIds['Dehydrated foods (herbal, spices)'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Dehydrated & Processed Foods'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -780,7 +751,7 @@ class VendorExcelSeeder extends Seeder
             [
                 'company_name' => 'EV Ceylon Nature Product',
                 'slug' => 'ev-ceylon-nature-product',
-                'vendor_category_id' => $categoryIds['Dehydrated foods (herbal paroducts)'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Dehydrated & Processed Foods'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -804,7 +775,7 @@ class VendorExcelSeeder extends Seeder
                 'company_name' => 'Shenu Mushroom Production/
 Casky Products',
                 'slug' => 'shenu-mushroom-production-casky-products',
-                'vendor_category_id' => $categoryIds['Mushroom production Dehydrated foods'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Dehydrated & Processed Foods'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -828,7 +799,7 @@ Casky Products',
             [
                 'company_name' => 'Green Agro Ventures (Pvt) Ltd.',
                 'slug' => 'green-agro-ventures-pvt-ltd',
-                'vendor_category_id' => $categoryIds['Mushroom production'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Agriculture & Fresh Produce'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -851,7 +822,7 @@ Casky Products',
             [
                 'company_name' => 'Bimmala Mushroom Product',
                 'slug' => 'bimmala-mushroom-product',
-                'vendor_category_id' => $categoryIds['Mushroom production'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Agriculture & Fresh Produce'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -874,7 +845,7 @@ Casky Products',
             [
                 'company_name' => 'Thennakoon Product',
                 'slug' => 'thennakoon-product',
-                'vendor_category_id' => $categoryIds['Milk toffee'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Snacks & Sweets'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -897,7 +868,7 @@ Casky Products',
             [
                 'company_name' => 'Three Star (Dairy)',
                 'slug' => 'three-star-dairy',
-                'vendor_category_id' => $categoryIds['Dairy products'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Food & Beverages'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -920,7 +891,7 @@ Casky Products',
             [
                 'company_name' => 'Walauwa Production',
                 'slug' => 'walauwa-production',
-                'vendor_category_id' => $categoryIds['Dehydrated foods (herbal, spices)'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Dehydrated & Processed Foods'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -943,7 +914,7 @@ Casky Products',
             [
                 'company_name' => 'Andrawewa Agri (PUC)',
                 'slug' => 'andrawewa-agri-puc',
-                'vendor_category_id' => $categoryIds['Passion fruits production'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Agriculture & Fresh Produce'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -966,7 +937,7 @@ Casky Products',
             [
                 'company_name' => 'MRF Enterprise',
                 'slug' => 'mrf-enterprise',
-                'vendor_category_id' => $categoryIds['Animal (chicken) feed'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Industrial & Other Products'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -989,7 +960,7 @@ Casky Products',
             [
                 'company_name' => 'Hela Rasa (Pvt) Ltd.',
                 'slug' => 'hela-rasa-pvt-ltd',
-                'vendor_category_id' => $categoryIds['Noodles, Pasta, Bites'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Snacks & Sweets'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -1012,7 +983,7 @@ Casky Products',
             [
                 'company_name' => 'Rajanganaya Export ',
                 'slug' => 'rajanganaya-export',
-                'vendor_category_id' => $categoryIds['King coconut fruits, Papaya'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Agriculture & Fresh Produce'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -1035,7 +1006,7 @@ Casky Products',
             [
                 'company_name' => 'DNM Mushroom',
                 'slug' => 'dnm-mushroom',
-                'vendor_category_id' => $categoryIds['Mushroom production'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Agriculture & Fresh Produce'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -1058,7 +1029,7 @@ Casky Products',
             [
                 'company_name' => 'Pulathisi Supipi Mushroom',
                 'slug' => 'pulathisi-supipi-mushroom',
-                'vendor_category_id' => $categoryIds['Mushroom production/ Banana chips'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Snacks & Sweets'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -1081,7 +1052,7 @@ Casky Products',
             [
                 'company_name' => 'New Nirosha Dairy Products',
                 'slug' => 'new-nirosha-dairy-products',
-                'vendor_category_id' => $categoryIds['Dairy products'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Food & Beverages'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -1104,7 +1075,7 @@ Casky Products',
             [
                 'company_name' => 'RSI Dry Products',
                 'slug' => 'rsi-dry-products',
-                'vendor_category_id' => $categoryIds['Dehydrated foods (herbal, spices)'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Dehydrated & Processed Foods'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -1127,7 +1098,7 @@ Casky Products',
             [
                 'company_name' => 'N&L Mushroom Products',
                 'slug' => 'n-l-mushroom-products',
-                'vendor_category_id' => $categoryIds['Mushroom production'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Agriculture & Fresh Produce'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -1150,7 +1121,7 @@ Casky Products',
             [
                 'company_name' => 'Leo Foods (Pvt) Ltd.',
                 'slug' => 'leo-foods-pvt-ltd',
-                'vendor_category_id' => $categoryIds['Dehydrated foods (herbal, spices)'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Dehydrated & Processed Foods'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -1173,7 +1144,7 @@ Casky Products',
             [
                 'company_name' => 'KPG Mushroom Products',
                 'slug' => 'kpg-mushroom-products',
-                'vendor_category_id' => $categoryIds['Mushroom production'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Agriculture & Fresh Produce'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -1196,7 +1167,7 @@ Casky Products',
             [
                 'company_name' => 'Sha Food Products (Pvt) Ltd.',
                 'slug' => 'sha-food-products-pvt-ltd',
-                'vendor_category_id' => $categoryIds['Fruit drink'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Food & Beverages'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,
@@ -1219,7 +1190,7 @@ Casky Products',
             [
                 'company_name' => 'Kumari Tea Marketing',
                 'slug' => 'kumari-tea-marketing',
-                'vendor_category_id' => $categoryIds['Sesami sweets'] ?? $uncategorizedId,
+                'vendor_category_id' => $categoryIds['Snacks & Sweets'] ?? $uncategorizedId,
                 'description' => null,
                 'logo' => null,
                 'banner' => null,

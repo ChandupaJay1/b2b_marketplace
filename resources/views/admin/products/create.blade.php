@@ -115,21 +115,69 @@
 
 <script>
 let vendorRowIndex = 0;
+const allVendors = @json($vendors);
+
+document.addEventListener('DOMContentLoaded', function() {
+    const subcategories = @json($subcategories);
+    const categorySel = document.getElementById('category-sel');
+    const subcategorySel = document.querySelector('select[name="product_subcategory_id"]');
+    const oldSubcatId = "{{ old('product_subcategory_id') }}";
+
+    function updateSubcategories() {
+        const categoryId = categorySel.value;
+        // Keep the first option
+        subcategorySel.innerHTML = '<option value="">Select Subcategory</option>';
+        
+        // Clear additional vendors if category changes
+        document.getElementById('vendors-container').innerHTML = '';
+        vendorRowIndex = 0;
+        
+        if (categoryId) {
+            const filtered = subcategories.filter(sub => sub.product_category_id == categoryId);
+            filtered.forEach(sub => {
+                const option = document.createElement('option');
+                option.value = sub.id;
+                option.textContent = sub.name;
+                if (oldSubcatId && oldSubcatId == sub.id) {
+                    option.selected = true;
+                }
+                subcategorySel.appendChild(option);
+            });
+        }
+    }
+
+    categorySel.addEventListener('change', updateSubcategories);
+    
+    // Trigger on load if a category is already selected (e.g. after validation error)
+    if (categorySel.value) {
+        updateSubcategories();
+    }
+});
 
 function addVendorRow() {
+    const categoryId = document.getElementById('category-sel').value;
+    if (!categoryId) {
+        alert('Please select a Product Category first.');
+        return;
+    }
+
+    const filteredVendors = allVendors.filter(v => v.vendor_category_id == categoryId);
+    
     const container = document.getElementById('vendors-container');
     const row = document.createElement('div');
     row.className = 'grid grid-cols-12 gap-3 p-4 bg-surface rounded-lg border border-secondary/10';
     row.id = `vendor-row-${vendorRowIndex}`;
     
+    let optionsHtml = '<option value="">Select Vendor</option>';
+    filteredVendors.forEach(v => {
+        optionsHtml += `<option value="${v.id}">${v.company_name}</option>`;
+    });
+    
     row.innerHTML = `
         <div class="col-span-12 sm:col-span-4">
             <label class="text-xs text-secondary/60 font-medium">Vendor</label>
             <select name="additional_vendors[]" class="input-field text-sm mt-1" required>
-                <option value="">Select Vendor</option>
-                @foreach($vendors as $v)
-                    <option value="{{ $v->id }}">{{ $v->company_name }}</option>
-                @endforeach
+                ${optionsHtml}
             </select>
         </div>
         <div class="col-span-6 sm:col-span-3">

@@ -9,71 +9,68 @@ use Illuminate\Support\Str;
 
 class ProductCategorySeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        // Categories extracted directly from Information of enterprises for Website.xlsx
-        $rawCategories = [
-            'Paper products',
-            'Vergin coconut oil products',
-            'Dehydrated foods (herbal, spices)',
-            'Traditional rice',
-            'Rice flour products',
-            'Coconut husk chips',
-            'Dehydrated foods (spices)',
-            'Dairy products',
-            'Banana fruits',
-            'Fruits juice',
-            'Coconut shell charcoal',
-            'King coconut fruits',
-            'Fruits juice, Sweet bites',
-            'Sesame sweet bites',
-            'Food oil (Sesame, Butter tree, Neem, Mustard)',
-            'Dehydrated foods (herbal paroducts)',
-            'Cassava chips, Spicy bites',
-            'Sweet bites (Ash pumpkin)',
-            'Mushroom production Dehydrated foods',
-            'Mushroom production',
-            'Milk toffee',
-            'Passion fruits production',
-            'Animal (chicken) feed',
-            'Noodles, Pasta, Bites',
-            'King coconut fruits, Papaya',
-            'Mushroom production/ Banana chips',
-            'Fruit drink',
-            'Sesami sweets'
+        $categories = [
+            'Industrial & Other Products' => [
+                'Paper & Packaging',
+                'Coir & Coconut Products',
+                'Animal Feed',
+            ],
+            'Grains & Oils' => [
+                'Edible Oils',
+                'Rice & Grains',
+                'Flour Products',
+            ],
+            'Dehydrated & Processed Foods' => [
+                'Dehydrated Vegetables & Spices',
+                'Dehydrated Spices',
+                'Dehydrated Herbal Products',
+                'Dehydrated Mushrooms',
+            ],
+            'Food & Beverages' => [
+                'Dairy Products',
+                'Beverages & Juices',
+            ],
+            'Agriculture & Fresh Produce' => [
+                'Fresh Fruits',
+                'Fresh Mushrooms',
+            ],
+            'Snacks & Sweets' => [
+                'Sweet Bites & Juices',
+                'Sweets & Confectionery',
+                'Savory Snacks',
+                'Noodles & Pasta',
+            ],
         ];
 
         $sortOrder = 1;
-
-        foreach ($rawCategories as $categoryName) {
-            $slug = Str::slug($categoryName);
-            
+        foreach ($categories as $categoryName => $subcategories) {
             $category = ProductCategory::firstOrCreate(
-                ['slug' => $slug],
+                ['slug' => Str::slug($categoryName)],
                 [
                     'name' => $categoryName,
-                    'description' => "Products related to {$categoryName}",
+                    'description' => "All items related to {$categoryName}",
                     'is_active' => true,
                     'sort_order' => $sortOrder++
                 ]
             );
 
-            // Create a default subcategory for each since the Excel sheet doesn't specify subcategories
-            ProductSubcategory::firstOrCreate(
-                [
-                    'slug' => $slug . '-general',
-                    'product_category_id' => $category->id
-                ],
-                [
-                    'name' => 'General ' . $categoryName,
-                    'description' => "General {$categoryName}",
-                    'is_active' => true,
-                    'sort_order' => 1
-                ]
-            );
+            $subSortOrder = 1;
+            foreach ($subcategories as $subcategoryName) {
+                ProductSubcategory::firstOrCreate(
+                    [
+                        'slug' => Str::slug($subcategoryName),
+                        'product_category_id' => $category->id
+                    ],
+                    [
+                        'name' => $subcategoryName,
+                        'description' => "Various {$subcategoryName}",
+                        'is_active' => true,
+                        'sort_order' => $subSortOrder++
+                    ]
+                );
+            }
         }
     }
 }

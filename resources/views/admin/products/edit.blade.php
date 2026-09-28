@@ -19,7 +19,7 @@
                 </div>
                 <div>
                     <label class="label">Category *</label>
-                    <select name="product_category_id" class="input-field" required>
+                    <select name="product_category_id" class="input-field" required id="category-sel">
                         @foreach($categories as $cat)
                             <option value="{{ $cat->id }}" @selected(old('product_category_id', $product->product_category_id) == $cat->id)>{{ $cat->name }}</option>
                         @endforeach
@@ -105,4 +105,39 @@
         </form>
     </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const subcategories = @json($subcategories);
+    const categorySel = document.getElementById('category-sel');
+    const subcategorySel = document.querySelector('select[name="product_subcategory_id"]');
+    const oldSubcatId = "{{ old('product_subcategory_id', $product->product_subcategory_id) }}";
+
+    function updateSubcategories() {
+        const categoryId = categorySel.value;
+        // Keep the first option
+        subcategorySel.innerHTML = '<option value="">None</option>';
+        
+        if (categoryId) {
+            const filtered = subcategories.filter(sub => sub.product_category_id == categoryId);
+            filtered.forEach(sub => {
+                const option = document.createElement('option');
+                option.value = sub.id;
+                option.textContent = sub.name;
+                if (oldSubcatId && oldSubcatId == sub.id) {
+                    option.selected = true;
+                }
+                subcategorySel.appendChild(option);
+            });
+        }
+    }
+
+    categorySel.addEventListener('change', updateSubcategories);
+    
+    // Trigger on load
+    if (categorySel.value) {
+        updateSubcategories();
+    }
+});
+</script>
 @endsection
