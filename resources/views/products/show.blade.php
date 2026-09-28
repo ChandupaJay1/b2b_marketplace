@@ -66,7 +66,7 @@
 
             {{-- Pricing Card --}}
             <div class="bg-surface-dark rounded-2xl p-5 mb-6 space-y-3 border border-secondary/8">
-                @php $primaryVendor = $product->vendors->firstWhere('pivot.is_primary', true) ?? $product->vendors->first(); @endphp
+                @php $primaryVendor = $product->all_vendors->firstWhere('pivot.is_primary', true) ?? $product->all_vendors->first(); @endphp
                 @if($primaryVendor && $primaryVendor->pivot->price)
                 <div class="flex justify-between items-center pb-3 border-b border-secondary/8">
                     <span class="text-secondary/50 text-sm font-semibold">Starting Price</span>
@@ -106,7 +106,7 @@
                     <span class="text-secondary/50 font-semibold">Suppliers</span>
                     <span class="font-black text-secondary flex items-center gap-1.5">
                         <i class="fas fa-store text-primary text-xs"></i>
-                        {{ $product->vendors->count() }} vendor{{ $product->vendors->count() > 1 ? 's' : '' }}
+                        {{ $product->all_vendors->count() }} vendor{{ $product->all_vendors->count() > 1 ? 's' : '' }}
                     </span>
                 </div>
                 <div class="flex justify-between items-center text-sm">
@@ -132,18 +132,18 @@
     @endif
 
     {{-- ── All Vendors for this Product ─────────────────────────── --}}
-    @if($product->vendors->count())
+    @if($product->all_vendors->count())
     <div class="mb-12">
         <div class="flex items-center justify-between mb-6">
             <div>
                 <h2 class="font-heading font-black text-secondary text-2xl">
-                    {{ $product->vendors->count() > 1 ? 'Compare Vendors' : 'Supplier' }}
+                    {{ $product->all_vendors->count() > 1 ? 'Compare Vendors' : 'Supplier' }}
                 </h2>
                 <p class="text-secondary/40 text-sm font-semibold mt-1">
-                    {{ $product->vendors->count() }} verified supplier{{ $product->vendors->count() > 1 ? 's' : '' }} offering this product
+                    {{ $product->all_vendors->count() }} verified supplier{{ $product->all_vendors->count() > 1 ? 's' : '' }} offering this product
                 </p>
             </div>
-            @if($product->vendors->count() > 1)
+            @if($product->all_vendors->count() > 1)
             <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-primary/5 border border-primary/20 text-primary-dark text-xs font-bold rounded-full">
                 <i class="fas fa-balance-scale text-[10px]"></i> Price Comparison
             </span>
@@ -152,7 +152,7 @@
 
         {{-- Vendor comparison grid --}}
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            @foreach($product->vendors as $vendor)
+            @foreach($product->all_vendors as $vendor)
             @php
                 $isPrimary = $vendor->pivot->is_primary;
                 $price     = $vendor->pivot->price;
@@ -160,7 +160,7 @@
                 $sku       = $vendor->pivot->sku ?? $product->sku;
 
                 // Find cheapest vendor for badge
-                $allPrices = $product->vendors->pluck('pivot.price')->filter()->sort()->values();
+                $allPrices = $product->all_vendors->pluck('pivot.price')->filter()->sort()->values();
                 $isCheapest = $allPrices->count() > 1 && $price && $price == $allPrices->first();
             @endphp
 

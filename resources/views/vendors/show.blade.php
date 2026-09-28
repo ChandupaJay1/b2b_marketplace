@@ -65,7 +65,6 @@
             </div>
             @endif
 
-            {{--
             <div>
                 <h2 class="font-heading font-black text-secondary text-xl mb-5">Products <span class="text-primary">({{ $products->total() }})</span></h2>
                 @if($products->isEmpty())
@@ -98,7 +97,6 @@
                 <div class="mt-6">{{ $products->links() }}</div>
                 @endif
             </div>
-            --}}
         </div>
 
         {{-- Sidebar --}}
