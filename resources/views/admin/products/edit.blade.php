@@ -88,6 +88,53 @@
                 </div>
             </div>
             @endif
+
+            {{-- Additional Vendors Section --}}
+            <div class="border-t pt-5 mt-5">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="font-bold text-secondary">Additional Vendors (Optional)</h3>
+                    <button type="button" onclick="addVendorRow()" class="text-sm text-primary hover:text-primary-dark font-medium">
+                        + Add Vendor
+                    </button>
+                </div>
+                <p class="text-xs text-secondary/50 mb-4">Add other vendors who sell this product. You can set different pricing for each vendor.</p>
+                
+                <div id="vendors-container" class="space-y-3">
+                    @foreach($product->vendors->where('pivot.is_primary', false) as $index => $additionalVendor)
+                        <div class="grid grid-cols-12 gap-3 p-4 bg-surface rounded-lg border border-secondary/10" id="vendor-row-old-{{ $index }}">
+                            <div class="col-span-12 sm:col-span-4">
+                                <label class="text-xs text-secondary/60 font-medium">Vendor</label>
+                                <select name="additional_vendors[]" class="input-field text-sm mt-1" required>
+                                    <option value="{{ $additionalVendor->id }}" selected>{{ $additionalVendor->company_name }}</option>
+                                    @foreach($vendors->where('vendor_category_id', $product->product_category_id) as $v)
+                                        @if($v->id != $additionalVendor->id)
+                                            <option value="{{ $v->id }}">{{ $v->company_name }}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-span-6 sm:col-span-3">
+                                <label class="text-xs text-secondary/60 font-medium">Price (USD)</label>
+                                <input type="number" name="vendor_prices[]" value="{{ $additionalVendor->pivot->price }}" step="0.01" min="0" class="input-field text-sm mt-1">
+                            </div>
+                            <div class="col-span-6 sm:col-span-2">
+                                <label class="text-xs text-secondary/60 font-medium">MOQ</label>
+                                <input type="number" name="vendor_moqs[]" value="{{ $additionalVendor->pivot->min_order_quantity }}" min="1" class="input-field text-sm mt-1">
+                            </div>
+                            <div class="col-span-10 sm:col-span-2">
+                                <label class="text-xs text-secondary/60 font-medium">SKU</label>
+                                <input type="text" name="vendor_skus[]" value="{{ $additionalVendor->pivot->sku }}" class="input-field text-sm mt-1">
+                            </div>
+                            <div class="col-span-2 sm:col-span-1 flex items-end">
+                                <button type="button" onclick="document.getElementById('vendor-row-old-{{ $index }}').remove()" class="w-full sm:w-auto px-3 py-2 text-red-600 hover:text-red-700 hover:bg-red-50 rounded-lg transition-colors">
+                                    <i class="fas fa-trash text-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+
             <div class="flex items-center gap-6">
                 <div class="flex items-center gap-2">
                     <input type="checkbox" id="is_active" name="is_active" value="1" @checked(old('is_active', $product->is_active)) class="rounded">
@@ -107,6 +154,9 @@
 </div>
 
 <script>
+let vendorRowIndex = 1000; // start high to avoid collision with old rows
+const allVendors = @json($vendors);
+
 document.addEventListener('DOMContentLoaded', function() {
     const subcategories = @json($subcategories);
     const categorySel = document.getElementById('category-sel');
@@ -132,12 +182,70 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    categorySel.addEventListener('change', updateSubcategories);
+    categorySel.addEventListener('change', function() {
+        updateSubcategories();
+        // Clear additional vendors if category changes
+        document.getElementById('vendors-container').innerHTML = '';
+    });
     
     // Trigger on load
     if (categorySel.value) {
         updateSubcategories();
     }
 });
+
+function addVendorRow() {
+    const categoryId = document.getElementById('category-sel').value;
+    if (!categoryId) {
+        alert('Please select a Product Category first.');
+        return;
+    }
+
+    const filteredVendors = allVendors.filter(v => v.vendor_category_id == categoryId);
+    
+    const container = document.getElementById('vendors-container');
+    const row = document.createElement('div');
+    row.className = 'grid grid-cols-12 gap-3 p-4 bg-surface rounded-lg border border-secondary/10';
+    row.id = `vendor-row-${vendorRowIndex}`;
+    
+    let optionsHtml = '<option value="">Select Vendor</option>';
+    filteredVendors.forEach(v => {
+        optionsHtml += `<option value="${v.id}">${v.company_name}</option>`;
+    });
+    
+    row.innerHTML = `
+        <div class="col-span-12 sm:col-span-4">
+            <label class="text-xs text-secondary/60 font-medium">Vendor</label>
+            <select name="additional_vendors[]" class="input-field text-sm mt-1" required>
+                ${optionsHtml}
+            </select>
+        </div>
+        <div class="col-span-6 sm:col-span-3">
+            <label class="text-xs text-secondary/60 font-medium">Price (USD)</label>
+            <input type="number" name="vendor_prices[]" step="0.01" min="0" class="input-field text-sm mt-1" placeholder="0.00">
+        </div>
+        <div class="col-span-6 sm:col-span-2">
+            <label class="text-xs text-secondary/60 font-medium">MOQ</label>
+            <input type="number" name="vendor_moqs[]" min="1" value="1" class="input-field text-sm mt-1">
+        </div>
+        <div class="col-span-10 sm:col-span-2">
+            <label class="text-xs text-secondary/60 font-medium">SKU</label>
+            <input type="text" name="vendor_skus[]" class="input-field text-sm mt-1" placeholder="SKU">
+        </div>
+        <div class="col-span-2 sm:col-span-1 flex items-end">
+            <button type="button" onclick="removeVendorRow(${vendorRowIndex})" class="w-full sm:w-auto px-3 py-2 text-red-600 hover:text-red-700 hover:bg-red-50 rounded-lg transition-colors">
+                <i class="fas fa-trash text-sm"></i>
+            </button>
+        </div>
+    `;
+    
+    container.appendChild(row);
+    vendorRowIndex++;
+}
+
+function removeVendorRow(index) {
+    const row = document.getElementById(`vendor-row-${index}`);
+    if (row) row.remove();
+}
 </script>
 @endsection
