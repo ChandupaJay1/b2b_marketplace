@@ -50,7 +50,7 @@ class ProductController extends Controller
                        ->where('is_active', true)
                        ->with(['vendor'])
                        ->orderByDesc('is_featured')
-                       ->take(8)
+                       ->take(10)
                        ->get()
             );
         }
