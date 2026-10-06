@@ -86,13 +86,23 @@
                                 </div>
                             </div>
                         @endif
-                        
+
                         {{-- Featured badge --}}
                         @if($vendor->is_featured)
                             <div class="absolute top-4 right-4">
                                 <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-accent to-accent-dark text-secondary text-[10px] font-black uppercase tracking-wider rounded-full shadow-lg backdrop-blur-sm">
                                     <i class="fas fa-star text-[9px]"></i>
                                     Featured
+                                </span>
+                            </div>
+                        @endif
+
+                        {{-- Category label on banner --}}
+                        @if($vendor->category)
+                            <div class="absolute bottom-3 left-3">
+                                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-black/50 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-wide rounded-lg border border-white/20">
+                                    <i class="fas fa-tag text-[8px] text-primary"></i>
+                                    {{ $vendor->category->name }}
                                 </span>
                             </div>
                         @endif
@@ -116,10 +126,12 @@
                                 </div>
                             </div>
                             
-                            {{-- Category badge --}}
-                            <span class="inline-block px-3 py-1.5 bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wide rounded-lg">
-                                {{ $vendor->category->name ?? 'General' }}
-                            </span>
+                            {{-- Verified badge (top right of card body) --}}
+                            @if($vendor->is_verified ?? false)
+                                <span class="inline-flex items-center gap-1 px-2.5 py-1 bg-green-100 text-green-700 text-[10px] font-bold rounded-lg border border-green-200">
+                                    <i class="fas fa-shield-alt text-[9px]"></i> Verified
+                                </span>
+                            @endif
                         </div>
 
                         {{-- Company info --}}
