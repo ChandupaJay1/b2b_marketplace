@@ -69,115 +69,126 @@
             <a href="{{ route('vendors.index') }}" class="btn-primary mt-6 text-[11px]">Clear Filters</a>
         </div>
     @else
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach($vendors as $vendor)
             <a href="{{ route('vendors.show', $vendor->slug) }}" class="reveal-up group block">
-                <div class="relative bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
-                    {{-- Banner with gradient overlay --}}
-                    <div class="relative h-40 bg-gradient-to-br from-primary/30 via-secondary/90 to-accent/20 overflow-hidden">
+                <div class="relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-[0_20px_60px_-10px_rgba(0,0,0,0.18)] transition-all duration-500 transform hover:-translate-y-2 border border-gray-100">
+
+                    {{-- Banner --}}
+                    <div class="relative h-44 overflow-hidden">
                         @if($vendor->banner)
                             <img src="{{ asset('storage/' . $vendor->banner) }}" alt="" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                            <div class="absolute inset-0 bg-gradient-to-t from-secondary/80 via-secondary/30 to-transparent"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                         @else
-                            <div class="absolute inset-0 bg-gradient-to-br from-primary/30 via-secondary/90 to-accent/20">
-                                <div class="absolute inset-0 opacity-10">
-                                    <div class="absolute top-0 right-0 w-32 h-32 bg-white rounded-full blur-2xl"></div>
-                                    <div class="absolute bottom-0 left-0 w-24 h-24 bg-accent rounded-full blur-xl"></div>
+                            <div class="absolute inset-0 bg-gradient-to-br from-primary via-secondary to-accent/80">
+                                <div class="absolute inset-0">
+                                    <div class="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
+                                    <div class="absolute bottom-0 left-0 w-32 h-32 bg-accent/20 rounded-full blur-2xl"></div>
+                                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-primary/20 rounded-full blur-xl"></div>
                                 </div>
+                                {{-- Pattern dots --}}
+                                <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle, white 1px, transparent 1px); background-size: 20px 20px;"></div>
                             </div>
                         @endif
 
-                        {{-- Featured badge --}}
-                        @if($vendor->is_featured)
-                            <div class="absolute top-4 right-4">
-                                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-accent to-accent-dark text-secondary text-[10px] font-black uppercase tracking-wider rounded-full shadow-lg backdrop-blur-sm">
-                                    <i class="fas fa-star text-[9px]"></i>
-                                    Featured
-                                </span>
-                            </div>
-                        @endif
-
-                        {{-- Category label on banner --}}
-                        @if($vendor->category)
-                            <div class="absolute bottom-3 left-3">
-                                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-black/50 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-wide rounded-lg border border-white/20">
-                                    <i class="fas fa-tag text-[8px] text-primary"></i>
+                        {{-- Top badges row --}}
+                        <div class="absolute top-3 left-3 right-3 flex items-center justify-between">
+                            {{-- Category pill --}}
+                            @if($vendor->category)
+                                <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-black/40 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-wide rounded-full border border-white/20 shadow">
+                                    <i class="fas fa-th-large text-[8px] text-accent"></i>
                                     {{ $vendor->category->name }}
                                 </span>
-                            </div>
-                        @endif
+                            @else
+                                <span></span>
+                            @endif
+
+                            {{-- Featured badge --}}
+                            @if($vendor->is_featured)
+                                <span class="inline-flex items-center gap-1 px-2.5 py-1 bg-gradient-to-r from-yellow-400 to-amber-500 text-white text-[10px] font-black uppercase tracking-wider rounded-full shadow-lg">
+                                    <i class="fas fa-star text-[8px]"></i> Featured
+                                </span>
+                            @endif
+                        </div>
+
+                        {{-- Shimmer line on hover --}}
+                        <div class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
 
                     {{-- Card body --}}
-                    <div class="p-6 -mt-10 relative">
-                        {{-- Logo section --}}
-                        <div class="flex items-start justify-between mb-4">
+                    <div class="p-5 -mt-10 relative">
+
+                        {{-- Logo + verified row --}}
+                        <div class="flex items-end justify-between mb-4">
+                            {{-- Logo --}}
                             <div class="relative">
-                                <div class="w-20 h-20 bg-white rounded-2xl shadow-xl border-4 border-white flex items-center justify-center overflow-hidden transform group-hover:scale-105 transition-transform duration-300">
+                                <div class="w-[72px] h-[72px] bg-white rounded-2xl shadow-xl border-[3px] border-white ring-2 ring-gray-100 flex items-center justify-center overflow-hidden transform group-hover:scale-105 group-hover:ring-primary/30 transition-all duration-300">
                                     @if($vendor->logo)
                                         <img src="{{ asset('storage/' . $vendor->logo) }}" alt="{{ $vendor->company_name }}" class="w-full h-full object-contain p-2">
                                     @else
-                                        <span class="font-heading font-black text-primary text-3xl">{{ strtoupper(substr($vendor->company_name,0,1)) }}</span>
+                                        <div class="w-full h-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+                                            <span class="font-heading font-black text-primary text-2xl">{{ strtoupper(substr($vendor->company_name,0,1)) }}</span>
+                                        </div>
                                     @endif
                                 </div>
-                                {{-- Verified badge --}}
-                                <div class="absolute -bottom-1 -right-1 w-7 h-7 bg-primary/50 rounded-full flex items-center justify-center border-2 border-white shadow-sm">
-                                    <i class="fas fa-check text-white text-[10px]"></i>
+                                {{-- Verified dot --}}
+                                <div class="absolute -bottom-1 -right-1 w-6 h-6 bg-primary rounded-full flex items-center justify-center border-2 border-white shadow">
+                                    <i class="fas fa-check text-white text-[9px]"></i>
                                 </div>
                             </div>
-                            
-                            {{-- Verified badge (top right of card body) --}}
-                            @if($vendor->is_verified ?? false)
-                                <span class="inline-flex items-center gap-1 px-2.5 py-1 bg-green-100 text-green-700 text-[10px] font-bold rounded-lg border border-green-200">
-                                    <i class="fas fa-shield-alt text-[9px]"></i> Verified
+
+                            {{-- Products count pill --}}
+                            <div class="mb-1 flex flex-col items-end gap-1.5">
+                                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-primary/8 text-primary text-[11px] font-bold rounded-xl border border-primary/15">
+                                    <i class="fas fa-cube text-[9px]"></i>
+                                    {{ $vendor->products_count }} {{ Str::plural('Product', $vendor->products_count) }}
                                 </span>
-                            @endif
+                                @if($vendor->established_year)
+                                    <span class="inline-flex items-center gap-1 text-[10px] text-secondary/40 font-semibold">
+                                        <i class="fas fa-calendar-alt text-[9px]"></i>
+                                        Est. {{ $vendor->established_year }}
+                                    </span>
+                                @endif
+                            </div>
                         </div>
 
-                        {{-- Company info --}}
-                        <div class="mb-4">
-                            <h3 class="font-heading font-black text-secondary text-lg leading-tight mb-2 group-hover:text-primary transition-colors line-clamp-1">
-                                {{ $vendor->company_name }}
-                            </h3>
-                            @if($vendor->country)
-                                <div class="flex items-center gap-1.5 text-secondary/60 text-xs font-semibold mb-3">
-                                    <i class="fas fa-map-marker-alt text-primary text-xs"></i>
-                                    <span>{{ $vendor->city ? $vendor->city.', ' : '' }}{{ $vendor->country }}</span>
-                                </div>
-                            @endif
-                        </div>
+                        {{-- Company name --}}
+                        <h3 class="font-heading font-black text-secondary text-[17px] leading-snug mb-1.5 group-hover:text-primary transition-colors duration-300 line-clamp-1">
+                            {{ $vendor->company_name }}
+                        </h3>
+
+                        {{-- Location --}}
+                        @if($vendor->country)
+                            <div class="flex items-center gap-1.5 text-secondary/50 text-xs font-semibold mb-3">
+                                <i class="fas fa-map-marker-alt text-primary/70 text-xs"></i>
+                                <span>{{ $vendor->city ? $vendor->city.', ' : '' }}{{ $vendor->country }}</span>
+                            </div>
+                        @endif
 
                         {{-- Description --}}
                         @if($vendor->description)
-                            <p class="text-secondary/60 text-sm leading-relaxed line-clamp-3 mb-4 min-h-[60px]">
+                            <p class="text-secondary/55 text-[13px] leading-relaxed line-clamp-2 mb-4">
                                 {{ $vendor->description }}
                             </p>
                         @else
-                            <div class="mb-4 min-h-[60px]"></div>
+                            <div class="mb-4 h-9"></div>
                         @endif
 
-                        {{-- Meta info --}}
-                        <div class="flex flex-wrap items-center gap-3 mb-4 pb-4 border-b border-secondary/8">
-                            @if($vendor->established_year)
-                                <div class="flex items-center gap-1.5 text-xs">
-                                    <i class="fas fa-calendar-alt text-primary/60"></i>
-                                    <span class="text-secondary/50 font-semibold">Est. {{ $vendor->established_year }}</span>
+                        {{-- Divider --}}
+                        <div class="border-t border-secondary/8 pt-4">
+                            {{-- CTA row --}}
+                            <div class="flex items-center justify-between">
+                                <span class="text-[11px] font-bold text-secondary/35 uppercase tracking-widest group-hover:text-primary transition-colors duration-300">View Profile</span>
+                                <div class="flex items-center gap-2 px-4 py-2 bg-primary text-white text-xs font-bold rounded-xl group-hover:bg-primary-dark group-hover:shadow-lg group-hover:shadow-primary/30 transition-all duration-300">
+                                    <span>Explore</span>
+                                    <i class="fas fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform duration-300"></i>
                                 </div>
-                            @endif
-                            <div class="flex items-center gap-1.5 text-xs">
-                                <i class="fas fa-boxes text-primary/60"></i>
-                                <span class="text-secondary/50 font-semibold">{{ $vendor->products_count }} {{ Str::plural('Product', $vendor->products_count) }}</span>
-                            </div>
-                        </div>
-
-                        {{-- CTA --}}
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs font-bold text-secondary/40 uppercase tracking-wide">View Profile</span>
-                            <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center group-hover:bg-primary-dark group-hover:shadow-lg transition-all">
-                                <i class="fas fa-arrow-right text-white text-sm group-hover:translate-x-1 transition-transform"></i>
                             </div>
                         </div>
                     </div>
+
+                    {{-- Bottom accent line --}}
+                    <div class="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary/60 via-primary to-accent/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
             </a>
             @endforeach
