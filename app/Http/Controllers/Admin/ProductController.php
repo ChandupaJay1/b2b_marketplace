@@ -64,8 +64,7 @@ class ProductController extends Controller
         ]);
 
         $data = $request->except(['_token', 'main_image', 'images', 'additional_vendors', 'vendor_prices', 'vendor_moqs', 'vendor_skus']);
-        $data['slug']        = Str::slug($request->name);
-        $data['is_active']   = $request->boolean('is_active', true);
+        $slug = Str::slug($request->name); $originalSlug = $slug; $count = 1; while (\App\Models\Product::where('slug', $slug)->exists()) { $slug = $originalSlug . '-' . $count; $count++; } $data['slug'] = $slug; $data['is_active'] = $request->boolean('is_active', true);
         $data['is_featured'] = $request->boolean('is_featured');
 
         if ($request->hasFile('main_image')) {
@@ -148,8 +147,7 @@ class ProductController extends Controller
         ]);
 
         $data = $request->except(['_token', '_method', 'main_image', 'images', 'additional_vendors', 'vendor_prices', 'vendor_moqs', 'vendor_skus']);
-        $data['slug']        = Str::slug($request->name);
-        $data['is_active']   = $request->boolean('is_active');
+        $slug = Str::slug($request->name); $originalSlug = $slug; $count = 1; while (\App\Models\Product::where('slug', $slug)->where('id', '!=', $product->id)->exists()) { $slug = $originalSlug . '-' . $count; $count++; } $data['slug'] = $slug; $data['is_active'] = $request->boolean('is_active');
         $data['is_featured'] = $request->boolean('is_featured');
 
         if ($request->hasFile('main_image')) {
@@ -214,3 +212,4 @@ class ProductController extends Controller
         return redirect()->route('admin.products.index')->with('success', 'Product deleted!');
     }
 }
+
